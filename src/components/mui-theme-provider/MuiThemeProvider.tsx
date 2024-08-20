@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "@/contexts/theme";
+import { lightTheme } from "@/contexts/theme";
 
 import type { MuiThemeProviderProps } from "./types";
 
 export default function MuiThemeProvider({ children }: MuiThemeProviderProps) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>;
 }
