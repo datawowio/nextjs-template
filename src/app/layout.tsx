@@ -1,3 +1,6 @@
+import MuiThemeProvider from "@/components/mui-theme-provider";
+import "@/styles";
+
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
@@ -16,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MuiThemeProvider>{children}</MuiThemeProvider>
+      </body>
     </html>
   );
 }
