@@ -1,4 +1,6 @@
-import MuiThemeProvider from "@/components/mui-theme-provider";
+import LocaleProvider from "../../providers/locale-provider";
+import MuiThemeProvider from "../../providers/mui-theme-provider";
+
 import "@/styles";
 
 import type { Metadata } from "next";
@@ -14,13 +16,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: ReactNode;
+  params: { locale: string };
 }>) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body>
-        <MuiThemeProvider>{children}</MuiThemeProvider>
+        <LocaleProvider>
+          <MuiThemeProvider>{children}</MuiThemeProvider>
+        </LocaleProvider>
       </body>
     </html>
   );
