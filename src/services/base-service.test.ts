@@ -7,7 +7,7 @@ describe("BaseService", () => {
   const baseService = new BaseService(baseURL);
 
   beforeEach(() => {
-    (fetch as jest.Mock).mockClear(); // Clear mock before each test
+    (fetch as jest.Mock).mockClear();
   });
 
   it("calls fetch with correct URL and method for GET", async () => {
