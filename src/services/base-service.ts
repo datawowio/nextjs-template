@@ -1,7 +1,7 @@
 export default class BaseService {
   private readonly baseURL: string;
 
-  constructor(baseURL: string) {
+  constructor(baseURL = "") {
     this.baseURL = baseURL;
   }
 
