@@ -1,5 +1,5 @@
-import LocaleProvider from "../../providers/locale-provider";
-import MuiThemeProvider from "../../providers/mui-theme-provider";
+import LocaleProvider from "@/providers/locale-provider";
+import MuiThemeProvider from "@/providers/mui-theme-provider";
 
 import "@/styles";
 
