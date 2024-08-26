@@ -10,8 +10,8 @@ export default getRequestConfig(async ({ locale }) => {
   return {
     messages: {
       ...(await import(`../locales/${locale}/common.json`)).default,
-      pages: {
-        ...(await import(`../locales/${locale}/pages/home.json`)).default,
+      screens: {
+        ...(await import(`../locales/${locale}/screens/home.json`)).default,
       },
     },
   };
