@@ -10,6 +10,7 @@ yarn-error.log*
 .yarn/install-state.gz
 
 # Local ENV files
+.env
 .env*.local
 
 # Misc
