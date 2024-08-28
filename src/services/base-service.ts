@@ -1,8 +1,8 @@
 export default class BaseService {
   private readonly baseURL: string;
 
-  constructor(baseURL = "") {
-    this.baseURL = baseURL;
+  constructor() {
+    this.baseURL = process.env.NEXT_PUBLIC_BASE_URL || "";
   }
 
   get(endpoint: string) {

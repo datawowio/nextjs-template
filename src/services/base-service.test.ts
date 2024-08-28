@@ -3,8 +3,8 @@ import BaseService from "./base-service";
 global.fetch = jest.fn();
 
 describe("BaseService", () => {
-  const baseURL = "http://localhost/api";
-  const baseService = new BaseService(baseURL);
+  const baseURL = "http://localhost:3000";
+  const baseService = new BaseService();
 
   beforeEach(() => {
     (fetch as jest.Mock).mockClear();
