@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: # Set environment variables for all steps in this job
+      NEXT_PUBLIC_BASE_URL: http://localhost:3000
     steps:
       - name: Check out the code
         uses: actions/checkout@v3
