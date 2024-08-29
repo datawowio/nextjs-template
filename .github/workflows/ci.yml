@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: # Set environment variables for all steps in this job
+      NEXT_PUBLIC_BASE_URL: http://localhost:3000
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Lint
+        run: yarn lint
+      - name: Run Tests
+        run: yarn test
+      - name: Build Project
+        run: yarn build
