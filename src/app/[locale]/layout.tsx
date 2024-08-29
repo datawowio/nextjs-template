@@ -7,10 +7,10 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  description: "Exploring and learning Next.js framework",
+  description: "Datawow Next.js Boilerplate, built with App Router",
   title: {
-    default: "Next.js Playground",
-    template: "%s | Next.js Playground",
+    default: "Next.js Boilerplate",
+    template: "%s | Next.js Boilerplate",
   },
 };
 
