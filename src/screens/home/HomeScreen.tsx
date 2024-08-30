@@ -18,7 +18,9 @@ export default function HomeScreen() {
             <Image src={logo} alt={t("logoAlt")} fill />
           </Box>
           <Typography variant="h3">{t("heading")}</Typography>
-          <Typography>{t("description")}</Typography>
+          <Typography variant="semibold-paragraphLG">
+            {t("description")}
+          </Typography>
           <Button variant="contained">{t("cta")}</Button>
         </Stack>
       </Card>

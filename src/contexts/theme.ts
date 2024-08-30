@@ -1,6 +1,7 @@
 "use client";
 
 import { createTheme } from "@mui/material/styles";
+import { typography, MuiTypography } from "./typography";
 
 export const darkTheme = createTheme({
   palette: {
@@ -11,5 +12,9 @@ export const darkTheme = createTheme({
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
+  },
+  typography,
+  components: {
+    MuiTypography,
   },
 });
