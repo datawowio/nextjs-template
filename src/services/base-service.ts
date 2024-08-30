@@ -2,7 +2,11 @@ export default class BaseService {
   private readonly baseURL: string;
 
   constructor() {
-    this.baseURL = process.env.NEXT_PUBLIC_BASE_URL || "";
+    if (process.env.NEXT_PUBLIC_BASE_URL) {
+      this.baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+    } else {
+      throw new Error("No base URL provided");
+    }
   }
 
   get(endpoint: string) {
