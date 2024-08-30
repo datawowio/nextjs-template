@@ -3,12 +3,12 @@ name: Build and Publish storybook to GitHub Pages
 on:
   push:
     branches:
-      - "main"
+      - main
 
 permissions:
   contents: read
-  pages: write
   id-token: write
+  pages: write
 
 jobs:
   deploy:
