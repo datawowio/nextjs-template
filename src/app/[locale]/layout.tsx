@@ -1,3 +1,7 @@
+import { unstable_setRequestLocale } from "next-intl/server";
+
+import { routing } from "@/config/i18n";
+
 import LocaleProvider from "@/providers/locale-provider";
 import MuiThemeProvider from "@/providers/mui-theme-provider";
 
@@ -5,6 +9,7 @@ import "@/styles";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import type { BaseParams } from "@/types/params";
 
 export const metadata: Metadata = {
   description: "Datawow Next.js Boilerplate, built with App Router",
@@ -14,13 +19,21 @@ export const metadata: Metadata = {
   },
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+interface RootLayoutProps extends BaseParams {
+  children: ReactNode;
+}
+
 export default function RootLayout({
   children,
   params: { locale },
-}: Readonly<{
-  children: ReactNode;
-  params: { locale: string };
-}>) {
+}: RootLayoutProps) {
+  // Initial value
+  unstable_setRequestLocale(locale);
+
   return (
     <html lang={locale}>
       <body>
