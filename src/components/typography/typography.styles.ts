@@ -1,16 +1,4 @@
-import { IBM_Plex_Sans_Thai } from "next/font/google";
-
-import type { Components, Theme } from "@mui/material";
-import type { TypographyOptions } from "@mui/material/styles/createTypography";
-
-export const ibm = IBM_Plex_Sans_Thai({
-  weight: ["200", "400", "500", "600", "700"],
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-ibm",
-});
-
-export const typography: TypographyOptions = {
+export const typographySx = {
   "h4": {
     color: "var(--text-secondary)",
     fontSize: "0.75rem",
@@ -80,14 +68,12 @@ export const typography: TypographyOptions = {
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
-    textTransform: "uppercase",
   },
   "regular-captionMD": {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
-    textTransform: "uppercase",
   },
   "regular-linkMD": {
     fontSize: "var(--font-size-6)",
@@ -163,14 +149,12 @@ export const typography: TypographyOptions = {
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
-    textTransform: "uppercase",
   },
   "medium-captionMD": {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
-    textTransform: "uppercase",
   },
   "medium-linkMD": {
     fontSize: "var(--font-size-6)",
@@ -191,7 +175,7 @@ export const typography: TypographyOptions = {
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-0)",
-    textTransform: "uppercase",
+
     letterSpacing: " -0.4px",
   },
   "semibold-displayMD": {
@@ -247,14 +231,12 @@ export const typography: TypographyOptions = {
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
-    textTransform: "uppercase",
   },
   "semibold-captionMD": {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
-    textTransform: "uppercase",
   },
   "semibold-linkMD": {
     fontSize: "var(--font-size-6)",
@@ -331,14 +313,12 @@ export const typography: TypographyOptions = {
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
-    textTransform: "uppercase",
   },
   "bold-captionMD": {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
-    textTransform: "uppercase",
   },
   "bold-linkMD": {
     fontSize: "var(--font-size-6)",
@@ -354,37 +334,4 @@ export const typography: TypographyOptions = {
     lineHeight: "var(--line-height-7)",
     textDecorationLine: "underline",
   },
-};
-
-export const MuiTypography: Components<
-  Omit<Theme, "components">
->["MuiTypography"] = {
-  styleOverrides: {
-    root: {
-      fontFamily: ibm.style.fontFamily,
-    },
-  },
-  variants: [
-    {
-      props: { variant: "regular-paragraphMD", color: "textBrandHeader" },
-      style: {
-        // color: palette.textBrandHeader.main,
-      },
-    },
-    {
-      props: { variant: "medium-paragraphSM", color: "textBrandHeader" },
-      style: {
-        // color: palette.textBrandHeader.main,
-      },
-    },
-    {
-      props: {
-        variant: "bold-displayMD",
-        color: "textPlaceholderError",
-      },
-      style: {
-        // color: palette.textPlaceholderError.main,
-      },
-    },
-  ],
 };
