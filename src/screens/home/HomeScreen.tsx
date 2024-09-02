@@ -18,8 +18,8 @@ export default function HomeScreen() {
           <Box sx={imageWrapper}>
             <Image src={logo} alt={t("logoAlt")} fill />
           </Box>
-          <Typography variant="h3">{t("heading")}</Typography>
-          <Typography fontType="bold-displayMD">{t("description")}</Typography>
+          <Typography customVariant="h4">{t("heading")}</Typography>
+          <Typography>{t("description")}</Typography>
           <Button variant="contained">{t("cta")}</Button>
         </Stack>
       </Card>

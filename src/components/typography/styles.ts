@@ -1,176 +1,178 @@
-export const typographySx = {
-  "h4": {
+import type { CustomVariantStyle } from "./types";
+
+export const customVariantStyle: CustomVariantStyle = {
+  h4: {
     color: "var(--text-secondary)",
     fontSize: "0.75rem",
     fontWeight: "400",
   },
-  "subtitle2": {
+  subtitle2: {
     color: "var(--text-primary)",
     fontSize: "0.75rem",
   },
-  "regular-displayLG": {
+  regularDisplayLG: {
     fontSize: "var(--font-size-0)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-0)",
     letterSpacing: "-0.4px",
   },
-  "regular-displayMD": {
+  regularDisplayMD: {
     fontSize: "var(--font-size-1)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-1)",
   },
-  "regular-headingLG": {
+  regularHeadingLG: {
     fontSize: "var(--font-size-2)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-2)",
   },
-  "regular-headingMD": {
+  regularHeadingMD: {
     fontSize: "var(--font-size-3)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-3)",
   },
-  "regular-headingSM": {
+  regularHeadingSM: {
     fontSize: "var(--font-size-4)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-4)",
   },
-  "regular-subheading": {
+  regularSubHeading: {
     fontSize: "var(--font-size-5)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-5)",
   },
-  "regular-paragraphLG": {
+  regularParagraphLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "regular-paragraphMD": {
+  regularParagraphMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "regular-paragraphSM": {
+  regularParagraphSM: {
     fontSize: "var(--font-size-8)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-8)",
   },
-  "regular-captionLG": {
+  regularCaptionLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "regular-captionMD": {
+  regularCaptionMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "regular-linkMD": {
+  regularLinkMD: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
     textDecorationLine: "underline",
   },
-  "regular-linkSM": {
+  regularLinkSM: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-regular)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
     textDecorationLine: "underline",
   },
-  "medium-displayLG": {
+  mediumDisplayLG: {
     fontSize: "var(--font-size-0)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-0)",
     letterSpacing: "-0.4px",
   },
-  "medium-displayMD": {
+  mediumDisplayMD: {
     fontSize: "var(--font-size-1)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-1)",
   },
-  "medium-headingLG": {
+  mediumHeadingLG: {
     fontSize: "var(--font-size-2)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-2)",
   },
-  "medium-headingMD": {
+  mediumHeadingMD: {
     fontSize: "var(--font-size-3)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-3)",
   },
-  "medium-headingSM": {
+  mediumHeadingSM: {
     fontSize: "var(--font-size-4)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-4)",
   },
-  "medium-subHeading": {
+  mediumSubHeading: {
     fontSize: "var(--font-size-5)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-5)",
   },
-  "medium-paragraphLG": {
+  mediumParagraphLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "medium-paragraphMD": {
+  mediumParagraphMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "medium-paragraphSM": {
+  mediumParagraphSM: {
     fontSize: "var(--font-size-8)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-8)",
   },
-  "medium-captionLG": {
+  mediumCaptionLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "medium-captionMD": {
+  mediumCaptionMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "medium-linkMD": {
+  mediumLinkMD: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
     textDecorationLine: "underline",
   },
-  "medium-linkSM": {
+  mediumLinkSM: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-medium)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
     textDecorationLine: "underline",
   },
-  "semibold-displayLG": {
+  semiboldDisplayLG: {
     fontSize: "var(--font-size-0)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
@@ -178,156 +180,156 @@ export const typographySx = {
 
     letterSpacing: " -0.4px",
   },
-  "semibold-displayMD": {
+  semiboldDisplayMD: {
     fontSize: "var(--font-size-1)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-1)",
   },
-  "semibold-headingLG": {
+  semiboldHeadingLG: {
     fontSize: "var(--font-size-2)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-2)",
   },
-  "semibold-headingMD": {
+  semiboldHeadingMD: {
     fontSize: "var(--font-size-3)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-3)",
   },
-  "semibold-headingSM": {
+  semiboldHeadingSM: {
     fontSize: "var(--font-size-4)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-4)",
   },
-  "semibold-subHeading": {
+  semiboldSubHeading: {
     fontSize: "var(--font-size-5)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-5)",
   },
-  "semibold-paragraphLG": {
+  semiboldParagraphLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "semibold-paragraphMD": {
+  semiboldParagraphMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "semibold-paragraphSM": {
+  semiboldParagraphSM: {
     fontSize: "var(--font-size-8)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-8)",
   },
-  "semibold-captionLG": {
+  semiboldCaptionLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "semibold-captionMD": {
+  semiboldCaptionMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "semibold-linkMD": {
+  semiboldLinkMD: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
     textDecorationLine: "underline",
   },
-  "semibold-linkSM": {
+  semiboldLinkSM: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-semibold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
     textDecorationLine: "underline",
   },
-  "bold-displayLG": {
+  boldDisplayLG: {
     fontSize: "var(--font-size-0)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-0)",
     letterSpacing: "-0.4px",
   },
-  "bold-displayMD": {
+  boldDisplayMD: {
     fontSize: "var(--font-size-1)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-1)",
     letterSpacing: "-0.32px",
   },
-  "bold-headingLG": {
+  boldHeadingLG: {
     fontSize: "var(--font-size-2)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-2)",
   },
-  "bold-headingMD": {
+  boldHeadingMD: {
     fontSize: "var(--font-size-3)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-3)",
   },
-  "bold-headingSM": {
+  boldHeadingSM: {
     fontSize: "var(--font-size-4)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-4)",
   },
-  "bold-subHeading": {
+  boldSubHeading: {
     fontSize: "var(--font-size-5)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-5)",
   },
-  "bold-paragraphLG": {
+  boldParagraphLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "bold-paragraphMD": {
+  boldParagraphMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "bold-paragraphSM": {
+  boldParagraphSM: {
     fontSize: "var(--font-size-8)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-8)",
   },
-  "bold-captionLG": {
+  boldCaptionLG: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
   },
-  "bold-captionMD": {
+  boldCaptionMD: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-7)",
   },
-  "bold-linkMD": {
+  boldLinkMD: {
     fontSize: "var(--font-size-6)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",
     lineHeight: "var(--line-height-6)",
     textDecorationLine: "underline",
   },
-  "bold-linkSM": {
+  boldLinkSM: {
     fontSize: "var(--font-size-7)",
     fontWeight: "var(--font-weight-bold)",
     fontStyle: "normal",

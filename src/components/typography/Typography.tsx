@@ -1,13 +1,28 @@
-import { Typography as MuiTypography } from "@mui/material";
-import { typographySx } from "./typography.styles";
+import MUITypography from "@mui/material/Typography";
+import { getCustomVariantProps } from "./helpers";
 
 import type { TypographyProps } from "./types";
 
-export default function Typography(props: TypographyProps) {
+export default function Typography({
+  component,
+  sx,
+  customVariant = "regularParagraphLG",
+  ...props
+}: TypographyProps) {
+  const customVariantProps = getCustomVariantProps(customVariant);
+  const customSX = { ...customVariantProps?.sx, ...sx };
+  const customComponent = component
+    ? component
+    : customVariantProps?.component
+      ? customVariantProps?.component
+      : "span";
+
   return (
-    <MuiTypography
-      sx={props.fontType && typographySx[props.fontType]}
+    <MUITypography
       {...props}
+      component={customComponent}
+      sx={customSX}
+      variant="body1"
     />
   );
 }

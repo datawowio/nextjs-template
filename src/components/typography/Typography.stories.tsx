@@ -13,6 +13,6 @@ type Story = StoryObj<typeof Typography>;
 export const Default: Story = {
   args: {
     children: "Example Text",
-    variant: "subtitle2"
+    customVariant: "h4",
   },
 };

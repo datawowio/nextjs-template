@@ -3,7 +3,7 @@ import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 
 // @ts-ignore
 import { darkTheme, lightTheme } from "@/contexts/theme";
-import "@/styles";
+import "@/styles/global.css";
 
 import type { Preview } from "@storybook/react";
 
