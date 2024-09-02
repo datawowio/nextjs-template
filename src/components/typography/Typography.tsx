@@ -1,6 +1,7 @@
 import { Typography as MuiTypography } from "@mui/material";
-import type { TypographyProps } from "./types";
 import { typographySx } from "./typography.styles";
+
+import type { TypographyProps } from "./types";
 
 export default function Typography(props: TypographyProps) {
   return (
