@@ -1,1 +1,1 @@
-export { default } from "./web-vitals";
+export { default } from "./WebVital";
