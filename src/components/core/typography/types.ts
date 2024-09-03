@@ -1,9 +1,7 @@
-import type { SxProps } from "@mui/material";
+import type { SxProps } from "@mui/system";
 import type { TypographyProps as MUITypographyProps } from "@mui/material/Typography";
 
 export type CustomVariant =
-  | "h4"
-  | "subtitle2"
   | "regularDisplayLG"
   | "regularDisplayMD"
   | "regularHeadingLG"

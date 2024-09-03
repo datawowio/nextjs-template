@@ -1,15 +1,6 @@
 import type { CustomVariantStyle } from "./types";
 
 export const customVariantStyle: CustomVariantStyle = {
-  h4: {
-    color: "var(--text-secondary)",
-    fontSize: "0.75rem",
-    fontWeight: "400",
-  },
-  subtitle2: {
-    color: "var(--text-primary)",
-    fontSize: "0.75rem",
-  },
   regularDisplayLG: {
     fontSize: "var(--font-size-0)",
     fontWeight: "var(--font-weight-regular)",
@@ -113,13 +104,11 @@ export const customVariantStyle: CustomVariantStyle = {
   mediumHeadingMD: {
     fontSize: "var(--font-size-3)",
     fontWeight: "var(--font-weight-medium)",
-    fontStyle: "normal",
     lineHeight: "var(--line-height-3)",
   },
   mediumHeadingSM: {
     fontSize: "var(--font-size-4)",
     fontWeight: "var(--font-weight-medium)",
-    fontStyle: "normal",
     lineHeight: "var(--line-height-4)",
   },
   mediumSubHeading: {
