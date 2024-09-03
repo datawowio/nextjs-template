@@ -1,5 +1,5 @@
-import type { SxProps } from "@mui/system";
 import type { TypographyProps as MUITypographyProps } from "@mui/material/Typography";
+import type { CSSProperties } from "react";
 
 export type CustomVariant =
   | "regularDisplayLG"
@@ -56,7 +56,7 @@ export type CustomVariant =
   | "boldLinkSM";
 
 export type CustomVariantStyle = {
-  [key in CustomVariant]: SxProps;
+  [key in CustomVariant]: CSSProperties;
 };
 
 export interface TypographyProps

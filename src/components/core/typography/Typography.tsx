@@ -1,8 +1,7 @@
 import MUITypography from "@mui/material/Typography";
-import { getCustomVariantProps } from "./helpers";
 
+import { getCustomVariantProps } from "./helpers";
 import type { TypographyProps } from "./types";
-import { customVariantStyle } from "./styles";
 
 export default function Typography({
   component,
