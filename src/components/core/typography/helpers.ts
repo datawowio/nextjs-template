@@ -1,6 +1,7 @@
 import type { TypographyProps as MUITypographyProps } from "@mui/material/Typography";
 import { customVariantStyle } from "./styles";
-import { CustomVariant } from "./types";
+
+import type { CustomVariant } from "./types";
 
 export function getCustomVariantProps(
   customVariant?: CustomVariant,
