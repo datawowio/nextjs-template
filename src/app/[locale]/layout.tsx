@@ -5,7 +5,7 @@ import { routing } from "@/config/i18n";
 import LocaleProvider from "@/providers/locale-provider";
 import MuiThemeProvider from "@/providers/mui-theme-provider";
 
-import "@/styles";
+import "@/styles/global.css";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
