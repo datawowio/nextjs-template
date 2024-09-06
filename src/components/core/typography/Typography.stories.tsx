@@ -1,3 +1,6 @@
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+
 import Typography from "./Typography";
 import { customVariantStyle } from "./styles";
 
@@ -13,49 +16,6 @@ export default meta;
 
 type Story = StoryObj<typeof Typography>;
 
-const AllVariantsDecorator = () => {
-  const variantKeys = Object.keys(customVariantStyle) as CustomVariant[];
-
-  return (
-    <div>
-      {variantKeys.map((variant) => {
-        const customVariant = customVariantStyle[variant];
-        const fontSizeVar =
-          customVariant.fontSize
-            ?.toString()
-            ?.replace(/var\(/, "")
-            .replace(/\)/, "") || "";
-
-        const lineHeightVar =
-          customVariant.lineHeight
-            ?.toString()
-            .replace(/var\(/, "")
-            .replace(/\)/, "") || "";
-
-        const fontSizeInPixel =
-          parseFloat(
-            getComputedStyle(document.body)
-              .getPropertyValue(fontSizeVar)
-              .replace(/rem/, ""),
-          ) * 16;
-
-        const lineHeightInPixel =
-          parseFloat(
-            getComputedStyle(document.body).getPropertyValue(lineHeightVar),
-          ) * 16;
-
-        return (
-          <div key={variant} style={{ marginBottom: "16px" }}>
-            <Typography customVariant={variant}>
-              {variant} ({fontSizeInPixel}px / {lineHeightInPixel}px)
-            </Typography>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
 export const Default: Story = {
   args: {
     children: "Example Text",
@@ -64,8 +24,65 @@ export const Default: Story = {
 };
 
 export const All: Story = {
-  decorators: [AllVariantsDecorator],
-  args: {
-    children: "Example Text",
+  decorators: [AllVariants],
+  parameters: {
+    controls: {
+      exclude: /.*/g,
+    },
   },
 };
+
+/*
+ * ================================ Decorators ================================
+ */
+
+function AllVariants() {
+  // Initial value
+  const variants = Object.keys(customVariantStyle) as CustomVariant[];
+
+  // View helpers
+  function getFontSizeInPixel(variant: CustomVariant) {
+    const customVariant = customVariantStyle[variant];
+    const fontSizeVar =
+      customVariant.fontSize
+        ?.toString()
+        ?.replace(/var\(/, "")
+        .replace(/\)/, "") || "";
+
+    return (
+      parseFloat(
+        getComputedStyle(document.body)
+          .getPropertyValue(fontSizeVar)
+          .replace(/rem/, ""),
+      ) * 16
+    );
+  }
+
+  function getLineHeightInPixel(variant: CustomVariant) {
+    const customVariant = customVariantStyle[variant];
+    const lineHeightVar =
+      customVariant.lineHeight
+        ?.toString()
+        .replace(/var\(/, "")
+        .replace(/\)/, "") || "";
+
+    return (
+      parseFloat(
+        getComputedStyle(document.body).getPropertyValue(lineHeightVar),
+      ) * 16
+    );
+  }
+
+  return (
+    <Stack gap={2}>
+      {variants.map((variant) => (
+        <Box key={variant}>
+          <Typography customVariant={variant}>
+            {variant} ({getFontSizeInPixel(variant)}px /{" "}
+            {getLineHeightInPixel(variant)}px)
+          </Typography>
+        </Box>
+      ))}
+    </Stack>
+  );
+}

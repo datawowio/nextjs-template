@@ -13,8 +13,8 @@ export default function Typography({
   const customSX = { ...customVariantProps?.sx, ...sx };
   const customComponent = component
     ? component
-    : customVariantProps?.component
-      ? customVariantProps?.component
+    : customVariantProps.component
+      ? customVariantProps.component
       : "span";
 
   return (
