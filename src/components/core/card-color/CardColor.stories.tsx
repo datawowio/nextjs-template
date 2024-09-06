@@ -34,7 +34,7 @@ function renderColorStack(object: Object) {
             key={key}
             hexCode={hexCode}
             colorName={value}
-            sx={{
+            colorStyles={{
               backgroundColor: value,
               minWidth: 300,
               width: "auto",
@@ -63,7 +63,7 @@ const AllVariantsDecorator = () => {
                   key={key}
                   hexCode={hexCode}
                   colorName={value}
-                  sx={{
+                  colorStyles={{
                     backgroundColor: value,
                     minWidth: 300,
                     width: "auto",
@@ -84,7 +84,7 @@ const AllVariantsDecorator = () => {
                   key={key}
                   hexCode={hexCode}
                   colorName={value}
-                  sx={{
+                  colorStyles={{
                     backgroundColor: value,
                     minWidth: 300,
                     width: "auto",
@@ -105,7 +105,7 @@ const AllVariantsDecorator = () => {
                   key={key}
                   hexCode={hexCode}
                   colorName={value}
-                  sx={{
+                  colorStyles={{
                     backgroundColor: value,
                     minWidth: 300,
                     width: "auto",
@@ -126,7 +126,7 @@ const AllVariantsDecorator = () => {
                   key={key}
                   hexCode={hexCode}
                   colorName={value}
-                  sx={{
+                  colorStyles={{
                     backgroundColor: value,
                     minWidth: 300,
                     width: "auto",
