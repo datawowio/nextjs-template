@@ -4,5 +4,10 @@ export interface CardColorProps {
   colorName: string;
   hexCode: string;
 
-  sx?: SxProps;
+  sx?: {
+    backgroundColor?: string;
+    height?: number | string;
+    minWidth?: number | string;
+    width?: number | string;
+  };
 }

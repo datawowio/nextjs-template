@@ -6,7 +6,7 @@ import type { CardColorProps } from "./types";
 
 export default function CardColor({ sx, hexCode, colorName }: CardColorProps) {
   return (
-    <Stack sx={styles}>
+    <Stack sx={styles.container}>
       <Box sx={{ ...sx, borderRadius: "10px 10px 0 0" }} />
       <Stack p={1} gap={1}>
         <Typography customVariant="mediumCaptionMD">{colorName}</Typography>
