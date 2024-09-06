@@ -1,4 +1,4 @@
-name: Build and Publish storybook to GitHub Pages
+name: CD
 
 on:
   push:
@@ -13,10 +13,12 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BASE_STORYBOOK_URL: https://datawowio.github.io/nextjs-template
     steps:
       - id: build-publish
         uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:
-          build_command: 'yarn build-storybook'
-          install_command: 'yarn install --immutable --immutable-cache --check-cache'
-          path: 'storybook-static'
+          build_command: yarn build-storybook
+          install_command: yarn install --frozen-lockfile
+          path: storybook-static
