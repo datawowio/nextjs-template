@@ -13,6 +13,9 @@ export const darkTheme = createTheme({
   palette: {
     mode: "dark",
   },
+  typography: {
+    fontFamily,
+  },
 });
 
 export const lightTheme = createTheme({
