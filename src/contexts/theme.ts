@@ -2,6 +2,7 @@
 
 import { createTheme } from "@mui/material/styles";
 import { ibmPlexSansThai } from "@/config/fonts";
+import { Button as MuiButton } from "@/config/button";
 
 const defaultTheme = createTheme();
 const fontFamily = [
@@ -24,5 +25,8 @@ export const lightTheme = createTheme({
   },
   typography: {
     fontFamily,
+  },
+  components: {
+    MuiButton,
   },
 });
