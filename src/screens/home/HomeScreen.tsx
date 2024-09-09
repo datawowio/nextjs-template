@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 import logo from "@/assets/images/brands/logo.svg";
-import Button from "@/components/button";
+import Button from "@/components/core/button";
 import Typography from "@/components/core/typography";
 
 import { card, imageWrapper, root } from "./styles";
