@@ -7,7 +7,7 @@ import { MuiButton } from "@/styles/mui/button";
 const defaultTheme = createTheme();
 const fontFamily = [
   ibmPlexSansThai.style.fontFamily,
-  defaultTheme.typography.fontFamily,
+  defaultTheme.typography.fontFamily?.replace(/"Roboto",\s/, " "),
 ].join(",");
 
 export const darkTheme = createTheme({
