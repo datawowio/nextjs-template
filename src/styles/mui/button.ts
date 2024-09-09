@@ -1,5 +1,5 @@
-import { colors } from "./palette";
 import { customVariantStyle } from "@/components/core/typography/styles";
+import { colors } from "@/config/palette";
 
 import type { Components } from "@mui/material";
 
@@ -21,7 +21,7 @@ const disabledTextStyle = {
   },
 };
 
-export const Button: Components["MuiButton"] = {
+export const MuiButton: Components["MuiButton"] = {
   defaultProps: {
     disableRipple: true,
   },
