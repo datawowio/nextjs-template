@@ -31,6 +31,9 @@ export const MuiButton: Components["MuiButton"] = {
       "&:hover": {
         boxShadow: "none",
       },
+      "&.Mui-focusVisible": {
+        boxShadow: "none",
+      },
     },
   },
   variants: [
@@ -63,6 +66,10 @@ export const MuiButton: Components["MuiButton"] = {
           borderColor: colors.surface.error.hover,
         },
         "&.Mui-disabled": disabledContainedStyle,
+        "&.Mui-focusVisible": {
+          backgroundColor: colors.surface.error.hover,
+          borderColor: colors.border.error.default,
+        },
       },
     },
     {
@@ -76,6 +83,10 @@ export const MuiButton: Components["MuiButton"] = {
           borderColor: colors.surface.primary.greenDarker,
         },
         "&.Mui-disabled": disabledContainedStyle,
+        "&.Mui-focusVisible": {
+          backgroundColor: colors.surface.primary.greenDarker,
+          borderColor: colors.border.primary.green,
+        },
       },
     },
     {
@@ -87,6 +98,10 @@ export const MuiButton: Components["MuiButton"] = {
           borderColor: colors.surface.info.hover,
         },
         "&.Mui-disabled": disabledContainedStyle,
+        "&.Mui-focusVisible": {
+          backgroundColor: colors.surface.info.hover,
+          borderColor: colors.border.info.hover,
+        },
       },
     },
     {
@@ -99,6 +114,10 @@ export const MuiButton: Components["MuiButton"] = {
           borderColor: colors.border.info.default,
         },
         "&.Mui-disabled": disabledContainedStyle,
+        "&.Mui-focusVisible": {
+          borderColor: colors.surface.info.hover,
+          color: colors.surface.info.hover,
+        },
       },
     },
     {
