@@ -1,5 +1,6 @@
 import { customVariantStyle } from "@/components/core/typography/styles";
 import { colors } from "@/config/palette";
+import rem from "@/utils/rem";
 
 import type { Components } from "@mui/material";
 
@@ -38,25 +39,37 @@ export const MuiButton: Components["MuiButton"] = {
   },
   variants: [
     {
-      props: { size: "small" },
+      props: {
+        size: "small",
+      },
       style: {
         ...customVariantStyle["semiboldParagraphMD"],
-        height: "40px",
+        height: rem(40),
       },
     },
     {
-      props: { size: "medium" },
+      props: {
+        size: "medium",
+      },
       style: {
         ...customVariantStyle["semiboldParagraphLG"],
-        height: "44px",
+        height: rem(44),
       },
     },
     {
-      props: { size: "large" },
-      style: { ...customVariantStyle["boldHeadingSM"], height: "56px" },
+      props: {
+        size: "large",
+      },
+      style: {
+        ...customVariantStyle["boldHeadingSM"],
+        height: rem(56),
+      },
     },
     {
-      props: { color: "error", variant: "contained" },
+      props: {
+        color: "error",
+        variant: "contained",
+      },
       style: {
         "backgroundColor": colors.surface.error.default,
         "borderColor": colors.surface.error.default,
@@ -73,7 +86,10 @@ export const MuiButton: Components["MuiButton"] = {
       },
     },
     {
-      props: { color: "success", variant: "contained" },
+      props: {
+        color: "success",
+        variant: "contained",
+      },
       style: {
         "backgroundColor": colors.surface.primary.green,
         "borderColor": colors.surface.primary.green,
@@ -90,7 +106,10 @@ export const MuiButton: Components["MuiButton"] = {
       },
     },
     {
-      props: { color: "primary", variant: "contained" },
+      props: {
+        color: "primary",
+        variant: "contained",
+      },
       style: {
         "backgroundColor": colors.surface.info.default,
         "&:hover": {
@@ -105,7 +124,10 @@ export const MuiButton: Components["MuiButton"] = {
       },
     },
     {
-      props: { color: "primary", variant: "outlined" },
+      props: {
+        color: "primary",
+        variant: "outlined",
+      },
       style: {
         "borderColor": colors.border.info.default,
         "color": colors.text.info.default,
@@ -121,7 +143,9 @@ export const MuiButton: Components["MuiButton"] = {
       },
     },
     {
-      props: { variant: "text" },
+      props: {
+        variant: "text",
+      },
       style: {
         "backgroundColor": "transparent",
         "color": colors.text.info.default,
