@@ -79,6 +79,17 @@ export const Button: Components["MuiButton"] = {
       },
     },
     {
+      props: { color: "primary", variant: "contained" },
+      style: {
+        "backgroundColor": colors.surface.info.default,
+        "&:hover": {
+          backgroundColor: colors.surface.info.hover,
+          borderColor: colors.surface.info.hover,
+        },
+        "&.Mui-disabled": disabledContainedStyle,
+      },
+    },
+    {
       props: { color: "primary", variant: "outlined" },
       style: {
         "borderColor": colors.border.info.default,
