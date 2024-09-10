@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import logo from "@/assets/images/brands/logo.svg";
 import Button from "@/components/core/button";
-import TextField from "@/components/core/text-field/TextField";
+import TextField from "@/components/core/text-field";
 import Typography from "@/components/core/typography";
 
 import { card, imageWrapper, root } from "./styles";
