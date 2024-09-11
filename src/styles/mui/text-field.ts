@@ -8,9 +8,10 @@ export const MuiTextField: Components["MuiTextField"] = {
   styleOverrides: {
     root: {
       "& .MuiOutlinedInput-input": {
-        padding: "0.75rem 0.875rem",
-        height: rem(24),
+        padding: `${rem(12)} ${rem(14)}`,
         ...customVariantStyle["regularParagraphLG"],
+        minHeight: rem(24),
+        height: "auto",
       },
       "& .Mui-disabled": {
         backgroundColor: colors.surface.placeholder.disabled,
@@ -18,7 +19,6 @@ export const MuiTextField: Components["MuiTextField"] = {
         color: colors.text.placeholder.disabled,
       },
       ".MuiOutlinedInput-root": {
-        "lineHeight": "1.5rem",
         "color": colors.text.primary.message,
         ".MuiOutlinedInput-notchedOutline": {
           borderColor: colors.border.default.base,
@@ -36,12 +36,11 @@ export const MuiTextField: Components["MuiTextField"] = {
         },
       },
       ".MuiFormLabel-root": {
-        "height": rem(24),
-        "marginTop": "-0.25rem",
+        "marginTop": rem(-4),
         ...customVariantStyle["regularParagraphLG"],
         "&.MuiInputLabel-shrink": {
           "color": colors.text.info.default,
-          "marginTop": 0,
+          "marginTop": rem(0),
           "&.Mui-error": {
             color: colors.text.placeholder.error,
           },
