@@ -48,7 +48,7 @@
   --color-bg-gray: #cccedd;
 
   --color-surface-default-white: var(--color-white);
-  --color-surface-default-disabled: #eaeaea;
+  --color-surface-default-disabled: #fafbfb;
   --color-surface-default-hover: var(--color-light-gray);
   --color-surface-default-disabled-darker: #d4d6d8;
   --color-surface-placeholder-white: var(--color-white);

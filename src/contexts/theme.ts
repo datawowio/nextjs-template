@@ -3,6 +3,7 @@
 import { createTheme } from "@mui/material/styles";
 import { ibmPlexSansThai } from "@/config/fonts";
 import { MuiButton } from "@/styles/mui/button";
+import { MuiTextField } from "@/styles/mui/text-field";
 
 const defaultTheme = createTheme();
 const fontFamily = [
@@ -28,5 +29,6 @@ export const lightTheme = createTheme({
   },
   components: {
     MuiButton,
+    MuiTextField,
   },
 });
