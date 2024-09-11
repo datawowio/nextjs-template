@@ -1,12 +1,15 @@
 import { customVariantStyle } from "@/components/core/typography/styles";
 import { colors } from "@/config/palette";
+import rem from "@/utils/rem";
 
-export const MuiTextField = {
+import type { Components } from "@mui/material";
+
+export const MuiTextField: Components["MuiTextField"] = {
   styleOverrides: {
     root: {
       "& .MuiOutlinedInput-input": {
         padding: "0.75rem 0.875rem",
-        height: "1.5rem",
+        height: rem(24),
         ...customVariantStyle["regularParagraphLG"],
       },
       "& .Mui-disabled": {
@@ -33,7 +36,7 @@ export const MuiTextField = {
         },
       },
       ".MuiFormLabel-root": {
-        "height": "1.5rem",
+        "height": rem(24),
         "marginTop": "-0.25rem",
         ...customVariantStyle["regularParagraphLG"],
         "&.MuiInputLabel-shrink": {

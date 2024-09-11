@@ -1,4 +1,7 @@
-import { Box, Card, Stack } from "@mui/material";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
