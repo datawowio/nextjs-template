@@ -1,4 +1,4 @@
-name: CI
+name: Build and Test
 
 on:
   pull_request:
@@ -7,17 +7,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: # Set environment variables for all steps in this job
+    env:
+      NEXT_PUBLIC_BASE_STORYBOOK_URL: http://localhost:6006
       NEXT_PUBLIC_BASE_URL: http://localhost:3000
     steps:
       - name: Check out the code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Run Lint
         run: yarn lint
       - name: Run Tests

@@ -1,5 +1,8 @@
 # Data Wow - Next.js Template 🦄
 
+![Build and Test](https://github.com/datawowio/nextjs-template/actions/workflows/build_and_test.yml/badge.svg)
+![Deploy Storybook](https://github.com/datawowio/nextjs-template/actions/workflows/deploy_storybook.yml/badge.svg)
+
 Welcome to the **Data Wow's Next.js Template** repository! This is an
 open-source template that we use internally at our organization for creating new
 Next.js projects. The template provides a fully-configured Next.js setup out of
