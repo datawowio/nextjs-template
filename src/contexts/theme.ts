@@ -2,6 +2,7 @@
 
 import { createTheme } from "@mui/material/styles";
 import { ibmPlexSansThai } from "@/config/fonts";
+import { MuiAlert } from "@/styles/mui/alert";
 import { MuiButton } from "@/styles/mui/button";
 import { MuiTextField } from "@/styles/mui/text-field";
 
@@ -28,6 +29,7 @@ export const lightTheme = createTheme({
     fontFamily,
   },
   components: {
+    MuiAlert,
     MuiButton,
     MuiTextField,
   },
