@@ -1,6 +1,5 @@
 "use client";
 
-import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,9 +7,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
-import { visuallyHidden } from "@mui/utils";
 
 import TableDataSurface from "./TableDataSurface";
+import VisualHiddenSortedText from "./VisualHiddenSortedText";
 
 import type { MouseEvent } from "react";
 import type { TableDataProps, TableHeader } from "./types";
@@ -20,11 +19,17 @@ export default function TableData({
   sortColumn,
   orderBy,
 
+  hiddenSortedAscendingText = "sorted ascending",
+  hiddenSortedDescendingText = "sorted descending",
   onRequestSort,
 }: TableDataProps) {
+  // Variable
+  const visualHiddenText =
+    orderBy === "asc" ? hiddenSortedAscendingText : hiddenSortedDescendingText;
+
   // Event handler
   function createSortHandler(columnName: TableHeader["key"]) {
-    return function (event: MouseEvent<unknown>) {
+    return function (event: MouseEvent<HTMLSpanElement>) {
       onRequestSort && onRequestSort(event, columnName);
     };
   }
@@ -42,13 +47,10 @@ export default function TableData({
                   onClick={createSortHandler(key)}
                 >
                   {label}
-                  {orderBy === key ? (
-                    <Box component="span" sx={visuallyHidden}>
-                      {orderBy === "desc"
-                        ? "sorted descending"
-                        : "sorted ascending"}
-                    </Box>
-                  ) : null}
+                  <VisualHiddenSortedText
+                    isShow={orderBy === key}
+                    text={visualHiddenText}
+                  />
                 </TableSortLabel>
               </TableCell>
             ))}

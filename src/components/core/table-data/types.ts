@@ -3,6 +3,11 @@ import type { MouseEvent, ReactNode } from "react";
 
 export interface TableDataSurfaceProps extends Omit<PaperProps, "variant"> {}
 
+export interface VisualHiddenSortedTextProps {
+  isShow: boolean;
+  text: string;
+}
+
 // Define the type for a table header, where the key is a string and the label
 // is a ReactNode (which can be JSX)
 export interface TableHeader {
@@ -26,8 +31,11 @@ export interface TableDataProps {
   data: TableData;
   orderBy: "asc" | "desc";
   sortColumn: string;
+
+  hiddenSortedAscendingText?: string;
+  hiddenSortedDescendingText?: string;
   onRequestSort?: (
-    event: MouseEvent<unknown>,
+    event: MouseEvent<HTMLSpanElement>,
     columnName: TableHeader["key"],
   ) => void;
 }
