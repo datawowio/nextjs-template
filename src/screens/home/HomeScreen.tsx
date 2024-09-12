@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import logo from "@/assets/images/brands/logo.svg";
 import Button from "@/components/core/button";
-import TextField from "@/components/core/text-field";
+import Input from "@/components/core/input";
 import Typography from "@/components/core/typography";
 
 import { card, imageWrapper, root } from "./styles";
@@ -27,7 +27,7 @@ export default function HomeScreen() {
           </Typography>
           <Typography>{t("description")}</Typography>
           <Button variant="contained">{t("cta")}</Button>
-          <TextField label="Enter your name" required />
+          <Input label="Enter your name" />
         </Stack>
       </Card>
     </Box>

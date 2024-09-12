@@ -7,9 +7,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: development
     env:
-      NEXT_PUBLIC_BASE_STORYBOOK_URL: http://localhost:6006
-      NEXT_PUBLIC_BASE_URL: http://localhost:3000
+      NEXT_PUBLIC_BASE_STORYBOOK_URL: ${{ secrets.NEXT_PUBLIC_BASE_STORYBOOK_URL }}
+      NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
