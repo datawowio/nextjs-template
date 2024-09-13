@@ -1,5 +1,5 @@
 import type { PaperProps } from "@mui/material/Paper";
-import type { ReactNode } from "react";
+import type { ChangeEvent, ReactNode } from "react";
 
 export interface TableDataSurfaceProps extends Omit<PaperProps, "variant"> {}
 
@@ -30,16 +30,21 @@ export interface DataSource {
 export type OrderType = "asc" | "desc";
 
 export interface TableDataHeaderProps {
+  hasCheckboxes: boolean;
   headers: TableDataHeader[];
   orderBy: OrderType;
+  selectedCount: number;
   sortColumn: string;
+  rowCount: number;
   visualHiddenText: string;
 
   onClickSortColumn?: (columnName: TableDataHeader["key"]) => void;
+  onSelectedAll?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface TableDataBodyProps {
   data: DataSource;
+  hasCheckboxes: boolean;
 }
 
 export interface TableDataProps {
@@ -47,7 +52,9 @@ export interface TableDataProps {
   orderBy: OrderType;
   sortColumn: string;
 
+  hasCheckboxes?: boolean;
   hiddenSortedAscendingText?: string;
   hiddenSortedDescendingText?: string;
   onClickSortColumn?: (columnName: TableDataHeader["key"]) => void;
+  rowCount?: number;
 }
