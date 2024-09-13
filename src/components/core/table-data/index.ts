@@ -1,2 +1,8 @@
 export { default } from "./TableData";
-export type { TableData, TableDataProps, TableHeader, TableRow } from "./types";
+export type {
+  DataSource,
+  OrderType,
+  TableDataProps,
+  TableHeader,
+  TableRow,
+} from "./types";

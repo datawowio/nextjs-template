@@ -1,5 +1,22 @@
+import { faker } from "@faker-js/faker";
+import { useArgs } from "@storybook/preview-api";
+import {
+  alphabetical,
+  capitalize,
+  draw,
+  get,
+  isNumber,
+  keys,
+  sort,
+  range,
+} from "radash";
+
+import { colors } from "@/config/palette";
 import TableData from "./TableData";
+
 import type { Meta, StoryObj } from "@storybook/react";
+import type { MouseEvent } from "react";
+import type { DataSource, OrderType, TableHeader, TableRow } from "./types";
 
 const meta: Meta<typeof TableData> = {
   component: TableData,
@@ -10,53 +27,123 @@ export default meta;
 
 type Story = StoryObj<typeof TableData>;
 
+const users = generateUserData();
+const data = generateDataTable(users, "id", "asc");
+
 export const Default: Story = {
   args: {
-    data: {
-      headers: [
-        { key: "name", label: "Name" },
-        { key: "email", label: "Email" },
-        { key: "status", label: "Status" },
-      ],
-      rows: [
-        {
-          id: 1,
-          name: "John Doe",
-          email: "john@example.com",
-          status: (
-            <span
-              style={{
-                display: "inline-block",
-                padding: "0.5rem",
-                backgroundColor: "aliceblue",
-              }}
-            >
-              Active
-            </span>
-          ),
-        },
-        {
-          id: 2,
-          name: "Jane Doe",
-          email: "jane@example.com",
-          status: (
-            <span
-              style={{
-                display: "inline-block",
-                padding: "0.5rem",
-                backgroundColor: "aliceblue",
-              }}
-            >
-              Inactive
-            </span>
-          ),
-        },
-      ],
-    },
-    sortColumn: "name",
+    data,
     orderBy: "asc",
-    onRequestSort(_, columnName) {
-      console.log(columnName);
-    },
+    sortColumn: "id",
+  },
+  render: function render(args) {
+    // Hook
+    const [{ data, orderBy, sortColumn }, updateArgs] = useArgs();
+
+    // Event handler
+    function handleRequestSort(
+      _: MouseEvent<HTMLSpanElement>,
+      columnName: string,
+    ) {
+      if (columnName === sortColumn) {
+        const newOrderBy = orderBy === "asc" ? "desc" : "asc";
+        const newData = generateDataTable(users, columnName, newOrderBy);
+
+        updateArgs({ data: newData, orderBy: newOrderBy });
+      } else {
+        const newData = generateDataTable(users, columnName, "asc");
+        updateArgs({ data: newData, sortColumn: columnName, orderBy: "asc" });
+      }
+    }
+
+    return (
+      <TableData
+        {...args}
+        data={data}
+        orderBy={orderBy}
+        sortColumn={sortColumn}
+        onRequestSort={handleRequestSort}
+      />
+    );
   },
 };
+
+/*
+ * =============================== View Helpers ===============================
+ */
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  sex: string;
+  gender: string;
+  status: "active" | "inactive";
+}
+
+function generateUserData(): User[] {
+  return Array.from(range(1, 100)).map((number) => {
+    return {
+      id: number,
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      sex: faker.person.sex(),
+      gender: faker.person.gender(),
+      status: draw(["active", "inactive"])!,
+    };
+  });
+}
+
+function generateDataTable(
+  users: User[],
+  sortColumn: string,
+  orderBy: OrderType,
+): DataSource {
+  if (users.length === 0) {
+    return {
+      headers: [],
+      rows: [],
+    };
+  }
+
+  const headers: TableHeader[] = keys(users[0]).map((key) => ({
+    key,
+    label: capitalize(key),
+  }));
+
+  const sortedColumnValue = get(users[0], sortColumn);
+  const isNumberValue = isNumber(sortedColumnValue);
+  const isDescending = orderBy === "desc";
+
+  const sortedUsers = isNumberValue
+    ? sort(users, (user) => get(user, sortColumn), isDescending)
+    : alphabetical(users, (user) => get(user, sortColumn), orderBy);
+
+  const rows: TableRow[] = sortedUsers.map(
+    ({ id, name, email, sex, gender, status }) => ({
+      id,
+      name,
+      email,
+      sex,
+      gender,
+      status: (
+        <span
+          style={{
+            display: "inline-block",
+            padding: "0.5rem",
+            backgroundColor:
+              status === "active"
+                ? colors.surface.primary.green
+                : colors.other.primary.pink,
+          }}
+        >
+          {status}
+        </span>
+      ),
+    }),
+  );
+
+  return {
+    headers,
+    rows,
+  };
+}

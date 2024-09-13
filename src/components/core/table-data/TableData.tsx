@@ -40,10 +40,13 @@ export default function TableData({
         <TableHead>
           <TableRow>
             {data.headers.map(({ key, label }) => (
-              <TableCell key={key}>
+              <TableCell
+                key={key}
+                sortDirection={sortColumn === key ? orderBy : false}
+              >
                 <TableSortLabel
                   active={sortColumn === key}
-                  direction={orderBy === "asc" ? "asc" : "desc"}
+                  direction={sortColumn === key ? orderBy : "asc"}
                   onClick={createSortHandler(key)}
                 >
                   {label}
@@ -57,8 +60,8 @@ export default function TableData({
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.rows.map(({ id, ...row }) => (
-            <TableRow key={id}>
+          {data.rows.map((row) => (
+            <TableRow key={row.id}>
               {data.headers.map(({ key }) => (
                 <TableCell key={key}>{row[key]}</TableCell>
               ))}

@@ -22,14 +22,16 @@ export interface TableRow {
 }
 
 // Define the generic type for the whole table data structure
-export interface TableData {
+export interface DataSource {
   headers: TableHeader[];
   rows: TableRow[];
 }
 
+export type OrderType = "asc" | "desc";
+
 export interface TableDataProps {
-  data: TableData;
-  orderBy: "asc" | "desc";
+  data: DataSource;
+  orderBy: OrderType;
   sortColumn: string;
 
   hiddenSortedAscendingText?: string;
