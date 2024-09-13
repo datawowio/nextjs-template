@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import WarningIcon from "@mui/icons-material/Warning";
@@ -9,24 +7,18 @@ import WarningIcon from "@mui/icons-material/Warning";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 
-import type { SnackbarCloseReason } from "@mui/material/Snackbar";
 import type { SnackbarProps } from "./types";
 
 export default function Toast({ alertProps, ...props }: SnackbarProps) {
-  const [open, setOpen] = useState(props.open);
-
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: SnackbarCloseReason,
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
   return (
-    <Snackbar {...props} open={open} onClose={handleClose}>
+    <Snackbar
+      {...props}
+      open={props.open}
+      onClose={props?.onClose}
+      anchorOrigin={
+        { vertical: "top", horizontal: "right" } ?? props.anchorOrigin
+      }
+    >
       <Alert
         {...alertProps}
         className={`${alertProps?.className} toast`}
@@ -38,7 +30,7 @@ export default function Toast({ alertProps, ...props }: SnackbarProps) {
           warning: <WarningIcon />,
         }}
         severity={props?.status}
-        onClose={handleClose}
+        onClose={(e) => props?.onClose?.(e, "escapeKeyDown")}
       >
         {props?.message}
       </Alert>
