@@ -1,5 +1,5 @@
 import type { PaperProps } from "@mui/material/Paper";
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface TableDataSurfaceProps extends Omit<PaperProps, "variant"> {}
 
@@ -10,24 +10,37 @@ export interface VisualHiddenSortedTextProps {
 
 // Define the type for a table header, where the key is a string and the label
 // is a ReactNode (which can be JSX)
-export interface TableHeader {
+export interface TableDataHeader {
   key: string; // A unique key to identify the column
   label: ReactNode; // The label can be any JSX or string
 }
 
 // Define the type for each row's data
-export interface TableRow {
+export interface TableDataRow {
   id: number | string; // A unique key to identify the row
   [column: string]: ReactNode; // Each row can have dynamic column names, and the value is any ReactNode (JSX or string)
 }
 
 // Define the generic type for the whole table data structure
 export interface DataSource {
-  headers: TableHeader[];
-  rows: TableRow[];
+  headers: TableDataHeader[];
+  rows: TableDataRow[];
 }
 
 export type OrderType = "asc" | "desc";
+
+export interface TableDataHeaderProps {
+  headers: TableDataHeader[];
+  orderBy: OrderType;
+  sortColumn: string;
+  visualHiddenText: string;
+
+  onClickSortColumn?: (columnName: TableDataHeader["key"]) => void;
+}
+
+export interface TableDataBodyProps {
+  data: DataSource;
+}
 
 export interface TableDataProps {
   data: DataSource;
@@ -36,8 +49,5 @@ export interface TableDataProps {
 
   hiddenSortedAscendingText?: string;
   hiddenSortedDescendingText?: string;
-  onRequestSort?: (
-    event: MouseEvent<HTMLSpanElement>,
-    columnName: TableHeader["key"],
-  ) => void;
+  onClickSortColumn?: (columnName: TableDataHeader["key"]) => void;
 }

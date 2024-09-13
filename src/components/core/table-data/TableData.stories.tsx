@@ -15,8 +15,12 @@ import { colors } from "@/config/palette";
 import TableData from "./TableData";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import type { MouseEvent } from "react";
-import type { DataSource, OrderType, TableHeader, TableRow } from "./types";
+import type {
+  DataSource,
+  OrderType,
+  TableDataHeader,
+  TableDataRow,
+} from "./types";
 
 const meta: Meta<typeof TableData> = {
   component: TableData,
@@ -41,10 +45,7 @@ export const Default: Story = {
     const [{ data, orderBy, sortColumn }, updateArgs] = useArgs();
 
     // Event handler
-    function handleRequestSort(
-      _: MouseEvent<HTMLSpanElement>,
-      columnName: string,
-    ) {
+    function handleRequestSort(columnName: string) {
       if (columnName === sortColumn) {
         const newOrderBy = orderBy === "asc" ? "desc" : "asc";
         const newData = generateDataTable(users, columnName, newOrderBy);
@@ -62,7 +63,7 @@ export const Default: Story = {
         data={data}
         orderBy={orderBy}
         sortColumn={sortColumn}
-        onRequestSort={handleRequestSort}
+        onClickSortColumn={handleRequestSort}
       />
     );
   },
@@ -105,7 +106,7 @@ function generateDataTable(
     };
   }
 
-  const headers: TableHeader[] = keys(users[0]).map((key) => ({
+  const headers: TableDataHeader[] = keys(users[0]).map((key) => ({
     key,
     label: capitalize(key),
   }));
@@ -118,7 +119,7 @@ function generateDataTable(
     ? sort(users, (user) => get(user, sortColumn), isDescending)
     : alphabetical(users, (user) => get(user, sortColumn), orderBy);
 
-  const rows: TableRow[] = sortedUsers.map(
+  const rows: TableDataRow[] = sortedUsers.map(
     ({ id, name, email, sex, gender, status }) => ({
       id,
       name,
