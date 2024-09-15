@@ -9,7 +9,7 @@ import Typography from "@/components/core/typography";
 
 import { generateData, getUsers } from "./helpers";
 
-import type { Data, Header, Order } from "@/components/core/table-data";
+import type { Data, Header, Order, Row } from "@/components/core/table-data";
 
 export default function TableDataScreen() {
   // Hook
@@ -22,10 +22,19 @@ export default function TableDataScreen() {
     page: 1,
     pageSize: 10,
     orderBy: "asc" as Order,
+    selectAll: false,
+    selectedIds: [] as Row["id"][],
     sortColumn: "id",
   });
 
   // Event handlers
+  function handleSelectChange(selectAll: boolean, selectedIds: Row["id"][]) {
+    setState((draft) => {
+      draft.selectAll = selectAll;
+      draft.selectedIds = [...selectedIds];
+    });
+  }
+
   function handleSortColumn(key: Header["key"], orderBy: Order) {
     setState((draft) => {
       draft.sortColumn = key;
@@ -67,7 +76,9 @@ export default function TableDataScreen() {
     <Box p={4}>
       <TableData
         data={state.data}
+        hasCheckboxes={true}
         onSortColumn={handleSortColumn}
+        onSelectChange={handleSelectChange}
         orderBy={state.orderBy}
         sortColumn={state.sortColumn}
       />
