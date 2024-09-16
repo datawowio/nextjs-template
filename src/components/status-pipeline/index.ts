@@ -1,2 +1,2 @@
-export { default } from "./StatusPipeline";
-export type { StatusPipelineProps } from "./types";
+export { default } from "./LabelStatus";
+export type { LabelStatusProps } from "./types";

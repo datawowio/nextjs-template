@@ -1,7 +1,7 @@
-import { CSSProperties } from "react";
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
 
+import type { CSSProperties } from "react";
 import type { CustomStatusVariantStyle } from "./types";
 
 export const customStatusStyle: CustomStatusVariantStyle = {

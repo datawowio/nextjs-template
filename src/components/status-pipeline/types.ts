@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
 
 export type StatusVariant =
   | "cancelled"
@@ -11,7 +11,7 @@ export type CustomStatusVariantStyle = {
   [key in StatusVariant]: CSSProperties;
 };
 
-export interface StatusPipelineProps {
+export interface LabelStatusProps {
   status?: StatusVariant;
   text?: string;
 }
