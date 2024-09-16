@@ -34,8 +34,8 @@ export const lightTheme = createTheme({
   components: {
     MuiAlert,
     MuiAutocomplete,
-    MuiCheckbox,
     MuiButton,
+    MuiCheckbox,
     MuiTextField,
     MuiPopper,
   },

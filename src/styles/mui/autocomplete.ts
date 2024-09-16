@@ -1,25 +1,23 @@
 import { customVariantStyle } from "@/components/core/typography/styles";
 import { colors } from "@/config/palette";
-import { MuiTextField } from "./text-field";
+import rem from "@/utils/rem";
 
 export const MuiAutocomplete = {
   styleOverrides: {
     root: {
       ".MuiTextField-root": {
-        ...MuiTextField.styleOverrides.root,
         ".MuiOutlinedInput-input": {
-          padding: "0.75rem 0.875rem 0.75rem 0.25rem",
+          padding: `${rem(12)} ${rem(14)} ${rem(12)} ${rem(4)}`,
           height: "1.5rem",
           ...customVariantStyle["regularParagraphLG"],
         },
       },
       ".MuiOutlinedInput-root": {
-        "padding": "0 2.5rem 0 0.5rem",
+        "padding": `0 ${rem(40)} 0 ${rem(8)}`,
         "input": {
-          paddingLeft: "0.375rem",
+          paddingLeft: rem(6),
         },
         ".MuiButtonBase-root": {
-          "height": "32px",
           "&.MuiAutocomplete-tag": {
             "backgroundColor": colors.surface.default.disabledDarker,
             ...customVariantStyle["regularParagraphMD"],
@@ -29,9 +27,15 @@ export const MuiAutocomplete = {
             },
             ".MuiChip-deleteIcon": {
               color: colors.text.primary.message,
-              fontSize: "1rem",
-              margin: "-3px 5px 0 -6px",
+              fontSize: rem(16),
+              margin: "-3px 8px 0 -6px",
             },
+          },
+          "&.MuiAutocomplete-popupIndicator": {
+            color: colors.icon.placeholder.default,
+          },
+          "&.MuiAutocomplete-clearIndicator": {
+            color: colors.icon.placeholder.default,
           },
           "&.Mui-disabled": {
             "&.MuiChip-root": {

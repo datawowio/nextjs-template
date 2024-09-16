@@ -39,7 +39,6 @@ export const MuiTextField: Components["MuiTextField"] = {
         "marginTop": rem(-4),
         ...customVariantStyle["regularParagraphLG"],
         "&.MuiInputLabel-shrink": {
-          "color": colors.text.info.default,
           "marginTop": rem(0),
           "&.Mui-focused": {
             color: colors.text.info.default,

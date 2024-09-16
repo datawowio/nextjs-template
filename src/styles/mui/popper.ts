@@ -4,10 +4,24 @@ import { colors } from "@/config/palette";
 export const MuiPopper = {
   styleOverrides: {
     root: {
-      "& .MuiAutocomplete-paper": {
-        li: {
-          ...customVariantStyle["regularParagraphLG"],
-          color: colors.text.primary.message,
+      ".MuiPaper-root": {
+        ".MuiAutocomplete-listbox": {
+          ".MuiAutocomplete-option": {
+            ...customVariantStyle["regularParagraphLG"],
+            "color": colors.text.primary.message,
+            "&.Mui-focused": {
+              backgroundColor: colors.surface.default.disabled,
+            },
+            '&[aria-disabled="true"]': {
+              opacity: 1,
+              backgroundColor: colors.surface.placeholder.disabled,
+              color: colors.text.placeholder.disabled,
+            },
+            '&[aria-selected="true"]': {
+              opacity: 1,
+              backgroundColor: colors.surface.info.subdued,
+            },
+          },
         },
       },
     },
