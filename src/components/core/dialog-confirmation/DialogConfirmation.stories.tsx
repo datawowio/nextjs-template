@@ -1,22 +1,24 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import { useArgs } from "@storybook/preview-api";
-import { colors } from "@/config/palette";
+
 import Typography from "@/components/core/typography";
+import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
-import ModalConfirmation from "./ModalConfirmation";
+import DialogConfirmation from "./DialogConfirmation";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof ModalConfirmation> = {
-  component: ModalConfirmation,
-  title: "Core/ModalConfirmation",
+const meta: Meta<typeof DialogConfirmation> = {
+  component: DialogConfirmation,
+  title: "Core/DialogConfirmation",
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ModalConfirmation>;
+type Story = StoryObj<typeof DialogConfirmation>;
 
 export const Default: Story = {
+  decorators: [RenderDialog],
   args: {
     open: true,
     title: "ยืนยันการแก้ไขสิทธิ์",
@@ -35,30 +37,37 @@ export const Default: Story = {
       </Box>
     ),
   },
-  render: function Render(args) {
-    const [{ open }, updateArgs] = useArgs();
-
-    function onClose() {
-      updateArgs({ open: false });
-    }
-
-    function onCancel() {
-      console.log("cancelled");
-      onClose();
-    }
-
-    function onConfirm() {
-      console.log("confirmed");
-      onClose();
-    }
-    return (
-      <ModalConfirmation
-        {...args}
-        open={open}
-        onClose={onClose}
-        onCancel={onCancel}
-        onConfirm={onConfirm}
-      />
-    );
-  },
 };
+
+function RenderDialog() {
+  const [
+    { open, title, description, cancelText, confirmText, children },
+    updateArgs,
+  ] = useArgs();
+
+  function onClose() {
+    updateArgs({ open: false });
+  }
+
+  function onCancel() {
+    onClose();
+  }
+
+  function onConfirm() {
+    onClose();
+  }
+  return (
+    <DialogConfirmation
+      open={open}
+      title={title}
+      description={description}
+      confirmText={confirmText}
+      cancelText={cancelText}
+      onClose={onClose}
+      onCancel={onCancel}
+      onConfirm={onConfirm}
+    >
+      {children}
+    </DialogConfirmation>
+  );
+}

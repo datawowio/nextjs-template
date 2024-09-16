@@ -1,8 +1,8 @@
-import Modal from "@/components/core/modal";
-import ModalContent from "./ModalContent";
-import type { ModalConfirmationProps } from "./types";
+import Dialog from "@/components/core/dialog";
+import DialogConfirmationContent from "./DialogConfirmationContent";
+import type { DialogConfirmationProps } from "./types";
 
-export default function ModalConfirmation({
+export default function DialogConfirmation({
   open,
   children = <></>,
   cancelText,
@@ -13,7 +13,7 @@ export default function ModalConfirmation({
   onCancel,
   onConfirm,
   ...props
-}: ModalConfirmationProps) {
+}: DialogConfirmationProps) {
   const onCancelHandler = (
     e?: {},
     reason?: "backdropClick" | "escapeKeyDown",
@@ -29,14 +29,15 @@ export default function ModalConfirmation({
     onConfirm?.(e, reason);
   };
   return (
-    <Modal
+    <Dialog
       {...props}
       open={open}
       onClose={onClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      aria-labelledby="dialog-dialog-title"
+      aria-describedby="dialog-dialog-description"
+      className="dialog-confirmation"
     >
-      <ModalContent
+      <DialogConfirmationContent
         title={title}
         description={description}
         cancelText={cancelText}
@@ -45,7 +46,7 @@ export default function ModalConfirmation({
         onConfirm={onConfirmHandler}
       >
         {children}
-      </ModalContent>
-    </Modal>
+      </DialogConfirmationContent>
+    </Dialog>
   );
 }
