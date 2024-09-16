@@ -1,4 +1,4 @@
-import MUIModal from "@mui/material/Modal";
+import Modal from "@/components/core/modal";
 import ModalContent from "./ModalContent";
 import type { ModalConfirmationProps } from "./types";
 
@@ -29,7 +29,7 @@ export default function ModalConfirmation({
     onConfirm?.(e, reason);
   };
   return (
-    <MUIModal
+    <Modal
       {...props}
       open={open}
       onClose={onClose}
@@ -46,6 +46,6 @@ export default function ModalConfirmation({
       >
         {children}
       </ModalContent>
-    </MUIModal>
+    </Modal>
   );
 }
