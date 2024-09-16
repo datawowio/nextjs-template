@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { useArgs } from "@storybook/preview-api";
 import { colors } from "@/config/palette";
 import Typography from "@/components/core/typography";
 import rem from "@/utils/rem";
@@ -33,5 +34,31 @@ export const Default: Story = {
         >{`ผู้ดูแลระบบ > ผู้ใช้งานทั่วไป`}</Typography>
       </Box>
     ),
+  },
+  render: function Render(args) {
+    const [{ open }, updateArgs] = useArgs();
+
+    function onClose() {
+      updateArgs({ open: false });
+    }
+
+    function onCancel() {
+      console.log("cancelled");
+      onClose();
+    }
+
+    function onConfirm() {
+      console.log("confirmed");
+      onClose();
+    }
+    return (
+      <ModalConfirmation
+        {...args}
+        open={open}
+        onClose={onClose}
+        onCancel={onCancel}
+        onConfirm={onConfirm}
+      />
+    );
   },
 };
