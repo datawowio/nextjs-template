@@ -41,6 +41,9 @@ export const MuiTextField: Components["MuiTextField"] = {
         "&.MuiInputLabel-shrink": {
           "color": colors.text.info.default,
           "marginTop": rem(0),
+          "&.Mui-focused": {
+            color: colors.text.info.default,
+          },
           "&.Mui-error": {
             color: colors.text.placeholder.error,
           },
