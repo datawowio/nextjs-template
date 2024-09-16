@@ -1,8 +1,8 @@
 import MUIAvatar from "@mui/material/Avatar";
 
 import fallbackAvatar from "@/assets/images/avatar/fallback-avatar.png";
-import type { AvatarProps } from "./types";
 import { customSizeStyle } from "./styles";
+import type { AvatarProps } from "./types";
 
 export default function Avatar({
   src = fallbackAvatar.src,
@@ -10,5 +10,7 @@ export default function Avatar({
   sx,
   ...props
 }: AvatarProps) {
-  return <MUIAvatar {...props} sx={{ ...customSizeStyle[size], ...sx }} />;
+  return (
+    <MUIAvatar {...props} src={src} sx={{ ...customSizeStyle[size], ...sx }} />
+  );
 }

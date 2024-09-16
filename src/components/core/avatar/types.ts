@@ -1,5 +1,5 @@
+import type { CSSProperties } from "react";
 import type { AvatarProps as MUIAvatarProps } from "@mui/material/Avatar";
-import { CSSProperties } from "react";
 
 export type CustomSize = "sm" | "md" | "lg" | "xl" | "2xl";
 
