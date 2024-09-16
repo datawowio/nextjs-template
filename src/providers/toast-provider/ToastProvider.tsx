@@ -1,55 +1,51 @@
 "use client";
 
-import React, { createContext, useContext } from "react";
+import React from "react";
 import { useImmer } from "use-immer";
 import Toast from "@/components/core/toast";
+import { ToastContext } from "@/contexts/toast";
 
 import type { SnackbarCloseReason } from "@mui/material/Snackbar";
 import type { SnackbarProps } from "@/components/core/toast";
-import type { ToastContextProps, ToastProviderProps } from "./types";
-
-const ToastContext = createContext<ToastContextProps | undefined>(undefined);
-
-export const useToast = () => {
-  const context = useContext(ToastContext);
-  if (!context) {
-    throw new Error("useToast must be used within a ToastProvider");
-  }
-  return context;
-};
+import type { ToastProviderProps } from "./types";
 
 export default function ToastProvider({ children }: ToastProviderProps) {
-  const [toastProps, updateToastProps] = useImmer<SnackbarProps>({
+  const [state, setState] = useImmer<SnackbarProps>({
     message: "",
     status: "info",
     open: false,
+    autoHideDuration: 3000,
   });
 
   const showToast = (
     message: string,
     status: SnackbarProps["status"] = "info",
+    autoHideDuration?: number,
   ) => {
-    updateToastProps((draft) => {
+    setState((draft) => {
       draft.message = message;
       draft.status = status;
       draft.open = true;
+      if (autoHideDuration) {
+        draft.autoHideDuration = autoHideDuration;
+      }
     });
   };
 
   const hideToast = () => {
-    updateToastProps((draft) => {
+    setState((draft) => {
       draft.open = false;
     });
   };
 
   const handleClose = (
-    event?: React.SyntheticEvent | Event,
+    _event?: React.SyntheticEvent | Event,
     reason?: SnackbarCloseReason,
   ) => {
     if (reason === "clickaway") {
       return;
     }
-    updateToastProps((draft) => {
+    setState((draft) => {
       draft.open = false;
     });
   };
@@ -58,10 +54,11 @@ export default function ToastProvider({ children }: ToastProviderProps) {
     <ToastContext.Provider value={{ showToast, hideToast }}>
       {children}
       <Toast
-        open={toastProps.open}
+        open={state.open}
         onClose={handleClose}
-        message={toastProps.message}
-        status={toastProps.status}
+        message={state.message}
+        status={state.status}
+        autoHideDuration={state.autoHideDuration}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
       />
     </ToastContext.Provider>

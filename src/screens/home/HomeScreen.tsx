@@ -11,7 +11,7 @@ import logo from "@/assets/images/brands/logo.svg";
 import Button from "@/components/core/button";
 import Input from "@/components/core/input";
 import Typography from "@/components/core/typography";
-import { useToast } from "@/providers/toast-provider/ToastProvider";
+import { useToast } from "@/hooks/use-toast";
 
 import { card, imageWrapper, root } from "./styles";
 

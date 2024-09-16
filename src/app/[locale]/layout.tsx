@@ -39,9 +39,9 @@ export default function RootLayout({
     <html lang={locale}>
       <body>
         <LocaleProvider>
-          <ToastProvider>
-            <MuiThemeProvider>{children}</MuiThemeProvider>
-          </ToastProvider>
+          <MuiThemeProvider>
+            <ToastProvider>{children} </ToastProvider>
+          </MuiThemeProvider>
         </LocaleProvider>
       </body>
     </html>
