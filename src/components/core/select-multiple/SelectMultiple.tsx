@@ -8,7 +8,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import MuiAutocomplete from "@mui/material/Autocomplete";
 import Checkbox from "@mui/material/Checkbox";
 import Chip from "@mui/material/Chip";
-import TextField from "@/components/core/text-field";
+import Input from "@/components/core/input";
 
 import type { AutocompleteProps } from "./types";
 
@@ -16,7 +16,7 @@ export default function SelectMultiple({
   popupIcon = <ExpandMore />,
   multiple = true,
   disableCloseOnSelect = true,
-  renderInput = (params) => <TextField {...params} label={props?.label} />,
+  renderInput = (params) => <Input {...params} label={props?.label} />,
   renderOption = (props, option, { selected }) => {
     const { key, ...optionProps } = props;
     return (

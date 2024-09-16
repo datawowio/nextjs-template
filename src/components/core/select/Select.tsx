@@ -3,14 +3,14 @@
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import MUIAutocomplete from "@mui/material/Autocomplete";
 
-import TextField from "@/components/core/text-field";
+import Input from "@/components/core/input";
 
 import type { AutocompleteProps } from "./types";
 
 export default function Select({
   popupIcon = <ExpandMore />,
   multiple = false,
-  renderInput = (params) => <TextField {...params} label={props?.label} />,
+  renderInput = (params) => <Input {...params} label={props?.label} />,
   ...props
 }: AutocompleteProps) {
   return (

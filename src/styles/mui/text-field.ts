@@ -4,6 +4,9 @@ import rem from "@/utils/rem";
 
 import type { Components } from "@mui/material";
 
+// NOTE: Edit these styles will effects these components:
+// - core/input
+
 export const MuiTextField: Components["MuiTextField"] = {
   styleOverrides: {
     root: {
