@@ -4,7 +4,6 @@ import { createTheme } from "@mui/material/styles";
 import { ibmPlexSansThai } from "@/config/fonts";
 import { MuiButton } from "@/styles/mui/button";
 import { MuiCheckbox } from "@/styles/mui/checkbox";
-import { MuiFormControlLabel } from "@/styles/mui/form-control-label";
 import { MuiTextField } from "@/styles/mui/text-field";
 
 const defaultTheme = createTheme();
@@ -32,7 +31,6 @@ export const lightTheme = createTheme({
   components: {
     MuiButton,
     MuiCheckbox,
-    MuiFormControlLabel,
     MuiTextField,
   },
 });
