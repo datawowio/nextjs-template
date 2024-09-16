@@ -1,8 +1,9 @@
 import { styled } from "@mui/material";
+
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
 
-export const BpIcon = styled("span")(({ theme }) => ({
+export const BpIcon = styled("span")(() => ({
   "borderRadius": rem(4),
   "width": rem(16),
   "height": rem(16),
@@ -107,8 +108,9 @@ export const BpIndeterminateIcon = styled(BpIcon)({
   },
 });
 
-export const customTypographyStyle = {
-  small: "mediumParagraphMD",
-  medium: "mediumParagraphLG",
-  large: "mediumParagraphLG",
+export const styles = {
+  text: {
+    marginTop: rem(1),
+    userSelect: "none",
+  },
 };
