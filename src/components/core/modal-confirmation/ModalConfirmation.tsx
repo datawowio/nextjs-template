@@ -1,6 +1,6 @@
 import MUIModal from "@mui/material/Modal";
 import ModalContent from "./ModalContent";
-import type { ModalProps } from "./types";
+import type { ModalConfirmationProps } from "./types";
 
 export default function ModalConfirmation({
   open,
@@ -13,7 +13,7 @@ export default function ModalConfirmation({
   onCancel,
   onConfirm,
   ...props
-}: ModalProps) {
+}: ModalConfirmationProps) {
   const onCancelHandler = (
     e?: {},
     reason?: "backdropClick" | "escapeKeyDown",

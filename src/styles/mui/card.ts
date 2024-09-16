@@ -6,15 +6,15 @@ export const MuiCard: Components["MuiCard"] = {
   styleOverrides: {
     root: {
       "boxSizing": "border-box",
+      "position": "absolute",
+      "top": "50%",
+      "left": "50%",
+      "transform": "translate(-50%, -50%)",
+      "padding": rem(32),
+      "borderRadius": rem(16),
 
       "&.modal": {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
         minWidth: "600px",
-        padding: rem(32),
-        borderRadius: rem(16),
       },
 
       ".MuiCardContent-root": {

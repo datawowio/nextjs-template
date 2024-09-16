@@ -1,7 +1,7 @@
 import type { ModalProps as MUIModalProps } from "@mui/material/Modal";
 import type { CardProps as MUICardProps } from "@mui/material/Card";
 
-interface ModalConfirmationProps {
+interface ConfirmationProps {
   title?: string;
   description?: string;
   onConfirm?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
@@ -10,6 +10,8 @@ interface ModalConfirmationProps {
   cancelText?: string;
 }
 
-export interface ModalProps extends MUIModalProps, ModalConfirmationProps {}
+export interface ModalConfirmationProps
+  extends MUIModalProps,
+    ConfirmationProps {}
 
-export interface CardProps extends MUICardProps, ModalConfirmationProps {}
+export interface CardProps extends MUICardProps, ConfirmationProps {}
