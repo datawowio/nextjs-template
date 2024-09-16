@@ -4,6 +4,9 @@ import rem from "@/utils/rem";
 
 import type { Components } from "@mui/material";
 
+// NOTE: Edit these styles will effects these components:
+// - core/input
+
 export const MuiTextField: Components["MuiTextField"] = {
   styleOverrides: {
     root: {
@@ -39,8 +42,10 @@ export const MuiTextField: Components["MuiTextField"] = {
         "marginTop": rem(-4),
         ...customVariantStyle["regularParagraphLG"],
         "&.MuiInputLabel-shrink": {
-          "color": colors.text.info.default,
-          "marginTop": rem(0),
+          "marginTop": 0,
+          "&.Mui-focused": {
+            color: colors.text.info.default,
+          },
           "&.Mui-error": {
             color: colors.text.placeholder.error,
           },

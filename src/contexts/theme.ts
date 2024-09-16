@@ -3,8 +3,10 @@
 import { createTheme } from "@mui/material/styles";
 import { ibmPlexSansThai } from "@/config/fonts";
 import { MuiAlert } from "@/styles/mui/alert";
+import { MuiAutocomplete } from "@/styles/mui/autocomplete";
 import { MuiButton } from "@/styles/mui/button";
 import { MuiCheckbox } from "@/styles/mui/checkbox";
+import { MuiPopper } from "@/styles/mui/popper";
 import { MuiTextField } from "@/styles/mui/text-field";
 
 const defaultTheme = createTheme();
@@ -31,8 +33,10 @@ export const lightTheme = createTheme({
   },
   components: {
     MuiAlert,
+    MuiAutocomplete,
     MuiButton,
     MuiCheckbox,
     MuiTextField,
+    MuiPopper,
   },
 });
