@@ -23,8 +23,5 @@ export interface TableDataProps {
   orderBy: Order;
   sortColumn: string;
 
-  ariaLabelSelectAllCheckbox?: string;
-  hasCheckboxes?: boolean;
-  onSelectChange?: (selectAll: boolean, selectedIds: Row["id"][]) => void;
   onSortColumn?: (key: Header["key"], orderBy: Order) => void;
 }
