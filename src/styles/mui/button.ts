@@ -29,6 +29,7 @@ export const MuiButton: Components["MuiButton"] = {
   styleOverrides: {
     root: {
       "boxShadow": "none",
+      "width": "100%",
       "&:hover": {
         boxShadow: "none",
       },
