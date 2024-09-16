@@ -1,5 +1,6 @@
 import { customVariantStyle } from "@/components/core/typography/styles";
 import { colors } from "@/config/palette";
+import rem from "@/utils/rem";
 
 export const MuiPopper = {
   styleOverrides: {
@@ -21,6 +22,9 @@ export const MuiPopper = {
               opacity: 1,
               backgroundColor: colors.surface.info.subdued,
             },
+          },
+          ".MuiCheckbox-root": {
+            padding: rem(0),
           },
         },
       },

@@ -1,3 +1,5 @@
+"use client";
+
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CloseIcon from "@mui/icons-material/Close";
@@ -51,6 +53,7 @@ export default function SelectMultiple({
       multiple={multiple}
       renderInput={renderInput}
       renderOption={renderOption}
+      renderTags={renderTags}
       disableCloseOnSelect={disableCloseOnSelect}
     />
   );

@@ -18,5 +18,6 @@ export const Default: Story = {
       { label: "Placeholder 3", value: 3 },
       { label: "Placeholder 4", value: 4 },
     ],
+    label: "Select",
   },
 };
