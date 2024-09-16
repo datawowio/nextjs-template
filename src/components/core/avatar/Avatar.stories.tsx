@@ -12,7 +12,6 @@ type Story = StoryObj<typeof Avatar>;
 
 export const Default: Story = {
   args: {
-    children: "Avatar",
     alt: "demo-avatar",
   },
 };

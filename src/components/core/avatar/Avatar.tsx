@@ -5,15 +5,10 @@ import type { AvatarProps } from "./types";
 import { customSizeStyle } from "./styles";
 
 export default function Avatar({
-  size = "lg",
   src = fallbackAvatar.src,
+  size = "lg",
+  sx,
   ...props
 }: AvatarProps) {
-  return (
-    <MUIAvatar
-      {...props}
-      src={src}
-      sx={{ ...customSizeStyle[size], ...props.sx }}
-    />
-  );
+  return <MUIAvatar {...props} sx={{ ...customSizeStyle[size], ...sx }} />;
 }
