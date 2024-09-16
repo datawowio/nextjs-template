@@ -4,6 +4,7 @@ import { routing } from "@/config/i18n";
 
 import LocaleProvider from "@/providers/locale-provider";
 import MuiThemeProvider from "@/providers/mui-theme-provider";
+import ToastProvider from "@/providers/toast-provider";
 
 import "@/styles/global.css";
 
@@ -38,7 +39,9 @@ export default function RootLayout({
     <html lang={locale}>
       <body>
         <LocaleProvider>
-          <MuiThemeProvider>{children}</MuiThemeProvider>
+          <MuiThemeProvider>
+            <ToastProvider>{children} </ToastProvider>
+          </MuiThemeProvider>
         </LocaleProvider>
       </body>
     </html>
