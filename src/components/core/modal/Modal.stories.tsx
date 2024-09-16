@@ -36,7 +36,6 @@ export const Default: Story = {
     const [{ open }, updateArgs] = useArgs();
 
     function onClose() {
-      console.log("closed");
       updateArgs({ open: false });
     }
 
