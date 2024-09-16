@@ -1,0 +1,47 @@
+import { Checkbox } from "@mui/material";
+import Autocomplete from "./Autocomplete";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import type { Meta, StoryObj } from "@storybook/react";
+import TextField from "@/components/core/text-field/TextField";
+
+const meta: Meta<typeof Autocomplete> = {
+  component: Autocomplete,
+  title: "Core/Autocomplete",
+};
+
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
+export default meta;
+
+type Story = StoryObj<typeof Autocomplete>;
+
+export const Default: Story = {
+  args: {
+    options: [
+      { label: "option 1", value: 1 },
+      { label: "option 2", value: 2 },
+    ],
+    multiple: true,
+    disablePortal: true,
+    disableCloseOnSelect: true,
+    renderInput: (params) => {
+      return <TextField {...params} label="Movie" />;
+    },
+    renderOption: (props, option, { selected }) => {
+      const { key, ...optionProps } = props;
+      return (
+        <li key={key} {...optionProps}>
+          <Checkbox
+            icon={icon}
+            checkedIcon={checkedIcon}
+            style={{ marginRight: 8 }}
+            checked={selected}
+          />
+          {option.label}
+        </li>
+      );
+    },
+  },
+};
