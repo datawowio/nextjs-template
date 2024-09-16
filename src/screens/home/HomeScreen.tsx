@@ -10,7 +10,6 @@ import Image from "next/image";
 import logo from "@/assets/images/brands/logo.svg";
 import Button from "@/components/core/button";
 import Input from "@/components/core/input";
-import SelectMultiple from "@/components/core/select-multiple";
 import Typography from "@/components/core/typography";
 import { useToast } from "@/hooks/use-toast";
 
@@ -40,10 +39,6 @@ export default function HomeScreen() {
             {t("cta")}
           </Button>
           <Input label="Enter your name" />
-          <SelectMultiple
-            options={[{ label: "placeholder 1", value: 1 }]}
-            label="Select Multiple"
-          />
         </Stack>
       </Card>
     </Box>

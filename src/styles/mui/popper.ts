@@ -24,7 +24,7 @@ export const MuiPopper = {
             },
           },
           ".MuiCheckbox-root": {
-            padding: rem(0),
+            padding: 0,
           },
         },
       },

@@ -8,7 +8,7 @@ export const MuiAutocomplete = {
       ".MuiTextField-root": {
         ".MuiOutlinedInput-input": {
           padding: `${rem(12)} ${rem(14)} ${rem(12)} ${rem(4)}`,
-          height: "1.5rem",
+          height: rem(24),
           ...customVariantStyle["regularParagraphLG"],
         },
       },
@@ -28,7 +28,7 @@ export const MuiAutocomplete = {
             ".MuiChip-deleteIcon": {
               color: colors.text.primary.message,
               fontSize: rem(16),
-              margin: "-3px 8px 0 -6px",
+              margin: `${rem(-3)} ${rem(8)} 0 ${rem(-6)}`,
             },
           },
           "&.MuiAutocomplete-popupIndicator": {
