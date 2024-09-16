@@ -17,7 +17,7 @@ export const Default: Story = {
       headers: [
         { key: "id", label: "ID", hidden: true },
         { key: "name", label: "Name" },
-        { key: "email", label: "email" },
+        { key: "email", label: "Email" },
         { key: "sex", label: "Sex" },
         { key: "gender", label: "Gender" },
         { key: "status", label: "Status" },

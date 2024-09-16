@@ -2,22 +2,22 @@ import { render, screen } from "@testing-library/react";
 import TableDataSurface from "./TableDataSurface";
 
 describe("TableDataSurface Component", () => {
-  it('renders with the default "outlined" variant', () => {
+  it('renders with the default "elevation" variant', () => {
     render(<TableDataSurface data-testid="surface" />);
 
     const surfaceElement = screen.getByTestId("surface");
 
     expect(surfaceElement).toBeInTheDocument();
-    expect(surfaceElement).toHaveClass("MuiPaper-outlined");
+    expect(surfaceElement).toHaveClass("MuiPaper-elevation0");
   });
 
   it("renders with a custom variant", () => {
-    render(<TableDataSurface variant="elevation" data-testid="surface" />);
+    render(<TableDataSurface variant="outlined" data-testid="surface" />);
 
     const surfaceElement = screen.getByTestId("surface");
 
     expect(surfaceElement).toBeInTheDocument();
-    expect(surfaceElement).toHaveClass("MuiPaper-elevation");
+    expect(surfaceElement).toHaveClass("MuiPaper-outlined");
   });
 
   it("passes additional props correctly", () => {
@@ -26,7 +26,7 @@ describe("TableDataSurface Component", () => {
         data-testid="surface"
         square={true}
         style={{ backgroundColor: "lightblue" }}
-        variant="elevation"
+        variant="outlined"
       />,
     );
 
@@ -34,7 +34,7 @@ describe("TableDataSurface Component", () => {
 
     expect(surfaceElement).toBeInTheDocument();
     expect(surfaceElement).toHaveStyle({ backgroundColor: "lightblue" });
-    expect(surfaceElement).toHaveClass("MuiPaper-elevation");
+    expect(surfaceElement).toHaveClass("MuiPaper-outlined");
     expect(surfaceElement).not.toHaveClass("MuiPaper-rounded");
   });
 });

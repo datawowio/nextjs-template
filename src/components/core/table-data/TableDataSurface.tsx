@@ -2,8 +2,8 @@ import Paper from "@mui/material/Paper";
 import type { PaperProps } from "@mui/material/Paper";
 
 export default function TableDataSurface({
-  variant = "outlined",
+  elevation = 0,
   ...props
 }: PaperProps) {
-  return <Paper {...props} variant={variant} />;
+  return <Paper {...props} elevation={elevation} />;
 }

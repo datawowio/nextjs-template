@@ -8,7 +8,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 
+import Typography from "@/components/core/typography";
+
 import TableDataSurface from "./TableDataSurface";
+import { getIconComponent } from "./helpers";
+import { styles } from "./styles";
 
 import type { Header, TableDataProps } from "./types";
 
@@ -24,7 +28,6 @@ export default function TableData({
 
   // Event handlers
   function handleClickSortColumn(key: Header["key"]) {
-    console.log({ key, sortColumn, orderBy });
     if (key === sortColumn && orderBy === "asc") {
       onSortColumn?.(key, "desc");
     } else {
@@ -41,13 +44,23 @@ export default function TableData({
               <TableCell
                 key={key}
                 sortDirection={sortColumn === key ? orderBy : false}
+                sx={styles.headerCell}
               >
                 <TableSortLabel
                   active={sortColumn === key}
                   direction={sortColumn === key ? orderBy : "asc"}
                   onClick={() => handleClickSortColumn(key)}
+                  IconComponent={() =>
+                    getIconComponent(key, sortColumn, orderBy)
+                  }
+                  sx={styles.sortLabel}
                 >
-                  {label}
+                  <Typography
+                    component="span"
+                    customVariant="mediumParagraphMD"
+                  >
+                    {label}
+                  </Typography>
                 </TableSortLabel>
               </TableCell>
             ))}
@@ -55,7 +68,7 @@ export default function TableData({
         </TableHead>
         <TableBody>
           {data.rows.map((row) => (
-            <TableRow key={row.id}>
+            <TableRow key={row.id} sx={styles.bodyCell}>
               {visibleHeaders.map(({ key }) => (
                 <TableCell key={`${row.id}-${key}`}>{row[key]}</TableCell>
               ))}
