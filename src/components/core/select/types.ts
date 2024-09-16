@@ -2,6 +2,7 @@ import type {
   AutocompleteRenderInputParams,
   AutocompleteProps as MUIAutocompleteProps,
 } from "@mui/material/Autocomplete";
+import type { ReactNode } from "react";
 
 export interface AutocompleteProps<
   T = any,
@@ -12,6 +13,6 @@ export interface AutocompleteProps<
     MUIAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>,
     "renderInput"
   > {
-  label?: string;
-  renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
+  label: string;
+  renderInput?: (params: AutocompleteRenderInputParams) => ReactNode;
 }

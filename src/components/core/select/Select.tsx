@@ -8,17 +8,22 @@ import Input from "@/components/core/input";
 import type { AutocompleteProps } from "./types";
 
 export default function Select({
-  popupIcon = <ExpandMore />,
+  label,
+  popupIcon,
   multiple = false,
-  renderInput = (params) => <Input {...params} label={props?.label} />,
+  renderInput,
   ...props
 }: AutocompleteProps) {
   return (
     <MUIAutocomplete
       {...props}
-      popupIcon={popupIcon}
+      popupIcon={popupIcon ? popupIcon : <ExpandMore />}
       multiple={multiple}
-      renderInput={renderInput}
+      renderInput={
+        renderInput
+          ? renderInput
+          : (params) => <Input {...params} label={label} />
+      }
     />
   );
 }
