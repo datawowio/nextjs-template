@@ -6,6 +6,7 @@ import { MuiAlert } from "@/styles/mui/alert";
 import { MuiAutocomplete } from "@/styles/mui/autocomplete";
 import { MuiButton } from "@/styles/mui/button";
 import { MuiCheckbox } from "@/styles/mui/checkbox";
+import { MuiPagination } from "@/styles/mui/pagination";
 import { MuiPopper } from "@/styles/mui/popper";
 import { MuiTextField } from "@/styles/mui/text-field";
 
@@ -37,6 +38,7 @@ export const lightTheme = createTheme({
     MuiButton,
     MuiCheckbox,
     MuiTextField,
+    MuiPagination,
     MuiPopper,
   },
 });
