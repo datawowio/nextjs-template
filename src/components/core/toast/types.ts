@@ -3,7 +3,7 @@ import type { SnackbarProps as MUISnackbarprops } from "@mui/material/Snackbar";
 
 export interface AlertProps extends MUIAlertProps {}
 
-export interface SnackbarProps extends MUISnackbarprops {
+export interface ToastProps extends MUISnackbarprops {
   alertProps?: AlertProps;
   status?: AlertProps["severity"];
 }
