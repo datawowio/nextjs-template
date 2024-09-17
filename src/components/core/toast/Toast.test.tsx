@@ -1,17 +1,23 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import Toast from "./Toast";
 
-jest.mock("@mui/icons-material/CheckCircleOutline", () => () => (
-  <svg data-testid="success-icon" />
-));
+jest.mock("@mui/icons-material/CheckCircleOutline", () => {
+  return function SuccessIcon() {
+    return <svg data-testid="success-icon" />;
+  };
+});
 
-jest.mock("@mui/icons-material/Warning", () => () => (
-  <svg data-testid="warning-icon" />
-));
+jest.mock("@mui/icons-material/Warning", () => {
+  return function WarningIcon() {
+    return <svg data-testid="warning-icon" />;
+  };
+});
 
-jest.mock("@mui/icons-material/InfoOutlined", () => () => (
-  <svg data-testid="info-icon" />
-));
+jest.mock("@mui/icons-material/InfoOutlined", () => {
+  return function InfoIcon() {
+    return <svg data-testid="info-icon" />;
+  };
+});
 
 describe("Toast Component", () => {
   const defaultProps = {
