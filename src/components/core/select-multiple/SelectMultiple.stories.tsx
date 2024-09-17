@@ -12,7 +12,6 @@ type Story = StoryObj<typeof SelectMultiple>;
 
 export const Default: Story = {
   args: {
-    open: true,
     label: "Select",
     options: [
       { label: "Placeholder 1", value: 1 },
