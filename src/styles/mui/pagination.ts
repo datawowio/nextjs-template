@@ -10,6 +10,8 @@ export const MuiPagination: Components["MuiPagination"] = {
         color: colors.text.primary.message,
         ...customVariantStyle["regularParagraphLG"],
         paddingTop: rem(1),
+        borderRadius: rem(2),
+        margin: `0 ${rem(2)}`,
       },
       ".MuiPaginationItem-page": {
         "&:hover": {
