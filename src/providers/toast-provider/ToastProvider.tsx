@@ -2,30 +2,32 @@
 
 import React from "react";
 import { useImmer } from "use-immer";
+
 import Toast from "@/components/core/toast";
 import { ToastContext } from "@/contexts/toast";
 
 import type { SnackbarCloseReason } from "@mui/material/Snackbar";
-import type { SnackbarProps } from "@/components/core/toast";
-import type { ToastProviderProps } from "./types";
+import type { SyntheticEvent } from "react";
+import type { State, ToastProviderProps } from "./types";
 
 export default function ToastProvider({ children }: ToastProviderProps) {
-  const [state, setState] = useImmer<SnackbarProps>({
-    message: "",
-    status: "info",
-    open: false,
+  const [state, setState] = useImmer<State>({
     autoHideDuration: 3000,
+    message: "",
+    open: false,
+    status: "info",
   });
 
   const showToast = (
     message: string,
-    status: SnackbarProps["status"] = "info",
+    status: State["status"] = "info",
     autoHideDuration?: number,
   ) => {
     setState((draft) => {
       draft.message = message;
       draft.status = status;
       draft.open = true;
+
       if (autoHideDuration) {
         draft.autoHideDuration = autoHideDuration;
       }
@@ -39,7 +41,7 @@ export default function ToastProvider({ children }: ToastProviderProps) {
   };
 
   const handleClose = (
-    _event?: React.SyntheticEvent | Event,
+    _event?: SyntheticEvent | Event,
     reason?: SnackbarCloseReason,
   ) => {
     if (reason === "clickaway") {
@@ -54,12 +56,12 @@ export default function ToastProvider({ children }: ToastProviderProps) {
     <ToastContext.Provider value={{ showToast, hideToast }}>
       {children}
       <Toast
-        open={state.open}
-        onClose={handleClose}
-        message={state.message}
-        status={state.status}
-        autoHideDuration={state.autoHideDuration}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        autoHideDuration={state.autoHideDuration}
+        message={state.message}
+        onClose={handleClose}
+        open={state.open}
+        status={state.status}
       />
     </ToastContext.Provider>
   );

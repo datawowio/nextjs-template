@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-import type { SnackbarProps } from "@/components/core/toast";
+import type { ToastProps } from "@/components/core/toast";
 
-export interface ToastContextProps {
-  showToast: (message: string, status?: SnackbarProps["status"]) => void;
-  hideToast: () => void;
-}
+export type State = Pick<
+  ToastProps,
+  "autoHideDuration" | "message" | "open" | "status"
+>;
 
 export interface ToastProviderProps {
   children: ReactNode;
