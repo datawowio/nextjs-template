@@ -1,44 +1,44 @@
 import MUICheckbox from "@mui/material/Checkbox";
-import Stack from "@mui/material/Stack";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
-import Typography from "@/components/core/typography";
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
 
-import { getCustomTextVariant } from "./helpers";
 import { BpCheckedIcon, BpIcon, BpIndeterminateIcon } from "./styles";
 
 import type { CheckboxProps } from "./types";
 
 export default function Checkbox({
   disabled,
+  disableTypography = false,
   label,
   size = "small",
-
   ...props
 }: CheckboxProps) {
   return (
-    <Stack direction="row" alignItems="center">
-      <MUICheckbox
-        {...props}
-        disabled={disabled}
-        checkedIcon={<BpCheckedIcon className={size} />}
-        icon={<BpIcon className={size} />}
-        indeterminateIcon={<BpIndeterminateIcon className={size} />}
-      />
-      {label && (
-        <Typography
-          customVariant={getCustomTextVariant(size)}
-          sx={{
+    <FormControlLabel
+      className={size}
+      control={
+        <MUICheckbox
+          {...props}
+          checkedIcon={<BpCheckedIcon className={size} />}
+          disabled={disabled}
+          icon={<BpIcon className={size} />}
+          indeterminateIcon={<BpIndeterminateIcon className={size} />}
+        />
+      }
+      disableTypography={disableTypography}
+      label={label}
+      slotProps={{
+        typography: {
+          sx: {
             color: disabled
               ? colors.text.placeholder.disabled
               : colors.text.primary.message,
-            marginTop: rem(1),
-          }}
-        >
-          {label}
-        </Typography>
-      )}
-    </Stack>
+            marginTop: rem(2),
+          },
+        },
+      }}
+    />
   );
 }

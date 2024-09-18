@@ -1,4 +1,3 @@
-import rem from "@/utils/rem";
 import type { Components } from "@mui/material";
 
 export const MuiCheckbox: Components["MuiCheckbox"] = {
@@ -14,24 +13,4 @@ export const MuiCheckbox: Components["MuiCheckbox"] = {
       },
     },
   },
-  variants: [
-    {
-      props: { size: "small" },
-      style: {
-        marginRight: rem(8),
-      },
-    },
-    {
-      props: { size: "medium" },
-      style: {
-        marginRight: rem(12),
-      },
-    },
-    {
-      props: { size: "large" },
-      style: {
-        marginRight: rem(12),
-      },
-    },
-  ],
 };
