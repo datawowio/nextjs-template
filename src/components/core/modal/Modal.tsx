@@ -1,11 +1,7 @@
 import MUIModal from "@mui/material/Modal";
 import type { ModalProps } from "./types";
 
-export default function Modal({
-  open,
-  children = <></>,
-  ...props
-}: ModalProps) {
+export default function Modal({ open, children, ...props }: ModalProps) {
   return (
     <MUIModal
       {...props}

@@ -1,5 +1,6 @@
 import { Box, Card } from "@mui/material";
 import { useArgs } from "@storybook/preview-api";
+
 import { colors } from "@/config/palette";
 import Typography from "@/components/core/typography";
 import rem from "@/utils/rem";

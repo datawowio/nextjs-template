@@ -31,6 +31,7 @@ function DefaultDialog() {
   function onClose() {
     updateArgs({ open: false });
   }
+
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>{"Use Google's location service?"}</DialogTitle>

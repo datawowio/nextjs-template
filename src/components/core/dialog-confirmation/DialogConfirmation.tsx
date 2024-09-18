@@ -4,7 +4,7 @@ import type { DialogConfirmationProps } from "./types";
 
 export default function DialogConfirmation({
   open,
-  children = <></>,
+  children,
   cancelText,
   confirmText,
   description,
@@ -14,20 +14,18 @@ export default function DialogConfirmation({
   onConfirm,
   ...props
 }: DialogConfirmationProps) {
-  const onCancelHandler = (
-    e?: {},
-    reason?: "backdropClick" | "escapeKeyDown",
-  ) => {
+  function onCancelHandler(e?: {}, reason?: "backdropClick" | "escapeKeyDown") {
     onClose?.({}, "backdropClick");
     onCancel?.(e, reason);
-  };
+  }
 
-  const onConfirmHandler = (
+  function onConfirmHandler(
     e?: {},
     reason?: "backdropClick" | "escapeKeyDown",
-  ) => {
+  ) {
     onConfirm?.(e, reason);
-  };
+  }
+
   return (
     <Dialog
       {...props}

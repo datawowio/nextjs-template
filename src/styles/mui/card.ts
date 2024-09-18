@@ -14,7 +14,7 @@ export const MuiCard: Components["MuiCard"] = {
       "borderRadius": rem(16),
 
       "&.modal": {
-        minWidth: "600px",
+        minWidth: rem(600),
       },
 
       ".MuiCardContent-root": {
