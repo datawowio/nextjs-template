@@ -11,6 +11,7 @@ import type { SyntheticEvent } from "react";
 import type { State, ToastProviderProps } from "./types";
 
 export default function ToastProvider({ children }: ToastProviderProps) {
+  // Hook
   const [state, setState] = useImmer<State>({
     autoHideDuration: 3000,
     message: "",
@@ -18,11 +19,31 @@ export default function ToastProvider({ children }: ToastProviderProps) {
     status: "info",
   });
 
-  const showToast = (
+  // Event handlers
+  function handleClose(
+    _event?: SyntheticEvent | Event,
+    reason?: SnackbarCloseReason,
+  ) {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setState((draft) => {
+      draft.open = false;
+    });
+  }
+
+  function hideToast() {
+    setState((draft) => {
+      draft.open = false;
+    });
+  }
+
+  function showToast(
     message: string,
     status: State["status"] = "info",
     autoHideDuration?: number,
-  ) => {
+  ) {
     setState((draft) => {
       draft.message = message;
       draft.status = status;
@@ -32,25 +53,7 @@ export default function ToastProvider({ children }: ToastProviderProps) {
         draft.autoHideDuration = autoHideDuration;
       }
     });
-  };
-
-  const hideToast = () => {
-    setState((draft) => {
-      draft.open = false;
-    });
-  };
-
-  const handleClose = (
-    _event?: SyntheticEvent | Event,
-    reason?: SnackbarCloseReason,
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setState((draft) => {
-      draft.open = false;
-    });
-  };
+  }
 
   return (
     <ToastContext.Provider value={{ showToast, hideToast }}>

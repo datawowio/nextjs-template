@@ -1,8 +1,6 @@
-import { render, screen, fireEvent, act } from "@testing-library/react";
-import { useContext } from "react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 
-import { ToastContext } from "@/contexts/toast";
-
+import { useToast } from "@/hooks/use-toast";
 import ToastProvider from "./ToastProvider";
 
 describe("ToastProvider Component", () => {
@@ -49,10 +47,14 @@ describe("ToastProvider Component", () => {
       jest.advanceTimersByTime(200);
     });
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     expect(screen.queryByRole("presentation")).not.toBeInTheDocument();
   });
 
-  xit("auto-hides the toast after the specified duration", () => {
+  it("auto-hides the toast after the specified duration", () => {
     render(
       <ToastProvider>
         <TestComponent />
@@ -63,7 +65,11 @@ describe("ToastProvider Component", () => {
     expect(screen.getByRole("presentation")).toBeInTheDocument();
 
     act(() => {
-      jest.advanceTimersByTime(5000);
+      jest.advanceTimersByTime(3000);
+    });
+
+    act(() => {
+      jest.runAllTimers();
     });
 
     expect(screen.queryByRole("presentation")).not.toBeInTheDocument();
@@ -82,8 +88,13 @@ describe("ToastProvider Component", () => {
     expect(toast).toBeInTheDocument();
 
     fireEvent.click(toast.querySelector("button")!);
+
     act(() => {
       jest.advanceTimersByTime(200);
+    });
+
+    act(() => {
+      jest.runAllTimers();
     });
 
     expect(screen.queryByRole("presentation")).not.toBeInTheDocument();
@@ -105,20 +116,20 @@ describe("ToastProvider Component", () => {
 });
 
 /*
- *
+ * Test helper
  */
 
 function TestComponent() {
   // Hook
-  const context = useContext(ToastContext);
+  const context = useToast();
 
   // Event handlers
   function handleClickShowToast() {
-    context?.showToast("Test message", "success");
+    context.showToast("Test message", "success", 3000);
   }
 
   function handleClickHideToast() {
-    context?.hideToast();
+    context.hideToast();
   }
 
   return (
