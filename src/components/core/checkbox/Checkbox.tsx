@@ -9,14 +9,14 @@ import type { CheckboxProps } from "./types";
 
 export default function Checkbox({
   disabled,
+  disableTypography = false,
   label,
   size = "small",
-  labelProps,
   ...props
 }: CheckboxProps) {
   return (
     <FormControlLabel
-      {...labelProps}
+      className={size}
       control={
         <MUICheckbox
           {...props}
@@ -26,8 +26,8 @@ export default function Checkbox({
           indeterminateIcon={<BpIndeterminateIcon className={size} />}
         />
       }
+      disableTypography={disableTypography}
       label={label}
-      className={size}
       slotProps={{
         typography: {
           sx: {
