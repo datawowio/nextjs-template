@@ -1,8 +1,9 @@
-import FormControlLabel from "@mui/material/FormControlLabel";
 import MUICheckbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
+
 import { BpCheckedIcon, BpIcon, BpIndeterminateIcon } from "./styles";
 
 import type { CheckboxProps } from "./types";
@@ -20,8 +21,8 @@ export default function Checkbox({
       control={
         <MUICheckbox
           {...props}
-          disabled={disabled}
           checkedIcon={<BpCheckedIcon className={size} />}
+          disabled={disabled}
           icon={<BpIcon className={size} />}
           indeterminateIcon={<BpIndeterminateIcon className={size} />}
         />
