@@ -40,7 +40,7 @@ function DefaultDialog() {
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>
         <Typography component="span" customVariant="boldHeadingMD">
-          Use Google's location service?
+          Use Google&apos;s location service?
         </Typography>
       </DialogTitle>
       <DialogContent>
