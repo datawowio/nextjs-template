@@ -4,7 +4,7 @@
     "description": "Welcome to the DataWow Next.js Boilerplate. Get started by exploring the features and components included.",
     "heading": "Hello, Welcome to DataWow!",
     "logoAlt": "DataWow Logo",
-    "modalTitle": "ยืนยันการแก้ไขสิทธิ์",
+    "modalTitle": "Confirm the modification of permissions",
     "modalDescription": "กรุณายืนยันการแก้ไขสิทธิ์ของ สถาพร คำเมือง"
   }
 }
