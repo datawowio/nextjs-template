@@ -6,6 +6,7 @@ import type { Components } from "@mui/material";
 
 // NOTE: Edit these styles will effects these components:
 // - core/input
+// - input-password
 
 export const MuiInputLabel: Components["MuiInputLabel"] = {
   styleOverrides: {
