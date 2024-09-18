@@ -1,4 +1,6 @@
 import Toast from "./Toast";
+import { useArgs } from "@storybook/preview-api";
+
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Toast> = {
@@ -15,7 +17,16 @@ export const Default: Story = {
     anchorOrigin: { vertical: "top", horizontal: "right" },
     message: "This is a success Alert inside a Snackbar!",
     status: "error",
-    onClose: () => {},
     open: true,
+    autoHideDuration: 3000,
+  },
+  render: function DefaultToast(args) {
+    const [{ open }, updateArgs] = useArgs();
+
+    function onClose() {
+      updateArgs({ open: false });
+    }
+
+    return <Toast {...args} open={open} onClose={onClose} />;
   },
 };
