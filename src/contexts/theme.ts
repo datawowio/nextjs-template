@@ -10,6 +10,7 @@ import { MuiButton } from "@/styles/mui/button";
 import { MuiCard } from "@/styles/mui/card";
 import { MuiCheckbox } from "@/styles/mui/checkbox";
 import { MuiDialog } from "@/styles/mui/dialog";
+import { MuiFormControlLabel } from "@/styles/mui/form-control-label";
 import { MuiPagination } from "@/styles/mui/pagination";
 import { MuiPopper } from "@/styles/mui/popper";
 import { MuiTextField } from "@/styles/mui/text-field";
@@ -43,6 +44,7 @@ export const lightTheme = createTheme({
     MuiCard,
     MuiCheckbox,
     MuiDialog,
+    MuiFormControlLabel,
     MuiTextField,
     MuiPagination,
     MuiPopper,
