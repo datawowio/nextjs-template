@@ -1,20 +1,8 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@/components/core/typography";
-import { colors } from "@/config/palette";
+import NumberTypography from "./NumberTypography";
 
 import type { PaginationInfoProps } from "./types";
-
-function NumberTypography({ number }: { number: Number }) {
-  return (
-    <Typography
-      component="span"
-      sx={{ color: colors.text.primary.header, mx: "8px" }}
-      customVariant="mediumParagraphLG"
-    >
-      <>{number}</>
-    </Typography>
-  );
-}
 
 export default function PaginationInfo({
   page,
@@ -29,16 +17,18 @@ export default function PaginationInfo({
     <Stack direction="row" gap="4px" pt="1px">
       <Typography customVariant="regularParagraphLG">
         {messages?.display}
-        <NumberTypography number={startItemCount} />
+        <NumberTypography>{startItemCount}</NumberTypography>
         {messages?.to}
-        <NumberTypography number={endItemCount} />
+        <NumberTypography>{endItemCount}</NumberTypography>
         {messages?.total}
-        <NumberTypography number={filteredItems ? filteredItems : totalItems} />
+        <NumberTypography>
+          {filteredItems ? filteredItems : totalItems}
+        </NumberTypography>
         {messages?.info}
       </Typography>
       {filteredItems && (
         <Typography>
-          ({messages?.filter} <NumberTypography number={totalItems} />{" "}
+          ({messages?.filter} <NumberTypography>{totalItems}</NumberTypography>{" "}
           {messages?.info})
         </Typography>
       )}
