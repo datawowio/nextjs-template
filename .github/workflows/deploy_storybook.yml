@@ -1,7 +1,7 @@
 name: Deploy Storybook
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -14,12 +14,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: github-pages
+    env:
+      NEXT_PUBLIC_BASE_STORYBOOK_URL: ${{ vars.NEXT_PUBLIC_BASE_STORYBOOK_URL }}
 
     steps:
       - id: build-publish
         uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
-        env:
-          NEXT_PUBLIC_BASE_STORYBOOK_URL: ${{ secrets.NEXT_PUBLIC_BASE_STORYBOOK_URL }}
         with:
           build_command: yarn build-storybook
           install_command: yarn install --frozen-lockfile
