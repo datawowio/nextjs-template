@@ -14,9 +14,8 @@ type Story = StoryObj<typeof Toast>;
 
 export const Default: Story = {
   args: {
-    autoHideDuration: 1000,
     anchorOrigin: { vertical: "top", horizontal: "right" },
-    autoHideDuration: 3000,
+    autoHideDuration: 1000,
     message: "This is a success Alert inside a Snackbar!",
     open: true,
     status: "error",
