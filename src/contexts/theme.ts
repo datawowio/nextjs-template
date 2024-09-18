@@ -11,9 +11,10 @@ import { MuiCard } from "@/styles/mui/card";
 import { MuiCheckbox } from "@/styles/mui/checkbox";
 import { MuiDialog } from "@/styles/mui/dialog";
 import { MuiFormControlLabel } from "@/styles/mui/form-control-label";
+import { MuiInputLabel } from "@/styles/mui/input-label";
+import { MuiOutlinedInput } from "@/styles/mui/outlined-input";
 import { MuiPagination } from "@/styles/mui/pagination";
 import { MuiPopper } from "@/styles/mui/popper";
-import { MuiTextField } from "@/styles/mui/text-field";
 
 const defaultTheme = createTheme();
 const fontFamily = [
@@ -45,7 +46,8 @@ export const lightTheme = createTheme({
     MuiCheckbox,
     MuiDialog,
     MuiFormControlLabel,
-    MuiTextField,
+    MuiInputLabel,
+    MuiOutlinedInput,
     MuiPagination,
     MuiPopper,
   },
