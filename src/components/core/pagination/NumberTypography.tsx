@@ -1,10 +1,11 @@
 import Typography from "@/components/core/typography";
 import { colors } from "@/config/palette";
+import type { ReactNode } from "react";
 
 export default function NumberTypography({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <Typography

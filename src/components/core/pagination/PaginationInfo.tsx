@@ -13,6 +13,7 @@ export default function PaginationInfo({
 }: PaginationInfoProps) {
   const startItemCount = page ? (page > 1 ? (page - 1) * limit + 1 : page) : 1;
   const endItemCount = startItemCount + limit - 1;
+
   return (
     <Stack direction="row" gap="4px" pt="1px">
       <Typography customVariant="regularParagraphLG">
