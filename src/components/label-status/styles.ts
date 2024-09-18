@@ -23,8 +23,8 @@ export const customStatusStyle: CustomStatusVariantStyle = {
 };
 
 export const statusIconStyle: CSSProperties = {
-  width: 8,
-  height: 8,
-  borderRadius: "100%",
   marginTop: rem(-2),
+  borderRadius: "100%",
+  width: rem(8),
+  height: rem(8),
 };

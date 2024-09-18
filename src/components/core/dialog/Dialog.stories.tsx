@@ -5,6 +5,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useArgs } from "@storybook/preview-api";
 
 import Button from "@/components/core/button";
+import Typography from "@/components/core/typography";
+
 import Dialog from "./Dialog";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -26,23 +28,31 @@ export const Default: Story = {
 };
 
 function DefaultDialog() {
+  // Hook
   const [{ open }, updateArgs] = useArgs();
 
+  // Event handler
   function onClose() {
     updateArgs({ open: false });
   }
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+      <DialogTitle>
+        <Typography component="span" customVariant="boldHeadingMD">
+          Use Google&apos;s location service?
+        </Typography>
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-slide-description">
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
+        <DialogContentText id="alert-dialog-slide-description" py={2}>
+          <Typography component="span" customVariant="regularParagraphLG">
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
+          </Typography>
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" color="error">
+        <Button variant="outlined" color="error">
           Disagree
         </Button>
         <Button variant="contained" color="success">

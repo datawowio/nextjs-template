@@ -12,15 +12,15 @@ export default function LabelStatus({
   text,
 }: LabelStatusProps) {
   return (
-    <Stack direction="row" gap={rem(4)} alignItems="center">
+    <Stack alignItems="center" direction="row" gap={rem(4)}>
       <Box
         sx={{
           backgroundColor: customStatusStyle[status].color,
           ...statusIconStyle,
         }}
-        data-testid="box"
       />
       <Typography
+        component="span"
         customVariant="mediumParagraphSM"
         sx={{ textTransform: "uppercase", ...customStatusStyle[status] }}
       >

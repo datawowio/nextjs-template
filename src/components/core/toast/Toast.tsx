@@ -6,33 +6,40 @@ import WarningIcon from "@mui/icons-material/Warning";
 
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
+import clsx from "clsx";
 
-import type { SnackbarProps } from "./types";
+import type { ToastProps } from "./types";
 
-export default function Toast({ alertProps, ...props }: SnackbarProps) {
+export default function Toast({
+  alertProps,
+  anchorOrigin,
+  message,
+  onClose,
+  open,
+  status,
+  ...props
+}: ToastProps) {
   return (
     <Snackbar
       {...props}
-      open={props.open}
-      onClose={props?.onClose}
-      anchorOrigin={
-        { vertical: "top", horizontal: "right" } ?? props.anchorOrigin
-      }
+      anchorOrigin={anchorOrigin || { vertical: "top", horizontal: "right" }}
+      open={open}
+      onClose={onClose}
     >
       <Alert
         {...alertProps}
-        className={`${alertProps?.className} toast`}
-        sx={{ ...alertProps?.sx, width: "100%" }}
+        className={clsx(["toast", alertProps?.className])}
         iconMapping={{
-          success: <CheckCircleOutlineIcon />,
           error: <WarningIcon />,
           info: <InfoOutlinedIcon />,
+          success: <CheckCircleOutlineIcon />,
           warning: <WarningIcon />,
         }}
-        severity={props?.status}
-        onClose={(e) => props?.onClose?.(e, "escapeKeyDown")}
+        onClose={(e) => onClose?.(e, "escapeKeyDown")}
+        severity={status}
+        sx={{ width: "100%", ...alertProps?.sx }}
       >
-        {props?.message}
+        {message}
       </Alert>
     </Snackbar>
   );

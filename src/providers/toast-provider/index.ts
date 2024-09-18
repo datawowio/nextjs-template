@@ -1,2 +1,2 @@
 export { default } from "./ToastProvider";
-export type { ToastContextProps, ToastProviderProps } from "./types";
+export type { ToastProviderProps } from "./types";

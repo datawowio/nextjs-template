@@ -1,18 +1,20 @@
 import MUICheckbox from "@mui/material/Checkbox";
 import Stack from "@mui/material/Stack";
+
 import Typography from "@/components/core/typography";
+import { colors } from "@/config/palette";
+import rem from "@/utils/rem";
 
 import { getCustomTextVariant } from "./helpers";
 import { BpCheckedIcon, BpIcon, BpIndeterminateIcon } from "./styles";
 
 import type { CheckboxProps } from "./types";
-import { colors } from "@/config/palette";
-import rem from "@/utils/rem";
 
 export default function Checkbox({
-  size = "small",
-  label,
   disabled,
+  label,
+  size = "small",
+
   ...props
 }: CheckboxProps) {
   return (

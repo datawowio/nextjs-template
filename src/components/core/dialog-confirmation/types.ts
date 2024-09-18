@@ -2,13 +2,13 @@ import type { DialogProps as MUIDialogProps } from "@mui/material/Dialog";
 import type { ReactNode } from "react";
 
 export interface ConfirmationProps {
-  title?: string;
-  children?: ReactNode;
   cancelText?: string;
+  children?: ReactNode;
   confirmText?: string;
   description?: string;
-  onConfirm?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
   onCancel?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
+  onConfirm?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
+  title?: string;
 }
 
 export interface DialogConfirmationProps

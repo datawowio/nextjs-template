@@ -12,12 +12,12 @@ type Story = StoryObj<typeof SelectMultiple>;
 
 export const Default: Story = {
   args: {
+    label: "Select",
     options: [
-      { label: "Placehoder 1", value: 1 },
+      { label: "Placeholder 1", value: 1 },
       { label: "Placeholder 2", value: 2 },
       { label: "Placeholder 3", value: 3 },
       { label: "Placeholder 4", value: 4 },
     ],
-    label: "Select",
   },
 };

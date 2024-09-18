@@ -1,11 +1,15 @@
 import { createContext } from "react";
-import type { SnackbarProps } from "@/components/core/toast";
+import type { ToastProps } from "@/components/core/toast";
 
-interface ToastContextProps {
-  showToast: (message: string, status?: SnackbarProps["status"]) => void;
+export interface ToastContextValue {
+  showToast: (
+    message: string,
+    status?: ToastProps["status"],
+    autoHideDuration?: number,
+  ) => void;
   hideToast: () => void;
 }
 
-export const ToastContext = createContext<ToastContextProps | undefined>(
+export const ToastContext = createContext<ToastContextValue | undefined>(
   undefined,
 );
