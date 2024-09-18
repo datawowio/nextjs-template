@@ -5,25 +5,28 @@ import Stack from "@mui/material/Stack";
 
 import Button from "@/components/core/button";
 import Typography from "@/components/core/typography";
+
 import { colors } from "@/config/palette";
+import rem from "@/utils/rem";
+
 import type { ConfirmationProps } from "./types";
 
 export default function DialogConfirmationContent({
-  title,
-  description,
   cancelText,
-  confirmText,
   children,
+  confirmText,
+  description,
   onCancel,
   onConfirm,
+  title,
 }: ConfirmationProps) {
   return (
     <>
       {title && (
         <DialogTitle>
           <Typography
-            customVariant="boldHeadingMD"
             color={colors.surface.primary.darkBlue}
+            customVariant="boldHeadingMD"
           >
             {title}
           </Typography>
@@ -33,8 +36,8 @@ export default function DialogConfirmationContent({
         <Stack gap={2}>
           {description && (
             <Typography
-              customVariant="regularParagraphLG"
               color={colors.text.primary.subHeader1}
+              customVariant="regularParagraphLG"
             >
               {description}
             </Typography>
@@ -42,20 +45,20 @@ export default function DialogConfirmationContent({
           {children}
         </Stack>
         <DialogActions>
-          <Stack direction="row" gap={1} width={368} ml="auto">
+          <Stack direction="row" gap={1} ml="auto" width={rem(368)}>
             <Button
-              variant="outlined"
               color="primary"
-              size="small"
               onClick={() => onCancel?.()}
+              size="small"
+              variant="outlined"
             >
               {cancelText}
             </Button>
             <Button
-              variant="contained"
               color="error"
-              size="small"
               onClick={() => onConfirm?.()}
+              size="small"
+              variant="contained"
             >
               {confirmText}
             </Button>

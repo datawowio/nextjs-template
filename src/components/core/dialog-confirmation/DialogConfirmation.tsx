@@ -1,19 +1,21 @@
 import Dialog from "@/components/core/dialog";
 import DialogConfirmationContent from "./DialogConfirmationContent";
+
 import type { DialogConfirmationProps } from "./types";
 
 export default function DialogConfirmation({
-  open,
-  children,
   cancelText,
+  children,
   confirmText,
   description,
-  title,
   onClose,
   onCancel,
   onConfirm,
+  open,
+  title,
   ...props
 }: DialogConfirmationProps) {
+  // Hooks
   function onCancelHandler(e?: {}, reason?: "backdropClick" | "escapeKeyDown") {
     onClose?.({}, "backdropClick");
     onCancel?.(e, reason);
@@ -29,19 +31,19 @@ export default function DialogConfirmation({
   return (
     <Dialog
       {...props}
-      open={open}
-      onClose={onClose}
-      aria-labelledby="dialog-dialog-title"
       aria-describedby="dialog-dialog-description"
+      aria-labelledby="dialog-dialog-title"
       className="dialog-confirmation"
+      onClose={onClose}
+      open={open}
     >
       <DialogConfirmationContent
-        title={title}
-        description={description}
         cancelText={cancelText}
         confirmText={confirmText}
+        description={description}
         onCancel={onCancelHandler}
         onConfirm={onConfirmHandler}
+        title={title}
       >
         {children}
       </DialogConfirmationContent>
