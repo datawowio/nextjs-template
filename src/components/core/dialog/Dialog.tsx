@@ -1,11 +1,7 @@
 import MUIDialog from "@mui/material/Dialog";
 import type { DialogProps } from "./types";
 
-export default function Dialog({
-  open,
-  children = <></>,
-  ...props
-}: DialogProps) {
+export default function Dialog({ open, children, ...props }: DialogProps) {
   return (
     <MUIDialog
       {...props}

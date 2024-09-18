@@ -1,7 +1,7 @@
 {
   "common": {
-    "cancel": "ยกเลิก",
-    "confirm": "ยืนยัน",
-    "ok": "ตกลง"
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "ok": "Ok"
   }
 }

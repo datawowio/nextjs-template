@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
 import type { DialogProps as MUIDialogProps } from "@mui/material/Dialog";
+import type { ReactNode } from "react";
 
 export interface ConfirmationProps {
   title?: string;
