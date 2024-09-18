@@ -1,5 +1,5 @@
-import Toast from "./Toast";
 import { useArgs } from "@storybook/preview-api";
+import Toast from "./Toast";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
