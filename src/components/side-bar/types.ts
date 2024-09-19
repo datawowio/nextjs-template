@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export interface SidbarProps {
+export interface SideBarProps {
   children: ReactNode;
   open: boolean;
   drawerWidth?: number;
