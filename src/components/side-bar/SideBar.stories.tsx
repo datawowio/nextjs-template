@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Sidebar> = {
   component: Sidebar,
-  title: "Components/Sidebar",
+  title: "Components/SideBar",
 };
 
 export default meta;

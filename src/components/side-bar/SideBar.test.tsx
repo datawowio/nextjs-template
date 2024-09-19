@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import Sidebar from "./SideBar";
+import SideBar from "./SideBar";
 
-const mockChildren = <div data-testid="children">Sidebar Content</div>;
+const mockChildren = <div data-testid="children">SideBar Content</div>;
 
-describe("Sidebar Component", () => {
+describe("SideBar Component", () => {
   it("renders the Drawer with children", () => {
     render(
-      <Sidebar open={true} drawerWidth={240}>
+      <SideBar open={true} drawerWidth={240}>
         {mockChildren}
-      </Sidebar>,
+      </SideBar>,
     );
 
     expect(screen.getByTestId("children")).toBeInTheDocument();
@@ -17,9 +17,9 @@ describe("Sidebar Component", () => {
   it("applies the correct drawerWidth", () => {
     const drawerWidth = 300;
     render(
-      <Sidebar open={true} drawerWidth={drawerWidth}>
+      <SideBar open={true} drawerWidth={drawerWidth}>
         {mockChildren}
-      </Sidebar>,
+      </SideBar>,
     );
 
     const drawer = document.querySelector(".MuiDrawer-root");
@@ -27,14 +27,14 @@ describe("Sidebar Component", () => {
   });
 
   it("defaults to the drawerWidth of 240 if not provided", () => {
-    render(<Sidebar open={true}>{mockChildren}</Sidebar>);
+    render(<SideBar open={true}>{mockChildren}</SideBar>);
 
     const drawer = document.querySelector(".MuiDrawer-root");
     expect(drawer).toHaveStyle("width: 240px");
   });
 
   it("does NOT open when the open prop is false", () => {
-    render(<Sidebar open={false}>{mockChildren}</Sidebar>);
+    render(<SideBar open={false}>{mockChildren}</SideBar>);
 
     const drawerPaper = document.querySelector(".MuiDrawer-paper");
     expect(drawerPaper).toHaveStyle({
