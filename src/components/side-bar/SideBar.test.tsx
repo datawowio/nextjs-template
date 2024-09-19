@@ -26,7 +26,7 @@ describe("SideBar Component", () => {
     expect(drawer).toHaveStyle(`width: ${drawerWidth}px`);
   });
 
-  it("defaults to the drawerWidth of 240 if not provided", () => {
+  it("defaults the drawerWidth to 240 if NOT provided", () => {
     render(<SideBar open={true}>{mockChildren}</SideBar>);
 
     const drawer = document.querySelector(".MuiDrawer-root");

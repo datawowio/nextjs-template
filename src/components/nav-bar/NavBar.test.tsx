@@ -37,7 +37,7 @@ describe("Navbar Component", () => {
     expect(mockHandleDrawerToggle).toHaveBeenCalledTimes(1);
   });
 
-  it("should NOT render profile if profile prop is not provided", () => {
+  it("does NOT render profile if profile prop is not provided", () => {
     render(
       <Navbar handleDrawerToggle={mockHandleDrawerToggle} logo={mockLogo} />,
     );
