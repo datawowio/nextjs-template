@@ -2,13 +2,13 @@ import Box from "@mui/material/Box";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { AppBar, IconButton, Toolbar } from "./styles";
-import type { NavbarProps } from "./types";
+import type { NavBarProps } from "./types";
 
 export default function Navbar({
   handleDrawerToggle,
   logo,
   profile,
-}: NavbarProps) {
+}: NavBarProps) {
   return (
     <AppBar position="fixed">
       <Toolbar>
