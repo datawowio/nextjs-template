@@ -1,1 +1,1 @@
-export { default } from "@/layouts/layout-main";
+export { default } from "@/layouts/MainLayout";
