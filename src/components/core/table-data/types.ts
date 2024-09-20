@@ -23,5 +23,6 @@ export interface TableDataProps {
   orderBy: Order;
   sortColumn: string;
 
+  dataTestId?: string;
   onSortColumn?: (key: Header["key"], orderBy: Order) => void;
 }
