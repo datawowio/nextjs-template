@@ -1,9 +1,8 @@
-import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
-import { DrawerHeader, Main } from "./styles";
+import { Box, DrawerHeader, Main } from "./styles";
 
 import type { LayoutMainDefaultProps } from "./types";
 
@@ -16,7 +15,7 @@ export default function LayoutMainDefault({
   sideBarProps,
 }: LayoutMainDefaultProps) {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box>
       <CssBaseline />
       <NavBar {...navBarProps} handleDrawerToggle={handleDrawerToggle}></NavBar>
       <SideBar {...sideBarProps} open={open}></SideBar>

@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+import MUIBox from "@mui/material/Box";
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
 
@@ -32,4 +33,8 @@ export const DrawerHeader = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
+}));
+
+export const Box = styled(MUIBox)(() => ({
+  display: "flex",
 }));

@@ -8,6 +8,7 @@ import Typography from "@/components/core/typography";
 import LayoutMainDefault from "./LayoutMainDefault";
 
 import type { Meta, StoryObj } from "@storybook/react";
+
 const meta: Meta<typeof LayoutMainDefault> = {
   component: LayoutMainDefault,
   title: "Components/LayoutMainDefault",
