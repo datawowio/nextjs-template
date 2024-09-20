@@ -10,7 +10,7 @@ export default function Modal({
   return (
     <MUIModal
       {...props}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       open={open}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"

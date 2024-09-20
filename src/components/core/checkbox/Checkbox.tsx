@@ -28,7 +28,7 @@ export default function Checkbox({
           indeterminateIcon={<BpIndeterminateIcon className={size} />}
         />
       }
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       disableTypography={disableTypography}
       label={label}
       slotProps={{

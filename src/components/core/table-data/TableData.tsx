@@ -37,7 +37,7 @@ export default function TableData({
   }
 
   return (
-    <TableContainer component={TableDataSurface} data-test-id={dataTestId}>
+    <TableContainer component={TableDataSurface} data-testid={dataTestId}>
       <Table>
         <TableHead>
           <TableRow>

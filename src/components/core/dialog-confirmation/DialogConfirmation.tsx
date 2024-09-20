@@ -35,7 +35,7 @@ export default function DialogConfirmation({
       aria-describedby="dialog-dialog-description"
       aria-labelledby="dialog-dialog-title"
       className="dialog-confirmation"
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       onClose={onClose}
       open={open}
     >

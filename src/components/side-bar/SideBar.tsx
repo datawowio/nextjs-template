@@ -12,7 +12,7 @@ export default function Sidebar({
 }: SideBarProps) {
   return (
     <Drawer
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       open={open}
       sx={{
         width: drawerWidth,

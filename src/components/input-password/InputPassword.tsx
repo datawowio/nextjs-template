@@ -33,7 +33,7 @@ export default function InputPassword({
   }
 
   return (
-    <FormControl {...props} data-test-id={dataTestId} variant="outlined">
+    <FormControl {...props} data-testid={dataTestId} variant="outlined">
       <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
       <OutlinedInput
         disabled={disabled}

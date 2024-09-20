@@ -66,7 +66,7 @@ export default function SelectMultiple({
   return (
     <MuiAutocomplete
       {...props}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       disableCloseOnSelect={disableCloseOnSelect}
       multiple={multiple}
       popupIcon={finalPopupIcon}

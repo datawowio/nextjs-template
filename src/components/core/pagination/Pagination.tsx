@@ -25,7 +25,7 @@ export default function Pagination({
       flexWrap="wrap"
       justifyContent="space-between"
       alignItems="center"
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
     >
       <PaginationInfo
         limit={limit}

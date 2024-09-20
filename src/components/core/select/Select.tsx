@@ -18,7 +18,7 @@ export default function Select({
   return (
     <MUIAutocomplete
       {...props}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       popupIcon={popupIcon ? popupIcon : <ExpandMore />}
       multiple={multiple}
       renderInput={

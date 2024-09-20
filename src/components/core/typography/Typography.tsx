@@ -22,7 +22,7 @@ export default function Typography({
     <MUITypography
       {...props}
       component={customComponent}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       sx={customSX}
       variant="body1"
     />

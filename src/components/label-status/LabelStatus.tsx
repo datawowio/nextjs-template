@@ -15,7 +15,7 @@ export default function LabelStatus({
   return (
     <Stack
       alignItems="center"
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       direction="row"
       gap={rem(4)}
     >

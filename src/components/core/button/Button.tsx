@@ -5,5 +5,5 @@ export default function Button({
   dataTestId = "button",
   ...props
 }: ButtonProps) {
-  return <MUIButton {...props} data-test-id={dataTestId} />;
+  return <MUIButton {...props} data-testid={dataTestId} />;
 }

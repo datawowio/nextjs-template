@@ -16,7 +16,7 @@ export default function LayoutMain({
   sideBarProps,
 }: LayoutMainProps) {
   return (
-    <Box data-test-id={dataTestId}>
+    <Box data-testid={dataTestId}>
       <CssBaseline />
       <NavBar {...navBarProps} handleDrawerToggle={handleDrawerToggle} />
       <SideBar {...sideBarProps} drawerWidth={drawerWidth} open={open} />

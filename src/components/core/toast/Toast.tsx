@@ -24,7 +24,7 @@ export default function Toast({
     <Snackbar
       {...props}
       anchorOrigin={anchorOrigin || { vertical: "top", horizontal: "right" }}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       open={open}
       onClose={onClose}
     >

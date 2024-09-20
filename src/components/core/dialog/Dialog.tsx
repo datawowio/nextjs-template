@@ -10,7 +10,7 @@ export default function Dialog({
   return (
     <MUIDialog
       {...props}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       open={open}
       aria-describedby="dialog-dialog-description"
       aria-labelledby="dialog-dialog-title"

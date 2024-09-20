@@ -16,7 +16,7 @@ export default function Avatar({
     <MUIAvatar
       {...props}
       alt={alt}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       src={src}
       sx={{ ...customSizeStyle[size], ...sx }}
     />
