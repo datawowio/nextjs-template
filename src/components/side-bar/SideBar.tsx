@@ -6,12 +6,14 @@ import type { SideBarProps } from "./types";
 
 export default function Sidebar({
   children,
-  open,
+  dataTestId = "side-bar",
   drawerWidth = 240,
+  open,
 }: SideBarProps) {
   return (
     <Drawer
-      variant="persistent"
+      data-test-id={dataTestId}
+      open={open}
       sx={{
         width: drawerWidth,
         flexShrink: 0,
@@ -20,7 +22,7 @@ export default function Sidebar({
           boxSizing: "border-box",
         },
       }}
-      open={open}
+      variant="persistent"
     >
       <Toolbar />
       <Box sx={{ overflow: "auto" }}>{children}</Box>

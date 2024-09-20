@@ -8,5 +8,6 @@ export type CustomSizeStyle = {
 };
 
 export interface AvatarProps extends MUIAvatarProps {
+  dataTestId?: string;
   size?: CustomSize;
 }

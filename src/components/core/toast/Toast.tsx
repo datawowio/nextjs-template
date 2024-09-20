@@ -13,6 +13,7 @@ import type { ToastProps } from "./types";
 export default function Toast({
   alertProps,
   anchorOrigin,
+  dataTestId = "toast",
   message,
   onClose,
   open,
@@ -23,6 +24,7 @@ export default function Toast({
     <Snackbar
       {...props}
       anchorOrigin={anchorOrigin || { vertical: "top", horizontal: "right" }}
+      data-test-id={dataTestId}
       open={open}
       onClose={onClose}
     >

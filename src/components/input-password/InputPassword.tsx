@@ -15,6 +15,7 @@ import type { MouseEvent } from "react";
 import type { InputPasswordProps } from "./types";
 
 export default function InputPassword({
+  dataTestId = "input-password",
   disabled,
   label,
   ...props
@@ -32,7 +33,7 @@ export default function InputPassword({
   }
 
   return (
-    <FormControl {...props} variant="outlined">
+    <FormControl {...props} data-test-id={dataTestId} variant="outlined">
       <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
       <OutlinedInput
         disabled={disabled}

@@ -62,4 +62,5 @@ export type CustomVariantStyle = {
 export interface TypographyProps
   extends Omit<MUITypographyProps, "variant" | "variantMapping"> {
   customVariant?: CustomVariant;
+  dataTestId?: string;
 }

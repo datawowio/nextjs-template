@@ -8,6 +8,7 @@ import type { LayoutMainProps } from "./types";
 
 export default function LayoutMain({
   children,
+  dataTestId = "layout-main",
   drawerWidth,
   handleDrawerToggle,
   navBarProps,
@@ -15,7 +16,7 @@ export default function LayoutMain({
   sideBarProps,
 }: LayoutMainProps) {
   return (
-    <Box>
+    <Box data-test-id={dataTestId}>
       <CssBaseline />
       <NavBar {...navBarProps} handleDrawerToggle={handleDrawerToggle} />
       <SideBar {...sideBarProps} drawerWidth={drawerWidth} open={open} />

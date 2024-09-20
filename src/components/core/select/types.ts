@@ -14,5 +14,6 @@ export interface AutocompleteProps<
     "renderInput"
   > {
   label: string;
+  dataTestId?: string;
   renderInput?: (params: AutocompleteRenderInputParams) => ReactNode;
 }

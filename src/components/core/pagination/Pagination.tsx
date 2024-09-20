@@ -10,6 +10,7 @@ import type { PaginationProps } from "./types";
 
 export default function Pagination({
   count,
+  dataTestId = "pagination",
   page,
   onChange,
   limit,
@@ -24,6 +25,7 @@ export default function Pagination({
       flexWrap="wrap"
       justifyContent="space-between"
       alignItems="center"
+      data-test-id={dataTestId}
     >
       <PaginationInfo
         limit={limit}

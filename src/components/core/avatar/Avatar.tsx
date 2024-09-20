@@ -6,6 +6,7 @@ import type { AvatarProps } from "./types";
 
 export default function Avatar({
   alt = "avatar",
+  dataTestId = "avatar",
   src = fallbackAvatar.src,
   size = "lg",
   sx,
@@ -15,6 +16,7 @@ export default function Avatar({
     <MUIAvatar
       {...props}
       alt={alt}
+      data-test-id={dataTestId}
       src={src}
       sx={{ ...customSizeStyle[size], ...sx }}
     />

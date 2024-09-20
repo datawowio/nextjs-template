@@ -15,6 +15,7 @@ import rem from "@/utils/rem";
 import type { AutocompleteProps } from "./types";
 
 export default function SelectMultiple({
+  dataTestId = "select-multiple",
   disableCloseOnSelect = true,
   label,
   multiple = true,
@@ -65,6 +66,7 @@ export default function SelectMultiple({
   return (
     <MuiAutocomplete
       {...props}
+      data-test-id={dataTestId}
       disableCloseOnSelect={disableCloseOnSelect}
       multiple={multiple}
       popupIcon={finalPopupIcon}

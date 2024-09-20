@@ -5,5 +5,6 @@ export interface AlertProps extends MUIAlertProps {}
 
 export interface ToastProps extends MUISnackbarprops {
   alertProps?: AlertProps;
+  dataTestId?: string;
   status?: AlertProps["severity"];
 }

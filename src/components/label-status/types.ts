@@ -12,6 +12,7 @@ export type CustomStatusVariantStyle = {
 };
 
 export interface LabelStatusProps {
+  dataTestId?: string;
   status?: StatusVariant;
   text?: string;
 }

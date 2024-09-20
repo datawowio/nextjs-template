@@ -1,3 +1,5 @@
 import type { DialogProps as MUIDialogProps } from "@mui/material/Dialog";
 
-export interface DialogProps extends MUIDialogProps {}
+export interface DialogProps extends MUIDialogProps {
+  dataTestId?: string;
+}

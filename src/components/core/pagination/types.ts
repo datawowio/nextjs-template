@@ -19,6 +19,7 @@ export interface PaginationInfoProps {
 export interface PaginationProps extends MUIPaginationProps {
   limit: number;
   totalItems: number;
+  dataTestId?: string;
   filteredItems?: number;
   messages?: MessagesInfoProps;
 }

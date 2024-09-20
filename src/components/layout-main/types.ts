@@ -9,4 +9,5 @@ export interface LayoutMainProps {
   navBarProps: Omit<NavBarProps, "handleDrawerToggle">;
   open: boolean;
   sideBarProps: Omit<SideBarProps, "open">;
+  dataTestId?: string;
 }

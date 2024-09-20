@@ -5,6 +5,7 @@ export interface ConfirmationProps {
   cancelText?: string;
   children?: ReactNode;
   confirmText?: string;
+  dataTestId?: string;
   description?: string;
   onCancel?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
   onConfirm?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
