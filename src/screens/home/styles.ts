@@ -1,12 +1,14 @@
+import rem from "@/utils/rem";
 import type { SxProps, Theme } from "@mui/material";
 
 export const root: SxProps<Theme> = {
+  position: "relative",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  px: "0 20px",
+  px: `0 ${rem(20)}`,
   height: "100vh",
-  backgroundColor: "#f4f4f4",
+  width: "100%",
 };
 
 export const card: SxProps<Theme> = {

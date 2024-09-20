@@ -6,6 +6,7 @@ export const MuiFormControlLabel: Components["MuiFormControlLabel"] = {
   styleOverrides: {
     root: {
       "alignItems": "center",
+      "marginLeft": 0,
       "marginRight": 0,
 
       "&.small": {
