@@ -5,7 +5,7 @@ import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
 import rem from "@/utils/rem";
 
-import LayoutMainDefault from "./LayoutMainDefault";
+import LayoutMain from "./LayoutMain";
 
 jest.mock("@/components/nav-bar", () =>
   jest.fn(() => <div data-testid="navbar">NavBar</div>),
@@ -14,7 +14,7 @@ jest.mock("@/components/side-bar", () =>
   jest.fn(() => <div data-testid="sidebar">SideBar</div>),
 );
 
-describe("LayoutMainDefault Component", () => {
+describe("LayoutMain Component", () => {
   const mockNavBarProps = {
     logo: <div>Logo</div>,
     profile: <div>Profile</div>,
@@ -27,7 +27,7 @@ describe("LayoutMainDefault Component", () => {
 
   it("renders the NavBar, SideBar, and children correctly", () => {
     render(
-      <LayoutMainDefault
+      <LayoutMain
         drawerWidth={240}
         handleDrawerToggle={mockHandleDrawerToggle}
         navBarProps={mockNavBarProps}
@@ -35,7 +35,7 @@ describe("LayoutMainDefault Component", () => {
         open={true}
       >
         {mockChildren}
-      </LayoutMainDefault>,
+      </LayoutMain>,
     );
 
     // Check if NavBar is rendered
@@ -50,7 +50,7 @@ describe("LayoutMainDefault Component", () => {
 
   it("passes the correct props to NavBar and SideBar", () => {
     render(
-      <LayoutMainDefault
+      <LayoutMain
         drawerWidth={240}
         handleDrawerToggle={mockHandleDrawerToggle}
         navBarProps={mockNavBarProps}
@@ -58,7 +58,7 @@ describe("LayoutMainDefault Component", () => {
         open={true}
       >
         {mockChildren}
-      </LayoutMainDefault>,
+      </LayoutMain>,
     );
 
     expect(NavBar).toHaveBeenCalledWith(
@@ -81,7 +81,7 @@ describe("LayoutMainDefault Component", () => {
 
   it("applies the correct drawerWidth and open state to the Main component", () => {
     const { container } = render(
-      <LayoutMainDefault
+      <LayoutMain
         drawerWidth={300}
         handleDrawerToggle={mockHandleDrawerToggle}
         navBarProps={mockNavBarProps}
@@ -89,7 +89,7 @@ describe("LayoutMainDefault Component", () => {
         open={false}
       >
         {mockChildren}
-      </LayoutMainDefault>,
+      </LayoutMain>,
     );
 
     // Check if the Main component applies the correct styles
@@ -99,7 +99,7 @@ describe("LayoutMainDefault Component", () => {
 
   it("updates the Main component margin when open is true", () => {
     const { container } = render(
-      <LayoutMainDefault
+      <LayoutMain
         drawerWidth={240}
         handleDrawerToggle={mockHandleDrawerToggle}
         navBarProps={mockNavBarProps}
@@ -107,7 +107,7 @@ describe("LayoutMainDefault Component", () => {
         open={true}
       >
         {mockChildren}
-      </LayoutMainDefault>,
+      </LayoutMain>,
     );
 
     // Check if the Main component margin is updated when open

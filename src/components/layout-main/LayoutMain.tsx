@@ -4,16 +4,16 @@ import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
 import { Box, DrawerHeader, Main } from "./styles";
 
-import type { LayoutMainDefaultProps } from "./types";
+import type { LayoutMainProps } from "./types";
 
-export default function LayoutMainDefault({
+export default function LayoutMain({
   children,
   drawerWidth,
   handleDrawerToggle,
   navBarProps,
   open,
   sideBarProps,
-}: LayoutMainDefaultProps) {
+}: LayoutMainProps) {
   return (
     <Box>
       <CssBaseline />

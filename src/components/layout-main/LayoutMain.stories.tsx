@@ -5,18 +5,18 @@ import Image from "next/image";
 import logo from "@/assets/images/brands/logo.svg";
 import Avatar from "@/components/core/avatar/Avatar";
 import Typography from "@/components/core/typography";
-import LayoutMainDefault from "./LayoutMainDefault";
+import LayoutMain from "./LayoutMain";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof LayoutMainDefault> = {
-  component: LayoutMainDefault,
-  title: "Components/LayoutMainDefault",
+const meta: Meta<typeof LayoutMain> = {
+  component: LayoutMain,
+  title: "Components/LayoutMain",
 };
 
 export default meta;
 
-type Story = StoryObj<typeof LayoutMainDefault>;
+type Story = StoryObj<typeof LayoutMain>;
 
 export const Default: Story = {
   args: {
@@ -100,7 +100,7 @@ function RenderLayout() {
   }
 
   return (
-    <LayoutMainDefault
+    <LayoutMain
       drawerWidth={drawerWidth}
       open={open}
       navBarProps={navBarProps}
@@ -108,6 +108,6 @@ function RenderLayout() {
       handleDrawerToggle={onToggle}
     >
       {children}
-    </LayoutMainDefault>
+    </LayoutMain>
   );
 }
