@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { useState } from "react";
 
@@ -6,7 +7,7 @@ import Box from "@mui/material/Box";
 
 import logo from "@/assets/images/brands/logo.svg";
 import Avatar from "@/components/core/avatar";
-import LayoutMain from "@/components/layout-main";
+import LayoutMainComponent from "@/components/layout-main";
 
 import type { ReactNode } from "react";
 import type { BaseParams } from "@/types/params";
@@ -15,7 +16,7 @@ interface RootLayoutProps extends BaseParams {
   children: ReactNode;
 }
 
-export default function MainLayout({ children }: RootLayoutProps) {
+export default function LayoutMain({ children }: RootLayoutProps) {
   const [open, setOpen] = useState<boolean>(true);
 
   function handleDrawerToggle() {
@@ -23,7 +24,7 @@ export default function MainLayout({ children }: RootLayoutProps) {
   }
 
   return (
-    <LayoutMain
+    <LayoutMainComponent
       drawerWidth={280}
       open={open}
       handleDrawerToggle={handleDrawerToggle}
@@ -40,6 +41,6 @@ export default function MainLayout({ children }: RootLayoutProps) {
       }}
     >
       {children}
-    </LayoutMain>
+    </LayoutMainComponent>
   );
 }
