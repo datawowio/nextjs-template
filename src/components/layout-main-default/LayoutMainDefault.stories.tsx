@@ -83,6 +83,9 @@ export const Default: Story = {
       children: <Box sx={{ mt: 10, px: 2 }}>Hello</Box>,
     },
   },
+  parameters: {
+    layout: "fullscreen",
+  },
   render: RenderLayout,
 };
 
