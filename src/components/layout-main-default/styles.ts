@@ -11,7 +11,9 @@ export const Main = styled("main", {
 }>(({ theme, open, drawerWidth }) => ({
   flexGrow: 1,
   backgroundColor: colors.bg.lightGray,
-  padding: theme.spacing(3),
+  boxSizing: "border-box",
+  padding: rem(16),
+  minHeight: "100vh",
   transition: theme.transitions.create("margin", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -30,8 +32,7 @@ export const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
+  minHeight: rem(75),
   justifyContent: "flex-end",
 }));
 

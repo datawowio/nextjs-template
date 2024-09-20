@@ -18,8 +18,12 @@ export default function LayoutMainDefault({
     <Box>
       <CssBaseline />
       <NavBar {...navBarProps} handleDrawerToggle={handleDrawerToggle}></NavBar>
-      <SideBar {...sideBarProps} open={open}></SideBar>
-      <Main open={open} drawerWidth={drawerWidth}>
+      <SideBar
+        {...sideBarProps}
+        drawerWidth={drawerWidth}
+        open={open}
+      ></SideBar>
+      <Main drawerWidth={drawerWidth} open={open}>
         <DrawerHeader />
         {children}
       </Main>
