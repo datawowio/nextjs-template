@@ -36,7 +36,7 @@ export default function MainLayout({ children }: RootLayoutProps) {
         profile: <Avatar />,
       }}
       sideBarProps={{
-        children: <Box>Hello</Box>,
+        children: <></>,
       }}
     >
       {children}
