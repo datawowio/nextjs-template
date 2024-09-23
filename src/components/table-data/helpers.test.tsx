@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { getIconComponent } from "./helpers";
 
-jest.mock("@/components/core/icons", () => ({
+jest.mock("@/components/icons", () => ({
   IconArrowUp: jest.fn(() => <svg data-testid="arrow-up" />),
   IconArrowDown: jest.fn(() => <svg data-testid="arrow-down" />),
 }));
