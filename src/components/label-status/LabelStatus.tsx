@@ -8,11 +8,17 @@ import { customStatusStyle, statusIconStyle } from "./styles";
 import type { LabelStatusProps } from "./types";
 
 export default function LabelStatus({
+  dataTestId = "label-status",
   status = "ready",
   text,
 }: LabelStatusProps) {
   return (
-    <Stack alignItems="center" direction="row" gap={rem(4)}>
+    <Stack
+      alignItems="center"
+      data-testid={dataTestId}
+      direction="row"
+      gap={rem(4)}
+    >
       <Box
         sx={{
           backgroundColor: customStatusStyle[status].color,

@@ -5,6 +5,7 @@ import type { TypographyProps } from "./types";
 
 export default function Typography({
   component,
+  dataTestId = "text",
   sx,
   customVariant = "regularParagraphLG",
   ...props
@@ -21,6 +22,7 @@ export default function Typography({
     <MUITypography
       {...props}
       component={customComponent}
+      data-testid={dataTestId}
       sx={customSX}
       variant="body1"
     />

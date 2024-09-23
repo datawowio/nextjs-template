@@ -9,6 +9,7 @@ import { BpCheckedIcon, BpIcon, BpIndeterminateIcon } from "./styles";
 import type { CheckboxProps } from "./types";
 
 export default function Checkbox({
+  dataTestId = "checkbox",
   disabled,
   disableTypography = false,
   label,
@@ -27,6 +28,7 @@ export default function Checkbox({
           indeterminateIcon={<BpIndeterminateIcon className={size} />}
         />
       }
+      data-testid={dataTestId}
       disableTypography={disableTypography}
       label={label}
       slotProps={{

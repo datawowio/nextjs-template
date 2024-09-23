@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import type { BaseComponent } from "@/types/components";
 
 export interface Header {
   key: string;
@@ -18,7 +19,7 @@ export interface Data {
 
 export type Order = "asc" | "desc";
 
-export interface TableDataProps {
+export interface TableDataProps extends BaseComponent {
   data: Data;
   orderBy: Order;
   sortColumn: string;

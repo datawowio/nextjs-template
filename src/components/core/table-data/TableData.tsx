@@ -18,6 +18,7 @@ import type { Header, TableDataProps } from "./types";
 
 export default function TableData({
   data,
+  dataTestId = "table-data",
   orderBy,
   sortColumn,
 
@@ -36,7 +37,7 @@ export default function TableData({
   }
 
   return (
-    <TableContainer component={TableDataSurface}>
+    <TableContainer component={TableDataSurface} data-testid={dataTestId}>
       <Table>
         <TableHead>
           <TableRow>

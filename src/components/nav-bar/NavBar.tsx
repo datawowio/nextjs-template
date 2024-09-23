@@ -5,12 +5,13 @@ import { AppBar, IconButton, Toolbar } from "./styles";
 import type { NavBarProps } from "./types";
 
 export default function Navbar({
+  dataTestId = "nav-bar",
   handleDrawerToggle,
   logo,
   profile,
 }: NavBarProps) {
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" data-testid={dataTestId}>
       <Toolbar>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <IconButton

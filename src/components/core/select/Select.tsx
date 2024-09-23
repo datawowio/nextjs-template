@@ -8,6 +8,7 @@ import Input from "@/components/core/input";
 import type { AutocompleteProps } from "./types";
 
 export default function Select({
+  dataTestId = "select",
   label,
   popupIcon,
   multiple = false,
@@ -17,6 +18,7 @@ export default function Select({
   return (
     <MUIAutocomplete
       {...props}
+      data-testid={dataTestId}
       popupIcon={popupIcon ? popupIcon : <ExpandMore />}
       multiple={multiple}
       renderInput={
