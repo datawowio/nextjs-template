@@ -1,13 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-
-import Box from "@mui/material/Box";
 
 import logo from "@/assets/images/brands/logo.svg";
 import Avatar from "@/components/core/avatar";
 import LayoutMainComponent from "@/components/layout-main";
+import Logo from "@/components/logo";
 
 import type { ReactNode } from "react";
 import type { BaseParams } from "@/types/params";
@@ -29,11 +27,7 @@ export default function LayoutMain({ children }: RootLayoutProps) {
       open={open}
       handleDrawerToggle={handleDrawerToggle}
       navBarProps={{
-        logo: (
-          <Box sx={{ position: "relative", width: 150, height: 60 }}>
-            <Image src={logo} alt="logo" fill />
-          </Box>
-        ),
+        logo: <Logo imageSrc={logo} alt="logo" width={150} height={60} />,
         profile: <Avatar />,
       }}
       sideBarProps={{

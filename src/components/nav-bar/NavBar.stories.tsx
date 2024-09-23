@@ -17,7 +17,7 @@ type Story = StoryObj<typeof NavBar>;
 
 export const Default: Story = {
   args: {
-    logo: <Logo alt="logo" height={60} src={logo} width={150} />,
+    logo: <Logo imageSrc={logo} alt="logo" width={150} height={60} />,
     profile: <Avatar />,
   },
 };
