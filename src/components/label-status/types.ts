@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import type { BaseComponent } from "@/types/components";
 
 export type StatusVariant =
   | "cancelled"
@@ -11,8 +12,7 @@ export type CustomStatusVariantStyle = {
   [key in StatusVariant]: CSSProperties;
 };
 
-export interface LabelStatusProps {
-  dataTestId?: string;
+export interface LabelStatusProps extends BaseComponent {
   status?: StatusVariant;
   text?: string;
 }

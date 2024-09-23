@@ -1,4 +1,5 @@
 import type { PaginationProps as MUIPaginationProps } from "@mui/material/Pagination";
+import type { BaseComponent } from "@/types/components";
 
 export interface MessagesInfoProps {
   display: string;
@@ -16,10 +17,9 @@ export interface PaginationInfoProps {
   messages?: MessagesInfoProps;
 }
 
-export interface PaginationProps extends MUIPaginationProps {
+export interface PaginationProps extends BaseComponent, MUIPaginationProps {
   limit: number;
   totalItems: number;
-  dataTestId?: string;
   filteredItems?: number;
   messages?: MessagesInfoProps;
 }

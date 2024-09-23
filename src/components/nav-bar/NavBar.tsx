@@ -11,7 +11,7 @@ export default function Navbar({
   profile,
 }: NavBarProps) {
   return (
-    <AppBar position="fixed" data-test-id={dataTestId}>
+    <AppBar position="fixed" data-testid={dataTestId}>
       <Toolbar>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <IconButton

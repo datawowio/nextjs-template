@@ -3,17 +3,18 @@ import type {
   AutocompleteProps as MUIAutocompleteProps,
 } from "@mui/material/Autocomplete";
 import type { ReactNode } from "react";
+import type { BaseComponent } from "@/types/components";
 
 export interface AutocompleteProps<
   T = any,
   Multiple extends boolean | undefined = boolean | undefined,
   DisableClearable extends boolean | undefined = boolean | undefined,
   FreeSolo extends boolean | undefined = boolean | undefined,
-> extends Omit<
-    MUIAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>,
-    "renderInput"
-  > {
+> extends BaseComponent,
+    Omit<
+      MUIAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>,
+      "renderInput"
+    > {
   label: string;
-  dataTestId?: string;
   renderInput?: (params: AutocompleteRenderInputParams) => ReactNode;
 }

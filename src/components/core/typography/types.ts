@@ -1,5 +1,6 @@
 import type { TypographyProps as MUITypographyProps } from "@mui/material/Typography";
 import type { CSSProperties } from "react";
+import type { BaseComponent } from "@/types/components";
 
 export type CustomVariant =
   | "regularDisplayLG"
@@ -60,7 +61,7 @@ export type CustomVariantStyle = {
 };
 
 export interface TypographyProps
-  extends Omit<MUITypographyProps, "variant" | "variantMapping"> {
+  extends BaseComponent,
+    Omit<MUITypographyProps, "variant" | "variantMapping"> {
   customVariant?: CustomVariant;
-  dataTestId?: string;
 }
