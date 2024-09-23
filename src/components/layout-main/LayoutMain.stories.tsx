@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 import { useArgs } from "@storybook/preview-api";
-import Image from "next/image";
 
 import logo from "@/assets/images/brands/logo.svg";
 import Avatar from "@/components/core/avatar/Avatar";
+import Logo from "@/components/logo";
 import Typography from "@/components/core/typography";
 import LayoutMain from "./LayoutMain";
 
@@ -72,11 +72,7 @@ export const Default: Story = {
     drawerWidth: 240,
     open: true,
     navBarProps: {
-      logo: (
-        <Box sx={{ position: "relative", width: 150, height: 60 }}>
-          <Image src={logo} alt="logo" fill />
-        </Box>
-      ),
+      logo: <Logo alt="logo" height={60} src={logo} width={150} />,
       profile: <Avatar />,
     },
     sideBarProps: {

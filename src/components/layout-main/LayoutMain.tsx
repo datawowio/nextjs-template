@@ -15,11 +15,14 @@ export default function LayoutMain({
   open,
   sideBarProps,
 }: LayoutMainProps) {
+  const { children: sideBarChildren, ...restSidebarProps } = sideBarProps;
   return (
     <Box data-testid={dataTestId}>
       <CssBaseline />
       <NavBar {...navBarProps} handleDrawerToggle={handleDrawerToggle} />
-      <SideBar {...sideBarProps} drawerWidth={drawerWidth} open={open} />
+      <SideBar {...restSidebarProps} drawerWidth={drawerWidth} open={open}>
+        {sideBarChildren}
+      </SideBar>
       <Main drawerWidth={drawerWidth} open={open}>
         <DrawerHeader />
         {children}
