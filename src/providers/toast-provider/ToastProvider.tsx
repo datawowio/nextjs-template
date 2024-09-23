@@ -3,7 +3,7 @@
 import React from "react";
 import { useImmer } from "use-immer";
 
-import Toast from "@/components/core/toast";
+import Toast from "@/components/toast";
 import { ToastContext } from "@/contexts/toast";
 
 import type { SnackbarCloseReason } from "@mui/material/Snackbar";

@@ -1,4 +1,4 @@
-import { customVariantStyle } from "@/components/core/typography/styles";
+import { customVariantStyle } from "@/components/typography/styles";
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
 

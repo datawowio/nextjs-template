@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Image from "next/image";
 
-import Avatar from "@/components/core/avatar";
+import Avatar from "@/components/avatar";
 import logo from "@/assets/images/brands/logo.svg";
 
 import NavBar from "./NavBar";

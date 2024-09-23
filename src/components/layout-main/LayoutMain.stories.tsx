@@ -3,8 +3,8 @@ import { useArgs } from "@storybook/preview-api";
 import Image from "next/image";
 
 import logo from "@/assets/images/brands/logo.svg";
-import Avatar from "@/components/core/avatar/Avatar";
-import Typography from "@/components/core/typography";
+import Avatar from "@/components/avatar/Avatar";
+import Typography from "@/components/typography";
 import LayoutMain from "./LayoutMain";
 
 import type { Meta, StoryObj } from "@storybook/react";

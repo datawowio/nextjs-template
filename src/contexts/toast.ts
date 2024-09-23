@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { ToastProps } from "@/components/core/toast";
+import type { ToastProps } from "@/components/toast";
 
 export interface ToastContextValue {
   showToast: (
