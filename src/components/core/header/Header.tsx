@@ -13,6 +13,7 @@ export default function Header({ children, sx, text }: HeaderProps) {
       sx={sx}
     >
       <Typography
+        component="h1"
         customVariant="boldDisplayMD"
         sx={{ color: colors.text.primary.header }}
       >
