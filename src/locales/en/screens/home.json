@@ -5,6 +5,12 @@
     "heading": "Hello, Welcome to DataWow!",
     "logoAlt": "DataWow Logo",
     "modalTitle": "Confirm the modification of permissions",
-    "modalDescription": "Confirm the modification of permissions of Anan P."
+    "modalDescription": "Confirm the modification of permissions of Anan P.",
+    "title": "User management",
+    "addUser": "Add User",
+    "filters": {
+      "search": "search",
+      "status": "status"
+    }
   }
 }

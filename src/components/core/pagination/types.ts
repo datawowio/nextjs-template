@@ -1,3 +1,4 @@
+import type { SxProps } from "@mui/material";
 import type { PaginationProps as MUIPaginationProps } from "@mui/material/Pagination";
 import type { BaseComponent } from "@/types/components";
 
@@ -22,4 +23,5 @@ export interface PaginationProps extends BaseComponent, MUIPaginationProps {
   totalItems: number;
   filteredItems?: number;
   messages?: MessagesInfoProps;
+  sx?: SxProps;
 }

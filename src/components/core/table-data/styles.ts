@@ -11,6 +11,7 @@ export const styles = {
   },
   sortIcon: {
     fontSize: rem(12),
+    color: colors.text.primary.subHeader2,
   },
   narrowSortIcon: {
     marginTop: rem(-6),
@@ -18,5 +19,6 @@ export const styles = {
   sortLabel: {
     justifyContent: "space-between",
     width: "100%",
+    color: colors.text.primary.subHeader2,
   },
 };
