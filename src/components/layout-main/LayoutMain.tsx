@@ -20,12 +20,9 @@ export default function LayoutMain({
     <Box data-testid={dataTestId}>
       <CssBaseline />
       <NavBar {...navBarProps} handleDrawerToggle={handleDrawerToggle} />
-      <SideBar
-        {...restSidebarProps}
-        children={sideBarChildren}
-        drawerWidth={drawerWidth}
-        open={open}
-      />
+      <SideBar {...restSidebarProps} drawerWidth={drawerWidth} open={open}>
+        {sideBarChildren}
+      </SideBar>
       <Main drawerWidth={drawerWidth} open={open}>
         <DrawerHeader />
         {children}

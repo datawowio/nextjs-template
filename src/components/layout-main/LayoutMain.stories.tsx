@@ -72,7 +72,7 @@ export const Default: Story = {
     drawerWidth: 240,
     open: true,
     navBarProps: {
-      logo: <Logo imageSrc={logo} alt="logo" width={150} height={60} />,
+      logo: <Logo alt="logo" height={60} src={logo} width={150} />,
       profile: <Avatar />,
     },
     sideBarProps: {

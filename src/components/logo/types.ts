@@ -1,7 +1,6 @@
-export interface LogoProps {
-  alt: string;
-  imageSrc: string;
-  height: number;
-  width: number;
-  dataTestId?: string;
-}
+import type { ImageProps } from "next/image";
+import type { BaseComponent } from "@/types/components";
+
+export interface LogoProps
+  extends BaseComponent,
+    Pick<ImageProps, "alt" | "height" | "src" | "width"> {}
