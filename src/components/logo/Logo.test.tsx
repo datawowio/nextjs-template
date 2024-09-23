@@ -16,8 +16,8 @@ describe("Logo Component", () => {
     render(<Logo {...logoProps} />);
 
     const image = screen.getByTestId("next-image");
-    expect(image).toBeInTheDocument();
 
+    expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute("alt", logoProps.alt);
     expect(image).toHaveAttribute(
       "src",

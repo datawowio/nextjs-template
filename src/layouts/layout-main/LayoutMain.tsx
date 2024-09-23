@@ -11,7 +11,7 @@ import type { ReactNode } from "react";
 import type { BaseParams } from "@/types/params";
 
 interface RootLayoutProps extends BaseParams {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export default function LayoutMain({ children }: RootLayoutProps) {
@@ -31,7 +31,7 @@ export default function LayoutMain({ children }: RootLayoutProps) {
         profile: <Avatar />,
       }}
       sideBarProps={{
-        children: <></>,
+        children: null,
       }}
     >
       {children}
