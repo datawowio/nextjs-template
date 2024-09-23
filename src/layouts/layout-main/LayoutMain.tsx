@@ -27,7 +27,7 @@ export default function LayoutMain({ children }: RootLayoutProps) {
       open={open}
       handleDrawerToggle={handleDrawerToggle}
       navBarProps={{
-        logo: <Logo imageSrc={logo} alt="logo" width={150} height={60} />,
+        logo: <Logo alt="logo" height={60} src={logo} width={150} />,
         profile: <Avatar />,
       }}
       sideBarProps={{

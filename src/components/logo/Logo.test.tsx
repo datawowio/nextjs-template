@@ -7,9 +7,9 @@ describe("Logo Component", () => {
   const logoProps: LogoProps = {
     alt: "Test Logo",
     dataTestId: "next-image",
-    imageSrc: "/test-logo.png",
-    width: 100,
     height: 50,
+    src: "/test-logo.png",
+    width: 100,
   };
 
   it("renders the Image component with correct props", () => {
@@ -19,15 +19,19 @@ describe("Logo Component", () => {
     expect(image).toBeInTheDocument();
 
     expect(image).toHaveAttribute("alt", logoProps.alt);
-    expect(image).toHaveAttribute("src", expect.anything());
+    expect(image).toHaveAttribute(
+      "src",
+      expect.stringMatching(/test-logo\.png/),
+    );
   });
 
   it("applies the correct width and height to the Box component", () => {
     const { container } = render(<Logo {...logoProps} />);
 
     const box = container.firstChild;
+
+    expect(box).toHaveStyle("position: relative");
     expect(box).toHaveStyle(`width: ${logoProps.width}px`);
     expect(box).toHaveStyle(`height: ${logoProps.height}px`);
-    expect(box).toHaveStyle("position: relative");
   });
 });
