@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
 import { useTranslations } from "next-intl";
+import { useImmer } from "use-immer";
 
 import Button from "@/components/core/button";
 import Input from "@/components/core/input";
@@ -22,7 +23,7 @@ import debounce from "@/utils/debounce";
 import rem from "@/utils/rem";
 
 import { card, flexWrapper } from "./styles";
-import { useImmer } from "use-immer";
+
 import type { Order } from "@/components/core/table-data";
 import type { QueryType } from "./types";
 
