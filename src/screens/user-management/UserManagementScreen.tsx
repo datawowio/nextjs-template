@@ -1,398 +1,120 @@
 "use client";
+
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
-import EditRoundedIcon from "@mui/icons-material/EditRounded";
-import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
-import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
 import { useTranslations } from "next-intl";
+import { debounce } from "radash";
+import { useCallback } from "react";
 import { useImmerReducer } from "use-immer";
 
 import Button from "@/components/core/button";
-import Input from "@/components/core/input";
-import LabelStatus from "@/components/label-status";
+import Header from "@/components/core/header";
 import Pagination from "@/components/core/pagination";
-import Select from "@/components/core/select";
 import TableData from "@/components/core/table-data";
-import Typography from "@/components/core/typography";
-import { colors } from "@/config/palette";
-import debounce from "@/utils/debounce";
-import rem from "@/utils/rem";
+import Filters from "./Filters";
 
-import { initialState, queryParamsReducer } from "./reducer";
-import { card, flexWrapper } from "./styles";
+import { MOCK_DATA, MOCK_PAGINATION_DATA_FROM_API } from "./fixtures";
+import reducer, { initialState } from "./reducer";
+import { styles } from "./styles";
 
-// Should be deleted after integration
-const MOCK_PAGINATION_DATA_FROM_API = {
-  totalItems: 200,
-  totalPages: 20,
-};
-
-// Should be deleted after integration
-const MOCK_DATA = {
-  headers: [
-    { key: "name", label: "ชื่อ" },
-    { key: "email", label: "อีเมล" },
-    { key: "department", label: "ฝ่าย" },
-    { key: "agency", label: "กลุ่มงาน" },
-    { key: "role", label: "สิทธิ์" },
-    { key: "status", label: "สถานะ" },
-    { key: "action", label: "" },
-  ],
-  rows: [
-    {
-      id: 1,
-      name: "Jacquelyn Roberts",
-      email: "Werner47@gmail.com",
-      department: "male",
-      agency: "Cis woman",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="completed" text="Active" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 2,
-      name: "Lee Beier",
-      email: "Emelia_Gulgowski@hotmail.com",
-      department: "male",
-      agency: "FTM",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="completed" text="Active" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 3,
-      name: "Pablo Prosacco",
-      email: "Christa_Kautzer@yahoo.com",
-      department: "male",
-      agency: "Two* person",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="ready" text="Inactive" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 4,
-      name: "Carroll Terry",
-      email: "Rozella31@gmail.com",
-      department: "female",
-      agency: "Demiflux",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="ready" text="Inactive" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 5,
-      name: "Laurie Erdman I",
-      email: "Jaunita.Kunde94@gmail.com",
-      department: "male",
-      agency: "Transsexual woman",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="ready" text="Inactive" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 6,
-      name: "Leigh Homenick",
-      email: "Gwen.Grimes@hotmail.com",
-      department: "female",
-      agency: "Demiflux",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="ready" text="Inactive" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 7,
-      name: "Cesar Kessler",
-      email: "Lisandro.Buckridge17@gmail.com",
-      department: "female",
-      agency: "Pangender",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="completed" text="Active" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 8,
-      name: "Janis Kreiger",
-      email: "Ervin2@gmail.com",
-      department: "female",
-      agency: "Two* person",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="completed" text="Active" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 9,
-      name: "Dr. Rolando Rodriguez",
-      email: "Luigi84@yahoo.com",
-      department: "female",
-      agency: "Transgender female",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="ready" text="Inactive" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-    {
-      id: 10,
-      name: "Cary Weber",
-      email: "Prudence4@hotmail.com",
-      department: "male",
-      agency: "Transsexual person",
-      role: "ผู้ดูแลระบบ",
-      status: <LabelStatus status="completed" text="Active" />,
-      action: (
-        <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
-        </Box>
-      ),
-    },
-  ],
-};
+import type { ChangeEvent, SyntheticEvent } from "react";
+import type { Order } from "@/components/core/table-data";
 
 export default function UserManagementScreen() {
   const t = useTranslations("screens.userManagement");
   const tCommon = useTranslations("common");
-  const [state, dispatch] = useImmerReducer(queryParamsReducer, initialState);
+  const [state, dispatch] = useImmerReducer(reducer, initialState);
+
+  const filterMessages = {
+    search: t("filters.search"),
+    show: tCommon("pagination.show"),
+    status: t("filters.status"),
+    perPage: tCommon("pagination.perPage"),
+  };
+
+  const paginationMessages = {
+    display: tCommon("pagination.display"),
+    filter: tCommon("pagination.filter"),
+    info: tCommon("pagination.info"),
+    to: tCommon("pagination.to"),
+    total: tCommon("pagination.total"),
+  };
+
+  const debouncedFilter = useCallback(
+    debounce({ delay: 1000 }, (value: string) => {
+      dispatch({ type: "UPDATE_FILTER", key: "name", value });
+    }),
+    [dispatch],
+  );
+
+  function handleChangeInput(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    debouncedFilter(e.target.value);
+  }
+
+  function handleChangeSelectStatus(_: SyntheticEvent, options: any) {
+    dispatch({
+      type: "UPDATE_FILTER",
+      key: "status",
+      value: options?.value,
+    });
+  }
+
+  function handleChangeSelectPagination(_: SyntheticEvent, options: any) {
+    dispatch({
+      type: "UPDATE_PAGINATION",
+      key: "limit",
+      value: options?.value,
+    });
+  }
+
+  function handleSortColumn(key: string, orderBy: Order) {
+    dispatch({ type: "UPDATE_SORT", key, value: orderBy });
+  }
+
+  function handleChangePagination(_e: ChangeEvent<unknown>, page: number) {
+    dispatch({
+      type: "UPDATE_PAGINATION",
+      key: "page",
+      value: page,
+    });
+  }
 
   return (
-    <Stack gap={3}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography
-          customVariant="boldDisplayMD"
-          sx={{ color: colors.text.primary.header }}
-          component="h1"
-        >
-          {t("title")}
-        </Typography>
+    <Stack sx={styles.root}>
+      <Header text={t("title")}>
         <Button
           variant="contained"
-          sx={{ maxWidth: 144 }}
+          sx={styles.buttonCreate}
           startIcon={<AddRoundedIcon />}
         >
           {t("addUser")}
         </Button>
-      </Stack>
-      <Box sx={card}>
-        <Stack sx={{ p: 2 }}>
-          <Box sx={flexWrapper}>
-            <Box sx={{ ...flexWrapper, flexGrow: 1 }}>
-              <Input
-                label={t("filters.search")}
-                InputProps={{
-                  endAdornment: (
-                    <SearchRoundedIcon
-                      sx={{ color: colors.icon.placeholder.default }}
-                    />
-                  ),
-                }}
-                onChange={(e) => {
-                  debounce(() => {
-                    dispatch({
-                      type: "updateFilter",
-                      key: "name",
-                      value: e.target.value ?? "",
-                    });
-                  }, 1000)();
-                }}
-                sx={{ flexGrow: 1 }}
-              />
-              <Select
-                label={t("filters.status")}
-                sx={{ width: 244 }}
-                options={[
-                  { label: "เปิดใช้งาน", value: "active" },
-                  { label: "ปิดใช้งาน", value: "inactive" },
-                ]}
-                onChange={(_, options) => {
-                  dispatch({
-                    type: "updateFilter",
-                    key: "status",
-                    value: options?.value,
-                  });
-                }}
-              />
-            </Box>
-            <Box sx={flexWrapper}>
-              <Select
-                label={tCommon("pagination.show")}
-                sx={{ width: 100 }}
-                options={[
-                  { label: "10", value: 10 },
-                  { label: "20", value: 20 },
-                  { label: "50", value: 50 },
-                  { label: "100", value: 100 },
-                ]}
-                onChange={(_, options) =>
-                  dispatch({
-                    type: "updatePagination",
-                    key: "limit",
-                    value: options?.value,
-                  })
-                }
-              />
-              <Typography customVariant="regularParagraphLG">
-                {tCommon("pagination.perPage")}
-              </Typography>
-            </Box>
-          </Box>
-        </Stack>
+      </Header>
+      <Box sx={styles.card}>
+        <Filters
+          handleChangeInput={handleChangeInput}
+          handleChangeSelectStatus={handleChangeSelectStatus}
+          handleChangeSelectPagination={handleChangeSelectPagination}
+          messages={filterMessages}
+        />
         <TableData
           data={MOCK_DATA}
           orderBy={state.sort.orderBy}
           sortColumn={state.sort.key}
-          onSortColumn={(key, orderBy) =>
-            dispatch({ type: "updateSort", key, value: orderBy })
-          }
+          onSortColumn={handleSortColumn}
         />
         <Pagination
           count={MOCK_PAGINATION_DATA_FROM_API.totalPages}
           page={state.pagination.page}
           limit={state.pagination.limit}
           totalItems={MOCK_PAGINATION_DATA_FROM_API.totalItems}
-          messages={{
-            display: tCommon("pagination.display"),
-            filter: tCommon("pagination.filter"),
-            info: tCommon("pagination.info"),
-            to: tCommon("pagination.to"),
-            total: tCommon("pagination.total"),
-          }}
-          onChange={(_e, page) =>
-            dispatch({
-              type: "updatePagination",
-              key: "page",
-              value: page,
-            })
-          }
-          sx={{
-            p: 2,
-          }}
+          messages={paginationMessages}
+          onChange={handleChangePagination}
+          sx={styles.wrapper}
         />
       </Box>
     </Stack>

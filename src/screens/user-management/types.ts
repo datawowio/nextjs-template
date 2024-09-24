@@ -1,4 +1,19 @@
-import type { BaseQueryParams } from "@/types/queryParams";
+import type { ChangeEvent, SyntheticEvent } from "react";
+import type { BaseQueryParams } from "@/types/query-params";
+
+export interface FilterProps {
+  handleChangeInput: (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
+  handleChangeSelectStatus: (_: SyntheticEvent, options: any) => void;
+  handleChangeSelectPagination: (_: SyntheticEvent, options: any) => void;
+  messages: {
+    search: string;
+    status: string;
+    show: string;
+    perPage: string;
+  };
+}
 
 export interface QueryParams extends BaseQueryParams {
   filters: {
@@ -13,19 +28,19 @@ export type QueryParamsAction =
   | UpdateSortAction;
 
 interface UpdateFilterAction {
-  type: "updateFilter";
+  type: "UPDATE_FILTER";
   key: keyof QueryParams["filters"];
   value?: string;
 }
 
 interface UpdatePaginationAction {
-  type: "updatePagination";
+  type: "UPDATE_PAGINATION";
   key: keyof QueryParams["pagination"];
   value: number;
 }
 
 interface UpdateSortAction {
-  type: "updateSort";
+  type: "UPDATE_SORT";
   key: string;
   value: "asc" | "desc";
 }
