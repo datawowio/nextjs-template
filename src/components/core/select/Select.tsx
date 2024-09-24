@@ -21,6 +21,7 @@ export default function Select({
       data-testid={dataTestId}
       popupIcon={popupIcon ? popupIcon : <ExpandMore />}
       multiple={multiple}
+      isOptionEqualToValue={(option, value) => option.value === value.value}
       renderInput={
         renderInput
           ? renderInput

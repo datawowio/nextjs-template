@@ -4,6 +4,8 @@ import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 
+import { useTranslations } from "next-intl";
+
 import LabelStatus from "@/components/label-status";
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
@@ -264,7 +266,10 @@ export const PAGE_LIMIT_OPTIONS = [
   { label: "100", value: 100 },
 ];
 
-export const STATUS_OPTIONS = [
-  { label: "เปิดใช้งาน", value: "active" },
-  { label: "ปิดใช้งาน", value: "inactive" },
-];
+export const STATUS_OPTIONS = () => {
+  const t = useTranslations("common.statusFilter");
+  return [
+    { label: t("active"), value: "active" },
+    { label: t("inactive"), value: "inactive" },
+  ];
+};

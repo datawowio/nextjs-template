@@ -18,6 +18,7 @@ export default function Filters({
   messages,
 }: FilterProps) {
   const { search, status, show, perPage } = messages;
+  const statusOptions = STATUS_OPTIONS();
 
   return (
     <Stack sx={styles.wrapper}>
@@ -34,7 +35,7 @@ export default function Filters({
           <Select
             label={status}
             sx={styles.selectStatus}
-            options={STATUS_OPTIONS}
+            options={statusOptions}
             onChange={handleChangeSelectStatus}
           />
         </Box>

@@ -1,5 +1,6 @@
 import type { ChangeEvent, SyntheticEvent } from "react";
 import type { BaseQueryParams } from "@/types/query-params";
+import type { OrderType } from "@/types/sort";
 
 export interface FilterProps {
   handleChangeInput: (
@@ -42,5 +43,5 @@ interface UpdatePaginationAction {
 interface UpdateSortAction {
   type: "UPDATE_SORT";
   key: string;
-  value: "asc" | "desc";
+  value: OrderType;
 }

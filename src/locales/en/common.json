@@ -11,6 +11,10 @@
       "info": "items",
       "to": "to",
       "total": "out of a total of"
+    },
+    "statusFilter": {
+      "active": "Active",
+      "inactive": "Inactive"
     }
   }
 }
