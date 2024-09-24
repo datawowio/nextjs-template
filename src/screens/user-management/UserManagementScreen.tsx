@@ -20,7 +20,7 @@ import reducer, { initialState } from "./reducer";
 import { styles } from "./styles";
 
 import type { ChangeEvent, SyntheticEvent } from "react";
-import type { Order } from "@/components/core/table-data";
+import type { OrderType } from "@/types/sort";
 
 export default function UserManagementScreen() {
   const t = useTranslations("screens.userManagement");
@@ -71,7 +71,7 @@ export default function UserManagementScreen() {
     });
   }
 
-  function handleSortColumn(key: string, orderBy: Order) {
+  function handleSortColumn(key: string, orderBy: OrderType) {
     dispatch({ type: "UPDATE_SORT", key, value: orderBy });
   }
 

@@ -1,4 +1,4 @@
-import type { Order } from "@/components/core/table-data";
+import type { OrderType } from "./sort";
 
 interface BasePagination {
   page: number;
@@ -7,7 +7,7 @@ interface BasePagination {
 
 interface BaseSortParams {
   key: string;
-  orderBy: Order;
+  orderBy: OrderType;
 }
 
 export interface BaseQueryParams {
