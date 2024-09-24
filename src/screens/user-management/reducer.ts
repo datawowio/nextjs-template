@@ -1,13 +1,4 @@
-import type { QueryParams } from "./types";
-
-type QueryParamsAction =
-  | { type: "updateFilter"; key: keyof QueryParams["filters"]; value?: string }
-  | {
-      type: "updatePagination";
-      key: keyof QueryParams["pagination"];
-      value: number;
-    }
-  | { type: "updateSort"; key: string; value: "asc" | "desc" };
+import type { QueryParams, QueryParamsAction } from "./types";
 
 export const initialState: QueryParams = {
   pagination: {
