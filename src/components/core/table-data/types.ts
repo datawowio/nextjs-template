@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { BaseComponent } from "@/types/components";
+import type { OrderType } from "@/types/sort";
 
 export interface Header {
   key: string;
@@ -17,12 +18,10 @@ export interface Data {
   rows: Row[];
 }
 
-export type Order = "asc" | "desc";
-
 export interface TableDataProps extends BaseComponent {
   data: Data;
-  orderBy: Order;
+  orderBy: OrderType;
   sortColumn: string;
 
-  onSortColumn?: (key: Header["key"], orderBy: Order) => void;
+  onSortColumn?: (key: Header["key"], orderBy: OrderType) => void;
 }
