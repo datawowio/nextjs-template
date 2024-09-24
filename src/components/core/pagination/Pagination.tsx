@@ -17,6 +17,7 @@ export default function Pagination({
   totalItems,
   filteredItems,
   messages,
+  sx,
   ...props
 }: PaginationProps) {
   return (
@@ -26,6 +27,7 @@ export default function Pagination({
       justifyContent="space-between"
       alignItems="center"
       data-testid={dataTestId}
+      sx={sx}
     >
       <PaginationInfo
         limit={limit}
@@ -48,6 +50,7 @@ export default function Pagination({
             {...item}
           />
         )}
+        sx={undefined}
       />
     </Stack>
   );
