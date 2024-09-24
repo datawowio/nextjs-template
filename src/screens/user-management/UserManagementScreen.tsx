@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
 import { useTranslations } from "next-intl";
-import { useImmer } from "use-immer";
+import { useImmerReducer } from "use-immer";
 
 import Button from "@/components/core/button";
 import Input from "@/components/core/input";
@@ -22,11 +22,16 @@ import { colors } from "@/config/palette";
 import debounce from "@/utils/debounce";
 import rem from "@/utils/rem";
 
+import { initialState, queryParamsReducer } from "./reducer";
 import { card, flexWrapper } from "./styles";
 
-import type { Order } from "@/components/core/table-data";
-import type { QueryType } from "./types";
+// Should be deleted after integration
+const MOCK_PAGINATION_DATA_FROM_API = {
+  totalItems: 200,
+  totalPages: 20,
+};
 
+// Should be deleted after integration
 const MOCK_DATA = {
   headers: [
     { key: "name", label: "ชื่อ" },
@@ -274,47 +279,7 @@ const MOCK_DATA = {
 export default function UserManagementScreen() {
   const t = useTranslations("screens.userManagement");
   const tCommon = useTranslations("common");
-  const [state, setState] = useImmer<QueryType>({
-    pagination: {
-      page: 1,
-      limit: 10,
-      totalItems: 200,
-      totalPages: 20,
-    },
-    filters: {
-      name: undefined,
-      status: undefined,
-    },
-    sort: {
-      key: "name",
-      orderBy: "asc",
-    },
-  });
-
-  function filterChangeHandler(
-    key: keyof typeof state.filters,
-    value?: string,
-  ) {
-    setState((draft) => {
-      draft.filters[key] = value;
-    });
-  }
-
-  function paginationChangeHandler(
-    key: keyof typeof state.pagination,
-    value: number,
-  ) {
-    setState((draft) => {
-      draft.pagination[key] = value;
-    });
-  }
-
-  function sortChangeHandler(key: string, value: Order) {
-    setState((draft) => {
-      draft.sort.key = key;
-      draft.sort.orderBy = value;
-    });
-  }
+  const [state, dispatch] = useImmerReducer(queryParamsReducer, initialState);
 
   return (
     <Stack gap={3}>
@@ -348,10 +313,13 @@ export default function UserManagementScreen() {
                   ),
                 }}
                 onChange={(e) => {
-                  debounce(
-                    () => filterChangeHandler("name", e.target.value ?? ""),
-                    1000,
-                  )();
+                  debounce(() => {
+                    dispatch({
+                      type: "updateFilter",
+                      key: "name",
+                      value: e.target.value ?? "",
+                    });
+                  }, 1000)();
                 }}
                 sx={{ flexGrow: 1 }}
               />
@@ -362,9 +330,13 @@ export default function UserManagementScreen() {
                   { label: "เปิดใช้งาน", value: "active" },
                   { label: "ปิดใช้งาน", value: "inactive" },
                 ]}
-                onChange={(_, options) =>
-                  filterChangeHandler("status", options?.value ?? undefined)
-                }
+                onChange={(_, options) => {
+                  dispatch({
+                    type: "updateFilter",
+                    key: "status",
+                    value: options?.value,
+                  });
+                }}
               />
             </Box>
             <Box sx={flexWrapper}>
@@ -378,7 +350,11 @@ export default function UserManagementScreen() {
                   { label: "100", value: 100 },
                 ]}
                 onChange={(_, options) =>
-                  paginationChangeHandler("limit", options?.value ?? undefined)
+                  dispatch({
+                    type: "updatePagination",
+                    key: "limit",
+                    value: options?.value,
+                  })
                 }
               />
               <Typography customVariant="regularParagraphLG">
@@ -391,13 +367,15 @@ export default function UserManagementScreen() {
           data={MOCK_DATA}
           orderBy={state.sort.orderBy}
           sortColumn={state.sort.key}
-          onSortColumn={(key, orderBy) => sortChangeHandler(key, orderBy)}
+          onSortColumn={(key, orderBy) =>
+            dispatch({ type: "updateSort", key, value: orderBy })
+          }
         />
         <Pagination
-          count={state.pagination.totalPages}
+          count={MOCK_PAGINATION_DATA_FROM_API.totalPages}
           page={state.pagination.page}
           limit={state.pagination.limit}
-          totalItems={state.pagination.totalItems}
+          totalItems={MOCK_PAGINATION_DATA_FROM_API.totalItems}
           messages={{
             display: tCommon("pagination.display"),
             filter: tCommon("pagination.filter"),
@@ -405,7 +383,13 @@ export default function UserManagementScreen() {
             to: tCommon("pagination.to"),
             total: tCommon("pagination.total"),
           }}
-          onChange={(_e, page) => paginationChangeHandler("page", page)}
+          onChange={(_e, page) =>
+            dispatch({
+              type: "updatePagination",
+              key: "page",
+              value: page,
+            })
+          }
           sx={{
             p: 2,
           }}

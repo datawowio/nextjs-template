@@ -1,18 +1,8 @@
-import type { Order } from "@/components/core/table-data";
+import type { BaseQueryParams } from "@/types/queryParams";
 
-export interface QueryType {
-  pagination: {
-    page: number;
-    limit: number;
-    totalItems: number;
-    totalPages: number;
-  };
+export interface QueryParams extends BaseQueryParams {
   filters: {
     name?: string;
     status?: string;
-  };
-  sort: {
-    key: string;
-    orderBy: Order;
   };
 }
