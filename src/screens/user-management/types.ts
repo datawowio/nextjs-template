@@ -3,11 +3,11 @@ import type { BaseQueryParams } from "@/types/query-params";
 import type { OrderType } from "@/types/sort";
 
 export interface FilterProps {
-  handleChangeInput: (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  onChangeInput: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
-  handleChangeSelectStatus: (_: SyntheticEvent, options: any) => void;
-  handleChangeSelectPagination: (_: SyntheticEvent, options: any) => void;
+  onChangeSelectStatus: (event: SyntheticEvent, options: any) => void;
+  onChangeSelectPagination: (event: SyntheticEvent, options: any) => void;
   messages: {
     search: string;
     status: string;
@@ -30,18 +30,18 @@ export type QueryParamsAction =
 
 interface UpdateFilterAction {
   type: "UPDATE_FILTER";
-  key: keyof QueryParams["filters"];
-  value?: string;
+  payload: {
+    key: keyof QueryParams["filters"];
+    value?: string;
+  };
 }
 
 interface UpdatePaginationAction {
   type: "UPDATE_PAGINATION";
-  key: keyof QueryParams["pagination"];
-  value: number;
+  payload: { key: keyof QueryParams["pagination"]; value: number };
 }
 
 interface UpdateSortAction {
   type: "UPDATE_SORT";
-  key: string;
-  value: OrderType;
+  payload: { key: string; value: OrderType };
 }

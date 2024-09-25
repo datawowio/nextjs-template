@@ -3,11 +3,13 @@ import reducer, { initialState } from "./reducer";
 import { QueryParamsAction } from "./types";
 
 describe("User Management Reducer", () => {
-  it("should update filters when action type is UPDATE_FILTER", () => {
+  it("updates filters when action type is UPDATE_FILTER", () => {
     const action: QueryParamsAction = {
       type: "UPDATE_FILTER",
-      key: "name",
-      value: "John Doe",
+      payload: {
+        key: "name",
+        value: "John Doe",
+      },
     };
 
     const nextState = produce(initialState, (draft) => reducer(draft, action));
@@ -16,11 +18,13 @@ describe("User Management Reducer", () => {
     expect(nextState.filters.status).toBeUndefined();
   });
 
-  it("should update pagination when action type is UPDATE_PAGINATION", () => {
+  it("updates pagination when action type is UPDATE_PAGINATION", () => {
     const action: QueryParamsAction = {
       type: "UPDATE_PAGINATION",
-      key: "limit",
-      value: 20,
+      payload: {
+        key: "limit",
+        value: 20,
+      },
     };
 
     const nextState = produce(initialState, (draft) => reducer(draft, action));
@@ -29,11 +33,13 @@ describe("User Management Reducer", () => {
     expect(nextState.pagination.page).toBe(1);
   });
 
-  it("should update sort when action type is UPDATE_SORT", () => {
+  it("updates sort when action type is UPDATE_SORT", () => {
     const action: QueryParamsAction = {
       type: "UPDATE_SORT",
-      key: "status",
-      value: "desc",
+      payload: {
+        key: "status",
+        value: "desc",
+      },
     };
 
     const nextState = produce(initialState, (draft) => reducer(draft, action));
@@ -42,7 +48,7 @@ describe("User Management Reducer", () => {
     expect(nextState.sort.orderBy).toBe("desc");
   });
 
-  it("should throw an error for unknown action type", () => {
+  it("throws an error for unknown action type", () => {
     const action: any = { type: "UNKNOWN_ACTION" };
 
     expect(() => {

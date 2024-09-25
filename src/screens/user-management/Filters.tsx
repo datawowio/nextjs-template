@@ -12,9 +12,9 @@ import { styles } from "./styles";
 import type { FilterProps } from "./types";
 
 export default function Filters({
-  handleChangeInput,
-  handleChangeSelectStatus,
-  handleChangeSelectPagination,
+  onChangeInput,
+  onChangeSelectStatus,
+  onChangeSelectPagination,
   messages,
 }: FilterProps) {
   const { search, status, show, perPage } = messages;
@@ -29,22 +29,24 @@ export default function Filters({
             InputProps={{
               endAdornment: <SearchRoundedIcon sx={styles.iconSearch} />,
             }}
-            onChange={handleChangeInput}
+            onChange={onChangeInput}
             sx={styles.inputSearch}
           />
           <Select
+            dataTestId="select-status"
             label={status}
             sx={styles.selectStatus}
             options={statusOptions}
-            onChange={handleChangeSelectStatus}
+            onChange={onChangeSelectStatus}
           />
         </Box>
         <Box sx={styles.flexWrapper}>
           <Select
+            dataTestId="select-limit"
             label={show}
             sx={styles.selectLimit}
             options={PAGE_LIMIT_OPTIONS}
-            onChange={handleChangeSelectPagination}
+            onChange={onChangeSelectPagination}
           />
           <Typography customVariant="regularParagraphLG">{perPage}</Typography>
         </Box>

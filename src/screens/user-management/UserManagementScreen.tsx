@@ -23,10 +23,22 @@ import type { ChangeEvent, SyntheticEvent } from "react";
 import type { OrderType } from "@/types/sort";
 
 export default function UserManagementScreen() {
+  // Initial values
+
+  // Hooks
   const t = useTranslations("screens.userManagement");
   const tCommon = useTranslations("common");
   const [state, dispatch] = useImmerReducer(reducer, initialState);
 
+  // Computed Variables
+  const debouncedFilter = useCallback(
+    debounce({ delay: 1000 }, (value: string) => {
+      dispatch({ type: "UPDATE_FILTER", payload: { key: "name", value } });
+    }),
+    [dispatch],
+  );
+
+  // Variables
   const filterMessages = {
     search: t("filters.search"),
     show: tCommon("pagination.show"),
@@ -42,46 +54,52 @@ export default function UserManagementScreen() {
     total: tCommon("pagination.total"),
   };
 
-  const debouncedFilter = useCallback(
-    debounce({ delay: 1000 }, (value: string) => {
-      dispatch({ type: "UPDATE_FILTER", key: "name", value });
-    }),
-    [dispatch],
-  );
+  // Functions
 
-  function handleChangeInput(
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  function onChangeInput(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
-    debouncedFilter(e.target.value);
+    debouncedFilter(event.target.value);
   }
 
-  function handleChangeSelectStatus(_: SyntheticEvent, options: any) {
+  function onChangeSelectStatus(_: SyntheticEvent, options: any) {
     dispatch({
       type: "UPDATE_FILTER",
-      key: "status",
-      value: options?.value,
+      payload: {
+        key: "status",
+        value: options?.value,
+      },
     });
   }
 
-  function handleChangeSelectPagination(_: SyntheticEvent, options: any) {
+  function onChangeSelectPagination(_: SyntheticEvent, options: any) {
     dispatch({
       type: "UPDATE_PAGINATION",
-      key: "limit",
-      value: options?.value,
+      payload: {
+        key: "limit",
+        value: options?.value,
+      },
     });
   }
 
+  // Event handler
   function handleSortColumn(key: string, orderBy: OrderType) {
-    dispatch({ type: "UPDATE_SORT", key, value: orderBy });
+    dispatch({ type: "UPDATE_SORT", payload: { key, value: orderBy } });
   }
 
   function handleChangePagination(_e: ChangeEvent<unknown>, page: number) {
     dispatch({
       type: "UPDATE_PAGINATION",
-      key: "page",
-      value: page,
+      payload: {
+        key: "page",
+        value: page,
+      },
     });
   }
+
+  // Effect hooks
+
+  // Conditional rendering
 
   return (
     <Stack sx={styles.root}>
@@ -96,9 +114,9 @@ export default function UserManagementScreen() {
       </Header>
       <Box sx={styles.card}>
         <Filters
-          handleChangeInput={handleChangeInput}
-          handleChangeSelectStatus={handleChangeSelectStatus}
-          handleChangeSelectPagination={handleChangeSelectPagination}
+          onChangeInput={onChangeInput}
+          onChangeSelectStatus={onChangeSelectStatus}
+          onChangeSelectPagination={onChangeSelectPagination}
           messages={filterMessages}
         />
         <TableData

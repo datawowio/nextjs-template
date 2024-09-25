@@ -17,16 +17,19 @@ export default function DialogConfirmation({
   ...props
 }: DialogConfirmationProps) {
   // Hooks
-  function onCancelHandler(e?: {}, reason?: "backdropClick" | "escapeKeyDown") {
+  function onCancelHandler(
+    event?: {},
+    reason?: "backdropClick" | "escapeKeyDown",
+  ) {
     onClose?.({}, "backdropClick");
-    onCancel?.(e, reason);
+    onCancel?.(event, reason);
   }
 
   function onConfirmHandler(
-    e?: {},
+    event?: {},
     reason?: "backdropClick" | "escapeKeyDown",
   ) {
-    onConfirm?.(e, reason);
+    onConfirm?.(event, reason);
   }
 
   return (

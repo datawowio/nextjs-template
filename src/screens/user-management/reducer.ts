@@ -18,14 +18,14 @@ export const initialState: QueryParams = {
 export default function reducer(draft: QueryParams, action: QueryParamsAction) {
   switch (action.type) {
     case "UPDATE_FILTER":
-      draft.filters[action.key] = action.value;
+      draft.filters[action.payload.key] = action.payload.value;
       break;
     case "UPDATE_PAGINATION":
-      draft.pagination[action.key] = action.value;
+      draft.pagination[action.payload.key] = action.payload.value;
       break;
     case "UPDATE_SORT":
-      draft.sort.key = action.key;
-      draft.sort.orderBy = action.value;
+      draft.sort.key = action.payload.key;
+      draft.sort.orderBy = action.payload.value;
       break;
     default:
       throw new Error(`unknown action type in user management`);
