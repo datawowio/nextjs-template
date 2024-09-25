@@ -31,7 +31,7 @@ describe("Filters Component", () => {
     jest.clearAllMocks();
   });
 
-  test("renders Filters component with correct labels and placeholders", () => {
+  it("renders Filters component with correct labels and placeholders", () => {
     renderWithIntl(
       <Filters
         onChangeInput={onChangeInput}
@@ -96,7 +96,7 @@ describe("Filters Component", () => {
     expect(onChangeSelectStatus).toHaveBeenCalledTimes(1);
   });
 
-  test("calls onChangeSelectPagination when pagination select changes", () => {
+  it("calls onChangeSelectPagination when pagination select changes", () => {
     renderWithIntl(
       <Filters
         onChangeInput={onChangeInput}
