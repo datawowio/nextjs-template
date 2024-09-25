@@ -23,8 +23,6 @@ import type { ChangeEvent, SyntheticEvent } from "react";
 import type { OrderType } from "@/types/sort";
 
 export default function UserManagementScreen() {
-  // Initial values
-
   // Hooks
   const t = useTranslations("screens.userManagement");
   const tCommon = useTranslations("common");
@@ -96,10 +94,6 @@ export default function UserManagementScreen() {
       },
     });
   }
-
-  // Effect hooks
-
-  // Conditional rendering
 
   return (
     <Stack sx={styles.root}>
