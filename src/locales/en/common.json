@@ -2,6 +2,19 @@
   "common": {
     "cancel": "Cancel",
     "confirm": "Confirm",
-    "ok": "Ok"
+    "ok": "Ok",
+    "pagination": {
+      "show": "display",
+      "perPage": "items per page",
+      "display": "Displaying data from",
+      "filter": "Filter data from a total of",
+      "info": "items",
+      "to": "to",
+      "total": "out of a total of"
+    },
+    "statusFilter": {
+      "active": "Active",
+      "inactive": "Inactive"
+    }
   }
 }

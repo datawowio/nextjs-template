@@ -7,8 +7,8 @@ export interface ConfirmationProps {
   children?: ReactNode;
   confirmText?: string;
   description?: string;
-  onCancel?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
-  onConfirm?: (e?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
+  onCancel?: (event?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
+  onConfirm?: (event?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
   title?: string;
 }
 

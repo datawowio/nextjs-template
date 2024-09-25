@@ -10,7 +10,6 @@ export const MuiPopper = {
     root: {
       ".MuiPaper-root": {
         ".MuiAutocomplete-listbox": {
-          "minHeight": "160px",
           ".MuiAutocomplete-option": {
             ...customVariantStyle["regularParagraphLG"],
             "color": colors.text.primary.message,

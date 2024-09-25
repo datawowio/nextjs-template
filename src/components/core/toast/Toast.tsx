@@ -37,7 +37,7 @@ export default function Toast({
           success: <CheckCircleOutlineIcon />,
           warning: <WarningIcon />,
         }}
-        onClose={(e) => onClose?.(e, "escapeKeyDown")}
+        onClose={(event) => onClose?.(event, "escapeKeyDown")}
         severity={status}
         sx={{ width: "100%", ...alertProps?.sx }}
       >

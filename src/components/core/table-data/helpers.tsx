@@ -3,12 +3,13 @@ import Stack from "@mui/material/Stack";
 import { IconArrowDown, IconArrowUp } from "@/components/core/icons";
 import { styles } from "@/components/core/table-data/styles";
 
-import type { Header, Order } from "./types";
+import type { OrderType } from "@/types/sort";
+import type { Header } from "./types";
 
 export function getIconComponent(
   key: Header["key"],
   sortColumn: string,
-  orderBy: Order,
+  orderBy: OrderType,
 ) {
   if (sortColumn === key && orderBy === "asc") {
     return <IconArrowDown sx={styles.sortIcon} />;

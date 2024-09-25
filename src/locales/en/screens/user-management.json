@@ -1,0 +1,10 @@
+{
+  "userManagement": {
+    "title": "User management",
+    "addUser": "Add User",
+    "filters": {
+      "search": "search",
+      "status": "status"
+    }
+  }
+}

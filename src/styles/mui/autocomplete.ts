@@ -11,7 +11,7 @@ export const MuiAutocomplete = {
     root: {
       ".MuiTextField-root": {
         ".MuiOutlinedInput-input": {
-          padding: `${rem(12)} ${rem(14)} ${rem(12)} ${rem(4)}`,
+          padding: `${rem(14)} ${rem(14)} ${rem(10)} ${rem(4)}`,
           height: rem(24),
           ...customVariantStyle["regularParagraphLG"],
         },
