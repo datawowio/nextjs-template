@@ -2,6 +2,17 @@ import type { ChangeEvent, SyntheticEvent } from "react";
 import type { BaseQueryParams } from "@/types/query-params";
 import type { OrderType } from "@/types/sort";
 
+export interface ActionButtonProps {
+  active: boolean;
+  messages: {
+    sendAgain?: string;
+    invite?: string;
+  };
+  onCancelInvite: () => void;
+  onInvite: () => void;
+  onReinvite: () => void;
+}
+
 export interface FilterProps {
   onChangeInput: (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
