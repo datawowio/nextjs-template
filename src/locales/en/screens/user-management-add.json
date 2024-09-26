@@ -1,0 +1,11 @@
+{
+  "userManagementAdd": {
+    "title": "Add User Information",
+    "filters": {
+      "search": "Search"
+    },
+    "breadcrumbs": {
+      "usermanagement": "User Management System"
+    }
+  }
+}

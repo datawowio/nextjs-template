@@ -8,6 +8,8 @@ export default async function getLocales(locale: Locale = "en") {
       screens: {
         ...(await import(`./${locale}/screens/home.json`)).default,
         ...(await import(`./${locale}/screens/user-management.json`)).default,
+        ...(await import(`./${locale}/screens/user-management-add.json`))
+          .default,
       },
     },
   };
