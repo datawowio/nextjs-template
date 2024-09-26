@@ -9,10 +9,10 @@ import { debounce } from "radash";
 import { useCallback } from "react";
 import { useImmerReducer } from "use-immer";
 
-import Button from "@/components/core/button";
-import Header from "@/components/core/header";
-import Pagination from "@/components/core/pagination";
-import TableData from "@/components/core/table-data";
+import Button from "@/components/button";
+import Header from "@/components/header";
+import Pagination from "@/components/pagination";
+import TableData from "@/components/table-data";
 import Filters from "./Filters";
 
 import { MOCK_DATA, MOCK_PAGINATION_DATA_FROM_API } from "./fixtures";

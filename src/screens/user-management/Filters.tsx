@@ -2,9 +2,9 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
-import Input from "@/components/core/input";
-import Select from "@/components/core/select";
-import Typography from "@/components/core/typography";
+import Input from "@/components/input";
+import Select from "@/components/select";
+import Typography from "@/components/typography";
 
 import { PAGE_LIMIT_OPTIONS, STATUS_OPTIONS } from "./fixtures";
 import { styles } from "./styles";

@@ -1,5 +1,5 @@
 import logo from "@/assets/images/brands/logo.svg";
-import Avatar from "@/components/core/avatar";
+import Avatar from "@/components/avatar";
 import Logo from "@/components/logo";
 
 import NavBar from "./NavBar";

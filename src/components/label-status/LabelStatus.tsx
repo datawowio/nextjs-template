@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
-import Typography from "@/components/core/typography";
+import Typography from "@/components/typography";
 import rem from "@/utils/rem";
 import { customStatusStyle, statusIconStyle } from "./styles";
 

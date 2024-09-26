@@ -7,9 +7,9 @@ import Image from "next/image";
 
 import logo from "@/assets/images/brands/logo.svg";
 
-import Button from "@/components/core/button";
-import Input from "@/components/core/input";
-import Typography from "@/components/core/typography";
+import Button from "@/components/button";
+import Input from "@/components/input";
+import Typography from "@/components/typography";
 
 import { card, imageWrapper, root } from "./styles";
 
