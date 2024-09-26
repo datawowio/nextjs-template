@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import logo from "@/assets/images/brands/logo.svg";
-import Avatar from "@/components/core/avatar";
+import Avatar from "@/components/avatar";
 import LayoutMainComponent from "@/components/layout-main";
 import Logo from "@/components/logo";
 

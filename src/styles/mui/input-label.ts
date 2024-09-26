@@ -1,11 +1,11 @@
-import { customVariantStyle } from "@/components/core/typography/styles";
+import { customVariantStyle } from "@/components/typography/styles";
 import { colors } from "@/config/palette";
 import rem from "@/utils/rem";
 
 import type { Components } from "@mui/material";
 
 // NOTE: Edit these styles will effects these components:
-// - core/input
+// - input
 // - input-password
 
 export const MuiInputLabel: Components["MuiInputLabel"] = {

@@ -1,9 +1,9 @@
-import { customVariantStyle } from "@/components/core/typography/styles";
+import { customVariantStyle } from "@/components/typography/styles";
 import { colors } from "@/config/palette";
 
 // NOTE: Edit these styles will effects these components:
-// - core/select
-// - core/select-multiple
+// - select
+// - select-multiple
 
 export const MuiPopper = {
   styleOverrides: {

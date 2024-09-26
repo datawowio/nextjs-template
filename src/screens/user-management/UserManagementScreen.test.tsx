@@ -6,7 +6,7 @@ jest.mock("next-intl", () => ({
   useTranslations: jest.fn().mockReturnValue((key: string) => key),
 }));
 
-jest.mock("@/components/core/table-data", () => {
+jest.mock("@/components/table-data", () => {
   return function MockTableData(props: {
     data: any;
     onSortColumn: (key: string, orderBy: string) => void;
@@ -25,7 +25,7 @@ jest.mock("@/components/core/table-data", () => {
   };
 });
 
-jest.mock("@/components/core/pagination", () => {
+jest.mock("@/components/pagination", () => {
   return function MockPagination(props: {
     count: number;
     page: number;
