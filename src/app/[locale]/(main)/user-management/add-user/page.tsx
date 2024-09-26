@@ -5,7 +5,7 @@ import type { BaseParams } from "@/types/params";
 
 interface AddUserManagementPageProps extends BaseParams {}
 
-export default function HomePage({
+export default function AddUserManagementPage({
   params: { locale },
 }: AddUserManagementPageProps) {
   // Initial value

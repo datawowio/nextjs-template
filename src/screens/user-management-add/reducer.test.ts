@@ -2,7 +2,7 @@ import { produce } from "immer";
 import reducer, { initialState } from "./reducer";
 import { QueryParamsAction } from "./types";
 
-describe("User Management Reducer", () => {
+describe("Add User Management Reducer", () => {
   it("updates filters when action type is UPDATE_FILTER", () => {
     const action: QueryParamsAction = {
       type: "UPDATE_FILTER",

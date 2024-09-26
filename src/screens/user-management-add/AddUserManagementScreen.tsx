@@ -9,8 +9,8 @@ import { useImmerReducer } from "use-immer";
 
 import Header from "@/components/header";
 import Pagination from "@/components/pagination";
-import TableData from "@/components/table-data";
 import { ROUTE } from "@/constants/routes";
+import TableData from "@/components/table-data";
 
 import Filters from "./Filters";
 import { MOCK_DATA, MOCK_PAGINATION_DATA_FROM_API } from "./fixtures";
@@ -21,8 +21,6 @@ import type { ChangeEvent, SyntheticEvent } from "react";
 import type { OrderType } from "@/types/sort";
 
 export default function UserManagementScreen() {
-  // Initial values
-
   // Hooks
   const t = useTranslations("screens.userManagementAdd");
   const tCommon = useTranslations("common");
@@ -45,6 +43,7 @@ export default function UserManagementScreen() {
       name: t("title"),
     },
   ];
+
   const filterMessages = {
     search: t("filters.search"),
     show: tCommon("pagination.show"),
@@ -60,7 +59,6 @@ export default function UserManagementScreen() {
   };
 
   // Functions
-
   function onChangeInput(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {

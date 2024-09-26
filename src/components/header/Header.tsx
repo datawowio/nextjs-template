@@ -26,7 +26,7 @@ export default function Header({
     >
       <Box>
         <Stack sx={styles.titleWrapper}>
-          {breadcrumbs && hrefBack && (
+          {hrefBack && (
             <Button sx={styles.backButton} component={Link} href={hrefBack}>
               <ArrowBackRoundedIcon sx={styles.backIcon} />
             </Button>
