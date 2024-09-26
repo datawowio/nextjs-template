@@ -13,12 +13,16 @@ import type { HeaderProps } from "./types";
 export default function Header({
   breadcrumbs,
   children,
+  dataTestId = "header",
   hrefBack,
   sx,
   text,
+  ...props
 }: HeaderProps) {
   return (
     <Stack
+      {...props}
+      data-testid={dataTestId}
       direction="row"
       justifyContent="space-between"
       alignItems="center"

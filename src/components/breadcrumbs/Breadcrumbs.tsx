@@ -15,7 +15,7 @@ export default function Breadcrumbs({
 }: BreadcrumbsProps) {
   const breadcrumbsList = breadcrumbs.map((item, i) => {
     return item?.href ? (
-      <Link href={item.href} style={{ textDecoration: "none" }}>
+      <Link href={item.href} style={styles.link}>
         <Typography
           customVariant="regularParagraphLG"
           color={colors.text.primary.header}
