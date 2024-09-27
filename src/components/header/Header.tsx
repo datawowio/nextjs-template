@@ -25,7 +25,7 @@ export default function Header({
       data-testid={dataTestId}
       direction="row"
       justifyContent="space-between"
-      alignItems="center"
+      alignItems="start"
       sx={sx}
     >
       <Box>

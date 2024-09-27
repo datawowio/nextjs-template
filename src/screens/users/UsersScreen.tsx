@@ -1,8 +1,10 @@
 "use client";
 
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useTranslations } from "next-intl";
 import { debounce } from "radash";
@@ -25,6 +27,8 @@ import type { OrderType } from "@/types/sort";
 
 export default function UsersScreen() {
   // Hooks
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const t = useTranslations("screens.users");
   const tCommon = useTranslations("common");
   const [state, dispatch] = useImmerReducer(reducer, initialState);
@@ -104,7 +108,7 @@ export default function UsersScreen() {
           component={Link}
           href={ROUTE.usersNew.path}
         >
-          {t("addUser")}
+          {!isMobile && t("addUser")}
         </Button>
       </Header>
       <Box sx={styles.card}>

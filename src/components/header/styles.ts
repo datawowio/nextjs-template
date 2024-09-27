@@ -13,6 +13,7 @@ const backButton: SxProps<Theme> = {
 const backIcon: SxProps<Theme> = {
   color: colors.icon.default.base,
   fontSize: rem(24),
+  marginTop: -rem(4),
 };
 
 const title: SxProps<Theme> = {

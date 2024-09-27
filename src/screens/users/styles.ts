@@ -1,8 +1,15 @@
 import { colors } from "@/config/palette";
+import rem from "@/utils/rem";
 import type { SxProps, Theme } from "@mui/material";
 
 const buttonCreate: SxProps<Theme> = {
-  maxWidth: 144,
+  width: { xs: 40, md: 144 },
+  minWidth: { xs: 40 },
+  height: { xs: rem(40), md: rem(44) },
+  [".MuiButton-startIcon"]: {
+    marginRight: { xs: 0, md: rem(8) },
+    marginLeft: { xs: 0, md: -rem(4) },
+  },
 };
 
 const card: SxProps<Theme> = {

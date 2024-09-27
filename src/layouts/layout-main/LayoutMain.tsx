@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { useTheme, useMediaQuery } from "@mui/material";
 
 import logo from "@/assets/images/brands/logo.svg";
 import Avatar from "@/components/avatar";
@@ -15,11 +17,17 @@ interface RootLayoutProps extends BaseParams {
 }
 
 export default function LayoutMain({ children }: RootLayoutProps) {
-  const [open, setOpen] = useState<boolean>(true);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [open, setOpen] = useState<boolean>(false);
 
   function handleDrawerToggle() {
     setOpen(!open);
   }
+
+  useEffect(() => {
+    setOpen(!isMobile);
+  }, [isMobile]);
 
   return (
     <LayoutMainComponent
