@@ -132,4 +132,8 @@
   --color-other-primary-creamy: #fff5ea;
   --color-other-primary-pink: #fcb0be;
   --color-other-primary-gray: #bbbed2;
+
+  @media only screen and (max-width: 600px) {
+    --font-size-1: 1.5rem;
+  }
 }

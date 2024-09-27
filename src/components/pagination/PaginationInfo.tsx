@@ -15,7 +15,12 @@ export default function PaginationInfo({
   const endItemCount = startItemCount + limit - 1;
 
   return (
-    <Stack direction="row" gap="4px" pt="1px">
+    <Stack
+      direction="row"
+      gap="4px"
+      pt="1px"
+      display={{ xs: "none", md: "flex" }}
+    >
       <Typography customVariant="regularParagraphLG">
         {messages?.display}
         <NumberTypography>{startItemCount}</NumberTypography>

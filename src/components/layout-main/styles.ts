@@ -12,6 +12,8 @@ export const Main = styled("main", {
   flexGrow: 1,
   backgroundColor: colors.bg.lightGray,
   boxSizing: "border-box",
+  maxWidth: "100vw",
+  overflow: "hidden",
   padding: rem(16),
   minHeight: "100vh",
   transition: theme.transitions.create("margin", {
@@ -26,6 +28,10 @@ export const Main = styled("main", {
     }),
     marginLeft: 0,
   }),
+
+  [theme.breakpoints.down("md")]: {
+    marginLeft: `-100%`, // Adjust margin for small screens
+  },
 }));
 
 export const DrawerHeader = styled("div")(({ theme }) => ({

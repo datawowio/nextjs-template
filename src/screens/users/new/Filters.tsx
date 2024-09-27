@@ -6,19 +6,17 @@ import Input from "@/components/input";
 import Select from "@/components/select";
 import Typography from "@/components/typography";
 
-import { PAGE_LIMIT_OPTIONS, STATUS_OPTIONS } from "./fixtures";
+import { PAGE_LIMIT_OPTIONS } from "./fixtures";
 import { styles } from "./styles";
 
 import type { FilterProps } from "./types";
 
 export default function Filters({
   onChangeInput,
-  onChangeSelectStatus,
   onChangeSelectPagination,
   messages,
 }: FilterProps) {
-  const { search, status, show, perPage } = messages;
-  const statusOptions = STATUS_OPTIONS();
+  const { search, show, perPage } = messages;
 
   return (
     <Stack sx={styles.wrapper}>
@@ -32,17 +30,11 @@ export default function Filters({
             onChange={onChangeInput}
             sx={styles.inputSearch}
           />
-          <Select
-            dataTestId="select-status"
-            label={status}
-            sx={styles.selectStatus}
-            options={statusOptions}
-            onChange={onChangeSelectStatus}
-          />
         </Box>
-        <Box sx={styles.flexWrapper}>
+        <Box sx={styles.selectLimitWrapper}>
           <Select
             dataTestId="select-limit"
+            disableClearable
             label={show}
             sx={styles.selectLimit}
             options={PAGE_LIMIT_OPTIONS}

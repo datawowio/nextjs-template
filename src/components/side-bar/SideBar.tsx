@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import { Toolbar } from "./styles";
+import { Drawer, Toolbar } from "./styles";
 
 import type { SideBarProps } from "./types";
 
@@ -14,14 +13,7 @@ export default function Sidebar({
     <Drawer
       data-testid={dataTestId}
       open={open}
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        [`& .MuiDrawer-paper`]: {
-          width: drawerWidth,
-          boxSizing: "border-box",
-        },
-      }}
+      drawerWidth={drawerWidth}
       variant="persistent"
     >
       <Toolbar />
