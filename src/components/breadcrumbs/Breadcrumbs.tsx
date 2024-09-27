@@ -1,9 +1,9 @@
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import MUIBreadcrumbs from "@mui/material/Breadcrumbs";
 
-import { Link } from "@/lib/navigation";
 import Typography from "@/components/typography";
 import { colors } from "@/config/palette";
+import { Link } from "@/lib/navigation";
 import { styles } from "./styles";
 
 import type { BreadcrumbsProps } from "./types";
