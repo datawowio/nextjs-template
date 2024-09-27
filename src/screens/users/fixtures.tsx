@@ -3,6 +3,7 @@ import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 import { useTranslations } from "next-intl";
 
@@ -36,16 +37,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="completed" text="Active" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="ระงับการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PauseRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -59,16 +64,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="completed" text="Active" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="ระงับการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PauseRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -82,16 +91,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="ready" text="Inactive" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="เปิดการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PlayArrowRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -105,16 +118,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="ready" text="Inactive" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="เปิดการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PlayArrowRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -128,16 +145,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="ready" text="Inactive" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="เปิดการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PlayArrowRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -151,16 +172,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="ready" text="Inactive" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="เปิดการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PlayArrowRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -174,16 +199,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="completed" text="Active" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="ระงับการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PauseRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -197,16 +226,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="completed" text="Active" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="ระงับการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PauseRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -220,16 +253,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="ready" text="Inactive" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PlayArrowRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="เปิดการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PlayArrowRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },
@@ -243,16 +280,20 @@ export const MOCK_DATA = {
       status: <LabelStatus status="completed" text="Active" />,
       action: (
         <Box display="flex" gap={rem(36)} justifyContent="center">
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <PauseRoundedIcon
-              sx={{ fontSize: rem(18), color: colors.icon.default.base }}
-            />
-          </IconButton>
-          <IconButton sx={{ p: 0 }} disableRipple>
-            <EditRoundedIcon
-              sx={{ fontSize: rem(16), color: colors.icon.default.base }}
-            />
-          </IconButton>
+          <Tooltip title="ระงับการใช้งาน">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <PauseRoundedIcon
+                sx={{ fontSize: rem(18), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="แก้่ไขสิทธิ์">
+            <IconButton sx={{ p: 0 }} disableRipple>
+              <EditRoundedIcon
+                sx={{ fontSize: rem(16), color: colors.icon.default.base }}
+              />
+            </IconButton>
+          </Tooltip>
         </Box>
       ),
     },

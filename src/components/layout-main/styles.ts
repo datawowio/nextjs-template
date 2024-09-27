@@ -30,7 +30,7 @@ export const Main = styled("main", {
   }),
 
   [theme.breakpoints.down("md")]: {
-    marginLeft: open ? 0 : `-100%`, // Adjust margin for small screens
+    marginLeft: `-100%`, // Adjust margin for small screens
   },
 }));
 
