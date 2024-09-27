@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { styled, SxProps } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiToolbar from "@mui/material/Toolbar";
 import rem from "@/utils/rem";

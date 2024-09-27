@@ -2,10 +2,10 @@ export const ROUTE = {
   login: {
     path: "/",
   },
-  userManagementAdd: {
-    path: "/user-management/add-user",
+  usersNew: {
+    path: "/users/new",
   },
-  userManagementDashboard: {
-    path: "/user-management",
+  users: {
+    path: "/users",
   },
 };

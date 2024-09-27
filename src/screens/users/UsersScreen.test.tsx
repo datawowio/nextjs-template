@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import UserManagementScreen from "./UserManagementScreen";
+import UserManagementScreen from "./UsersScreen";
 import { NextIntlClientProvider } from "next-intl";
 import type { ChangeEvent } from "react";
 

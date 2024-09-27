@@ -1,15 +1,15 @@
 import { unstable_setRequestLocale } from "next-intl/server";
-import { AddUserManagementScreen } from "@/screens/user-management-add";
+import { NewUsersScreen } from "@/screens/users/new";
 
 import type { BaseParams } from "@/types/params";
 
-interface AddUserManagementPageProps extends BaseParams {}
+interface NewUserManagementScreen extends BaseParams {}
 
 export default function AddUserManagementPage({
   params: { locale },
-}: AddUserManagementPageProps) {
+}: NewUserManagementScreen) {
   // Initial value
   unstable_setRequestLocale(locale);
 
-  return <AddUserManagementScreen />;
+  return <NewUsersScreen />;
 }

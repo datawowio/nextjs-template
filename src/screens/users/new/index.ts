@@ -1,4 +1,4 @@
-export { default as AddUserManagementScreen } from "./AddUserManagementScreen";
+export { default as NewUsersScreen } from "./NewUsersScreen";
 export type {
   ActionButtonProps,
   FilterProps,
