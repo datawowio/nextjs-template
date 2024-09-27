@@ -25,7 +25,7 @@ export const MOCK_DATA = {
       name: "Jacquelyn Roberts",
       email: "Werner47@gmail.com",
       action: (
-        <Box display="flex" maxWidth={203} justifyContent="center" ml="auto">
+        <Box display="flex" width={203} justifyContent="center" ml="auto">
           <Button
             variant="contained"
             startIcon={
@@ -53,7 +53,7 @@ export const MOCK_DATA = {
         <Box
           display="flex"
           gap={1}
-          maxWidth={203}
+          width={203}
           justifyContent="center"
           ml="auto"
         >
@@ -89,7 +89,7 @@ export const MOCK_DATA = {
       name: "Pablo Prosacco",
       email: "Christa_Kautzer@yahoo.com",
       action: (
-        <Box display="flex" maxWidth={203} justifyContent="center" ml="auto">
+        <Box display="flex" width={203} justifyContent="center" ml="auto">
           <Button
             variant="contained"
             startIcon={
@@ -117,7 +117,7 @@ export const MOCK_DATA = {
         <Box
           display="flex"
           gap={1}
-          maxWidth={203}
+          width={203}
           justifyContent="center"
           ml="auto"
         >
@@ -153,7 +153,7 @@ export const MOCK_DATA = {
       name: "Laurie Erdman I",
       email: "Jaunita.Kunde94@gmail.com",
       action: (
-        <Box display="flex" maxWidth={203} justifyContent="center" ml="auto">
+        <Box display="flex" width={203} justifyContent="center" ml="auto">
           <Button
             variant="contained"
             startIcon={
@@ -181,7 +181,7 @@ export const MOCK_DATA = {
         <Box
           display="flex"
           gap={1}
-          maxWidth={203}
+          width={203}
           justifyContent="center"
           ml="auto"
         >
@@ -220,7 +220,7 @@ export const MOCK_DATA = {
         <Box
           display="flex"
           gap={1}
-          maxWidth={203}
+          width={203}
           justifyContent="center"
           ml="auto"
         >
@@ -259,7 +259,7 @@ export const MOCK_DATA = {
         <Box
           display="flex"
           gap={1}
-          maxWidth={203}
+          width={203}
           justifyContent="center"
           ml="auto"
         >
@@ -298,7 +298,7 @@ export const MOCK_DATA = {
         <Box
           display="flex"
           gap={1}
-          maxWidth={203}
+          width={203}
           justifyContent="center"
           ml="auto"
         >
@@ -337,7 +337,7 @@ export const MOCK_DATA = {
         <Box
           display="flex"
           gap={1}
-          maxWidth={203}
+          width={203}
           justifyContent="center"
           ml="auto"
         >

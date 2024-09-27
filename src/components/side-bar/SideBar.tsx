@@ -15,10 +15,10 @@ export default function Sidebar({
       data-testid={dataTestId}
       open={open}
       sx={{
-        width: drawerWidth,
+        width: { xs: "100%", md: drawerWidth },
         flexShrink: 0,
         [`& .MuiDrawer-paper`]: {
-          width: drawerWidth,
+          width: { xs: "100%", md: drawerWidth },
           boxSizing: "border-box",
         },
       }}

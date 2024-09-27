@@ -4,7 +4,7 @@ import type { SxProps, Theme } from "@mui/material";
 
 const buttonActionWrapper: SxProps<Theme> = {
   display: "flex",
-  maxWidth: 203,
+  width: 203,
   justifyContent: "center",
   ml: "auto",
 };
@@ -22,6 +22,7 @@ const buttonClose: SxProps<Theme> = {
 const card: SxProps<Theme> = {
   background: colors.base.white,
   borderRadius: "8px 8px 0 0",
+  maxWidth: "100vw",
 };
 
 const closeIcon: SxProps<Theme> = {
@@ -30,13 +31,14 @@ const closeIcon: SxProps<Theme> = {
 };
 
 const flexWrapper: SxProps<Theme> = {
-  display: "flex",
+  display: { sm: "block", md: "flex" },
   gap: 2,
   alignItems: "center",
 };
 
 const flexWrapperGrow: SxProps<Theme> = {
   display: "flex",
+  flexWrap: { xs: "wrap", md: "initial" },
   gap: 2,
   alignItems: "center",
   flexGrow: 1,
@@ -66,6 +68,12 @@ const refreshIcon: SxProps<Theme> = {
 
 const selectLimit: SxProps<Theme> = {
   width: 100,
+};
+
+const selectLimitWrapper: SxProps<Theme> = {
+  display: { xs: "none", md: "flex" },
+  gap: 2,
+  alignItems: "center",
 };
 
 const textDefaultColor: SxProps<Theme> = {
@@ -98,6 +106,7 @@ export const styles = {
   root,
   refreshIcon,
   selectLimit,
+  selectLimitWrapper,
   selectStatus,
   textDefaultColor,
   textWhiteColor,

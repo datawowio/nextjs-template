@@ -8,16 +8,18 @@ const buttonCreate: SxProps<Theme> = {
 const card: SxProps<Theme> = {
   background: colors.base.white,
   borderRadius: "8px 8px 0 0",
+  maxWidth: "100vw",
 };
 
 const flexWrapper: SxProps<Theme> = {
-  display: "flex",
+  display: { xs: "block", md: "flex" },
   gap: 2,
   alignItems: "center",
 };
 
 const flexWrapperGrow: SxProps<Theme> = {
   display: "flex",
+  flexWrap: { xs: "wrap", md: "initial" },
   gap: 2,
   alignItems: "center",
   flexGrow: 1,
@@ -39,8 +41,14 @@ const selectLimit: SxProps<Theme> = {
   width: 100,
 };
 
+const selectLimitWrapper: SxProps<Theme> = {
+  display: { xs: "none", md: "flex" },
+  gap: 2,
+  alignItems: "center",
+};
+
 const selectStatus: SxProps<Theme> = {
-  width: 244,
+  width: { xs: "100%", md: 244 },
 };
 
 const wrapper: SxProps<Theme> = {
@@ -56,6 +64,7 @@ export const styles = {
   inputSearch,
   root,
   selectLimit,
+  selectLimitWrapper,
   selectStatus,
   wrapper,
 };

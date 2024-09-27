@@ -40,9 +40,10 @@ export default function Filters({
             onChange={onChangeSelectStatus}
           />
         </Box>
-        <Box sx={styles.flexWrapper}>
+        <Box sx={styles.selectLimitWrapper}>
           <Select
             dataTestId="select-limit"
+            disableClearable
             label={show}
             sx={styles.selectLimit}
             options={PAGE_LIMIT_OPTIONS}

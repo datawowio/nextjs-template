@@ -24,7 +24,7 @@ export default function Pagination({
     <Stack
       direction="row"
       flexWrap="wrap"
-      justifyContent="space-between"
+      justifyContent={{ xs: "center", md: "space-between" }}
       alignItems="center"
       data-testid={dataTestId}
       sx={sx}
