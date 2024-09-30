@@ -7,6 +7,7 @@ const buttonActionWrapper: SxProps<Theme> = {
   width: 203,
   justifyContent: "center",
   ml: "auto",
+  gap: 1,
 };
 
 const buttonCreate: SxProps<Theme> = {
@@ -54,7 +55,6 @@ const iconSearch: SxProps<Theme> = {
 
 const mailIcon: SxProps<Theme> = {
   fontSize: rem(16),
-  color: colors.icon.default.white,
 };
 
 const root: SxProps<Theme> = {
@@ -78,10 +78,6 @@ const selectLimitWrapper: SxProps<Theme> = {
 
 const textDefaultColor: SxProps<Theme> = {
   color: colors.text.info.default,
-};
-
-const textWhiteColor: SxProps<Theme> = {
-  color: colors.base.white,
 };
 
 const selectStatus: SxProps<Theme> = {
@@ -109,6 +105,5 @@ export const styles = {
   selectLimitWrapper,
   selectStatus,
   textDefaultColor,
-  textWhiteColor,
   wrapper,
 };

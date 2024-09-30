@@ -7,13 +7,23 @@
       "status": "สถานะ"
     },
     "new": {
-      "title": "เพิ่มข้อมูลผู้ใช้งาน",
-      "filters": {
-        "search": "ค้นหา"
+      "actions": {
+        "resend": "ส่งอีเมลอีกครั้ง",
+        "invite": "ส่งคำเชิญ"
       },
       "breadcrumbs": {
         "usermanagement": "ระบบจัดการผู้ใช้"
-      }
+      },
+      "filters": {
+        "search": "ค้นหา"
+      },
+      "table": {
+        "label": {
+          "name": "ชื่อ",
+          "email": "อีเมล"
+        }
+      },
+      "title": "เพิ่มข้อมูลผู้ใช้งาน"
     }
   }
 }

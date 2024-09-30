@@ -10,15 +10,15 @@ import { styles } from "./styles";
 import type { ActionButtonProps } from "./types";
 
 export default function ActionButton({
-  active,
+  status,
   messages,
   onCancelInvite,
   onInvite,
   onReinvite,
 }: ActionButtonProps) {
-  const { sendAgain, invite } = messages;
+  const { resend, invite } = messages;
 
-  return active ? (
+  return status === "invited" ? (
     <Box sx={styles.buttonActionWrapper}>
       <Button
         onClick={onReinvite}
@@ -30,7 +30,7 @@ export default function ActionButton({
           customVariant="semiboldParagraphMD"
           sx={styles.textDefaultColor}
         >
-          {sendAgain}
+          {resend}
         </Typography>
       </Button>
       <Button
@@ -46,17 +46,13 @@ export default function ActionButton({
   ) : (
     <Box sx={styles.buttonActionWrapper}>
       <Button
+        disabled={status === "active"}
         onClick={onInvite}
         startIcon={<MailOutlineRoundedIcon sx={styles.mailIcon} />}
         size="small"
         variant="contained"
       >
-        <Typography
-          customVariant="semiboldParagraphMD"
-          sx={styles.textWhiteColor}
-        >
-          {invite}
-        </Typography>
+        <Typography customVariant="semiboldParagraphMD">{invite}</Typography>
       </Button>
     </Box>
   );

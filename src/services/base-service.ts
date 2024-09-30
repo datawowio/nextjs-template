@@ -16,6 +16,7 @@ export default class BaseService {
   }
 
   post(endpoint: string, body: any) {
+    console.log(JSON.stringify(body));
     return this.request(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -38,8 +39,17 @@ export default class BaseService {
   }
 
   private async request(endpoint: string, options: RequestInit) {
+    const baseOptions = {
+      ...options,
+      headers: {
+        ...options.headers,
+        "Accept-Language": "th",
+        "Authorization":
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnRpdHlJZCI6MSwiZW50aXR5VHlwZSI6InN5c3RlbWN0bCIsInBlcm1pc3Npb24iOltdLCJtZW51IjpbXSwiaWF0IjoxNzI3Njg2MjE5LCJleHAiOjE3Mjc2ODcxMTl9.v6nGGJvsFa3pOIIpUHKALvXGevcvlYwIpjMOY5azURM",
+      },
+    };
     try {
-      const response = await fetch(this.baseURL + endpoint, options);
+      const response = await fetch(this.baseURL + endpoint, baseOptions);
       return await (response.ok
         ? response.json()
         : Promise.reject(`Error: ${response.status}`));

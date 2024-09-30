@@ -8,6 +8,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useTranslations } from "next-intl";
 import { debounce } from "radash";
+import useSwr from "swr";
 import { useImmerReducer } from "use-immer";
 
 import Button from "@/components/button";
@@ -16,6 +17,8 @@ import Pagination from "@/components/pagination";
 import { ROUTE } from "@/constants/routes";
 import TableData from "@/components/table-data";
 import { Link } from "@/lib/navigation";
+import UserService from "@/services/user-service";
+import queryString from "@/utils/queryString";
 
 import Filters from "./Filters";
 import { MOCK_DATA, MOCK_PAGINATION_DATA_FROM_API } from "./fixtures";
@@ -24,6 +27,10 @@ import { styles } from "./styles";
 
 import type { ChangeEvent, SyntheticEvent } from "react";
 import type { OrderType } from "@/types/sort";
+
+const userService = new UserService();
+
+const fetcher = (url: string) => userService.getUsers(url);
 
 export default function UsersScreen() {
   // Hooks
@@ -55,8 +62,18 @@ export default function UsersScreen() {
     total: tCommon("pagination.total"),
   };
 
+  const query = queryString({
+    search: state.filters.name,
+    page: state.pagination.page,
+    pageSize: state.pagination.limit,
+  });
+
+  const { data } = useSwr(`/app/invitation/users?${query}`, fetcher);
   // Functions
 
+  const getUsers = userService.getUsers(`/app/invitation/users?${query}`);
+
+  console.log(getUsers);
   function onChangeInput(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {

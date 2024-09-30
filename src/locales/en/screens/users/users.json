@@ -7,13 +7,17 @@
       "status": "status"
     },
     "new": {
-      "title": "Add User Information",
+      "breadcrumbs": {
+        "usermanagement": "User Management System"
+      },
+      "actions": {
+        "resend": "ส่งอีเมลอีกครั้ง",
+        "invite": "ส่งคำเชิญ"
+      },
       "filters": {
         "search": "Search"
       },
-      "breadcrumbs": {
-        "usermanagement": "User Management System"
-      }
+      "title": "Add User Information"
     }
   }
 }

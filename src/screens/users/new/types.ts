@@ -3,14 +3,14 @@ import type { BaseQueryParams } from "@/types/query-params";
 import type { OrderType } from "@/types/sort";
 
 export interface ActionButtonProps {
-  active: boolean;
   messages: {
-    sendAgain?: string;
+    resend?: string;
     invite?: string;
   };
   onCancelInvite: () => void;
   onInvite: () => void;
   onReinvite: () => void;
+  status: "active" | "inactive" | "invited" | "rejected" | null;
 }
 
 export interface FilterProps {
