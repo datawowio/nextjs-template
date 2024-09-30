@@ -52,7 +52,7 @@ export default function NewUsersScreen() {
     pageSize: state.pagination.limit,
   });
 
-  const { data, isLoading } = useSwr(`/app/invitation/users?${query}`, fetcher);
+  const { data } = useSwr(`/app/invitation/users?${query}`, fetcher);
 
   // Variables
 
