@@ -1,17 +1,34 @@
-import InputPassword from "./InputPassword";
-import type { Meta, StoryObj } from "@storybook/react";
+import InputPassword from './InputPassword'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof InputPassword> = {
   component: InputPassword,
-  title: "Components/InputPassword",
-};
+  title: 'Components/InputPassword',
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof InputPassword>;
+type Story = StoryObj<typeof InputPassword>
 
 export const Default: Story = {
   args: {
-    label: "Password",
+    outlinedInputProps: {
+      id: 'input-password-default-example',
+      label: 'Password',
+    },
   },
-};
+}
+
+export const Error: Story = {
+  args: {
+    errorMessage: 'Invalid Password',
+    formControlProps: {
+      error: true,
+    },
+    outlinedInputProps: {
+      defaultValue: 'invalid password',
+      id: 'input-password-error-example',
+      label: 'Password',
+    },
+  },
+}

@@ -1,9 +1,8 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 
-// @ts-ignore
-import { darkTheme, lightTheme } from "@/contexts/theme";
-import "@/styles/global.css";
+// noinspection ES6PreferShortImport
+import { darkTheme, lightTheme } from "../src/contexts/theme";
 
 import type { Preview } from "@storybook/react";
 

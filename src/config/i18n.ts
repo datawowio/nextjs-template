@@ -14,6 +14,6 @@ export const routing = defineRouting({
 });
 
 export default getRequestConfig(async ({ locale }) => {
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale as Locale)) notFound();
   return getLocales(locale as Locale);
 });

@@ -1,36 +1,26 @@
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import Stack from "@mui/material/Stack";
+import "server-only";
 
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-
-import logo from "@/assets/images/brands/logo.svg";
-
-import Button from "@/components/button";
-import Input from "@/components/input";
-import Typography from "@/components/typography";
-
-import { card, imageWrapper, root } from "./styles";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 
 export default function HomeScreen() {
-  const t = useTranslations("screens.home");
-
   return (
-    <Box sx={root}>
-      <Card sx={card}>
-        <Stack gap={4}>
-          <Box sx={imageWrapper}>
-            <Image src={logo} alt={t("logoAlt")} fill />
-          </Box>
-          <Typography customVariant="regularDisplayLG">
-            {t("heading")}
-          </Typography>
-          <Typography>{t("description")}</Typography>
-          <Button variant="contained">{t("cta")}</Button>
-          <Input label="Enter your name" />
-        </Stack>
-      </Card>
-    </Box>
+    <Container component="main">
+      <Typography variant="h1">Welcome to the Next.js template!</Typography>
+      <Typography variant="body1">
+        This template is designed to help you kickstart your Next.js journey.
+        It&apos;s equipped with everything you need to build modern, fast, and
+        scalable web applications. Powered by React and enhanced with
+        server-side rendering (SSR), static site generation (SSG), and API
+        routes, this template gives you the flexibility to create
+        high-performance web experiences effortlessly.
+      </Typography>
+      <Typography variant="body1">
+        Explore the provided structure, dive into the documentation, and
+        customize it to fit your project&apos;s needs. Whether you&apos;re
+        building a simple website or a complex application, this template is
+        your foundation for success. Enjoy building!
+      </Typography>
+    </Container>
   );
 }

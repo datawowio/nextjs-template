@@ -1,12 +1,10 @@
+import "server-only";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/config/i18n";
 
 import LocaleProvider from "@/providers/locale-provider";
 import MuiThemeProvider from "@/providers/mui-theme-provider";
-import ToastProvider from "@/providers/toast-provider";
-
-import "@/styles/global.css";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -39,9 +37,7 @@ export default function RootLayout({
     <html lang={locale}>
       <body>
         <LocaleProvider>
-          <MuiThemeProvider>
-            <ToastProvider>{children} </ToastProvider>
-          </MuiThemeProvider>
+          <MuiThemeProvider>{children}</MuiThemeProvider>
         </LocaleProvider>
       </body>
     </html>

@@ -1,6 +1,15 @@
-import type { FormControlProps } from "@mui/material";
-import type { BaseComponent } from "@/types/components";
+import type { FormControlProps } from "@mui/material/FormControl";
+import type { OutlinedInputProps } from "@mui/material/OutlinedInput";
+import type { BaseComponentProps } from "@/types/component";
 
-export interface InputPasswordProps extends BaseComponent, FormControlProps {
-  label?: string;
+type CustomFormControlProps = Omit<FormControlProps, "fullWidth" | "variant">;
+type CustomOutlinedInputProps = Omit<
+  OutlinedInputProps,
+  "aria-describedby" | "endAdornment" | "type"
+>;
+
+export interface InputPasswordProps extends BaseComponentProps {
+  errorMessage?: string;
+  formControlProps?: CustomFormControlProps;
+  outlinedInputProps?: CustomOutlinedInputProps;
 }
