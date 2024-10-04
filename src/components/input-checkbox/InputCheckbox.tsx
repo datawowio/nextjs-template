@@ -1,17 +1,17 @@
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
-import type { InputCheckboxProps } from './types'
+import type { InputCheckboxProps } from "./types";
 
 export default function InputCheckbox({
-  dataTestId = 'input-checkbox',
+  dataTestId = "input-checkbox",
   checkboxProps = {},
   formControlLabelProps = {
-    label: 'Label',
+    label: "Label",
   },
 }: InputCheckboxProps) {
   // Initial value
-  const { label, ...restFormControlLabelProps } = formControlLabelProps
+  const { label, ...restFormControlLabelProps } = formControlLabelProps;
 
   return (
     <FormControlLabel
@@ -20,5 +20,5 @@ export default function InputCheckbox({
       data-testid={dataTestId}
       label={label}
     />
-  )
+  );
 }

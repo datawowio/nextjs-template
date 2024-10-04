@@ -17,9 +17,9 @@ To use this template, ensure you have the following installed:
 - **[asdf][2]** as the version manager
 - **[Yarn][3]** as the dependency manager
 - **[Visual Studio Code][4]** with the following extensions:
-    - [Prettier][5]
-    - [EditorConfig][6]
-    - [ESLint][7]
+  - [Prettier][5]
+  - [EditorConfig][6]
+  - [ESLint][7]
 
 ## Setup 🚧
 
@@ -37,7 +37,7 @@ development tasks. Each command is designed to help you efficiently manage and
 build your Next.js application. Here’s what you can do with them:
 
 | Command                | Description                                                     |
-|------------------------|-----------------------------------------------------------------|
+| ---------------------- | --------------------------------------------------------------- |
 | `yarn build`           | Builds the application for production.                          |
 | `yarn build-storybook` | Builds the Storybook for deployment.                            |
 | `yarn dev`             | Runs the application in development mode.                       |
