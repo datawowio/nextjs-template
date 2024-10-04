@@ -1,0 +1,10 @@
+{
+  "delay": 3000,
+  "exec": "yarn merge-locales",
+  "ignore": [
+    "src/locales/en/en.json",
+    "src/locales/th/th.json",
+    "src/locales/index.ts"
+  ],
+  "watch": ["src/locales"]
+}
