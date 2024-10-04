@@ -8966,6 +8966,18 @@ stop-iteration-iterator@^1.0.0:
   dependencies:
     internal-slot "^1.0.4"
 
+storybook-i18n@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/storybook-i18n/-/storybook-i18n-3.1.1.tgz#d75f84d62682a76d58586534719a7f5042b82cb9"
+  integrity sha512-k1/lS+Rx6l5mJEYAHQWEgXuwU5IyWk7kjcJtm2FDIn1UqZwbEraGlrp/fEZKK2e/7+SXEQdKeCaTz7+63WTQxw==
+
+storybook-next-intl@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/storybook-next-intl/-/storybook-next-intl-1.1.4.tgz#929ad6593ee61d000920eda0ff96ff66d237ef15"
+  integrity sha512-7QoiYjxXMmCNMJQX5LIttRxkuIdRb+AL4Zk0DbRlz81kQD88RPwnj3PK3PlG0JJ/7/4VjuCi6j5O9gNVBGSfLA==
+  dependencies:
+    storybook-i18n "3.1.1"
+
 storybook@8.3.4:
   version "8.3.4"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.3.4.tgz#caca649de88372679c126a9bf8ae4ed14406e9a3"

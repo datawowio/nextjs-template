@@ -90,6 +90,7 @@
     "react-docgen-typescript": "2.2.2",
     "rimraf": "6.0.1",
     "storybook": "8.3.4",
+    "storybook-next-intl": "1.1.4",
     "ts-node": "10.9.2",
     "typescript": "5.5.4"
   }
