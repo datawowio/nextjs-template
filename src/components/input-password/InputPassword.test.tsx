@@ -1,9 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
+import { renderWithProviders } from "@/test/test-helpers";
 import InputPassword from "./InputPassword";
 
 describe("InputPassword Component", () => {
   it("renders correctly with default props", () => {
-    render(<InputPassword />);
+    renderWithProviders(<InputPassword />);
 
     const inputElement = screen.getByLabelText("Password");
     expect(inputElement).toBeInTheDocument();
@@ -14,7 +15,7 @@ describe("InputPassword Component", () => {
   });
 
   it("toggles password visibility when clicking the visibility icon", () => {
-    render(<InputPassword />);
+    renderWithProviders(<InputPassword />);
 
     const inputElement = screen.getByLabelText("Password");
     expect(inputElement).toHaveAttribute("type", "password");
@@ -29,7 +30,7 @@ describe("InputPassword Component", () => {
   });
 
   it("displays the error message when error is true", () => {
-    render(
+    renderWithProviders(
       <InputPassword
         formControlProps={{ error: true }}
         errorMessage="Password is invalid"
@@ -47,7 +48,7 @@ describe("InputPassword Component", () => {
   // When testing with event.preventDefault()
   // Ref: https://stackoverflow.com/questions/60455119/react-jest-test-preventdefault-action
   it("calls handleMouseDown and prevents default behavior when mouse is pressed on visibility toggle button", () => {
-    render(<InputPassword />);
+    renderWithProviders(<InputPassword />);
 
     const toggleButton = screen.getByLabelText("toggle password visibility");
     const isPrevented = fireEvent.mouseDown(toggleButton);

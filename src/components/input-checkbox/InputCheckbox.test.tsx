@@ -1,9 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
+import { renderWithProviders } from "@/test/test-helpers";
 import InputCheckbox from "./InputCheckbox";
 
 describe("InputCheckbox Component", () => {
   it("renders correctly with default label", () => {
-    render(<InputCheckbox />);
+    renderWithProviders(<InputCheckbox />);
 
     const labelElement = screen.getByLabelText("Label");
     expect(labelElement).toBeInTheDocument();
@@ -13,7 +14,7 @@ describe("InputCheckbox Component", () => {
   });
 
   it("allows the checkbox to be toggled", () => {
-    render(<InputCheckbox />);
+    renderWithProviders(<InputCheckbox />);
 
     const checkbox = screen.getByRole("checkbox");
     expect(checkbox).not.toBeChecked();
@@ -26,21 +27,23 @@ describe("InputCheckbox Component", () => {
   });
 
   it("renders with a custom label", () => {
-    render(<InputCheckbox formControlLabelProps={{ label: "Custom Label" }} />);
+    renderWithProviders(
+      <InputCheckbox formControlLabelProps={{ label: "Custom Label" }} />,
+    );
 
     const labelElement = screen.getByLabelText("Custom Label");
     expect(labelElement).toBeInTheDocument();
   });
 
   it("applies custom props to the checkbox", () => {
-    render(<InputCheckbox checkboxProps={{ checked: true }} />);
+    renderWithProviders(<InputCheckbox checkboxProps={{ checked: true }} />);
 
     const checkbox = screen.getByRole("checkbox");
     expect(checkbox).toBeChecked();
   });
 
   it("renders with a custom data-testid", () => {
-    render(<InputCheckbox dataTestId="custom-checkbox" />);
+    renderWithProviders(<InputCheckbox dataTestId="custom-checkbox" />);
 
     const checkboxWrapper = screen.getByTestId("custom-checkbox");
     expect(checkboxWrapper).toBeInTheDocument();

@@ -22,6 +22,8 @@
     "prebuild:storybook": "run-s clean:storybook",
     "precheck-types": "run-s clean:check-types",
     "predev": "run-s merge-locales",
+    "pretest": "run-s merge-locales",
+    "prewatch:test": "run-s merge-locales",
     "start": "next start",
     "test": "jest",
     "watch": "run-p watch:merge-locales watch:test",
