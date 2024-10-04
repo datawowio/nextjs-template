@@ -26,6 +26,6 @@ jobs:
       - name: Run Tests
         run: yarn test
       - name: Build Storybook
-        run: yarn build-storybook
+        run: yarn build:storybook
       - name: Build Project
-        run: yarn build
+        run: yarn build:next
