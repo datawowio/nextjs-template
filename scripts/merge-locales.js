@@ -28,10 +28,10 @@ function createMergedTranslations(locale) {
     `locales/${locale}/${locale}.json`,
   );
 
-  fs.writeFileSync(outputFile, JSON.stringify({}, null, 2));
+  fs.writeFileSync(outputFile, JSON.stringify({}, null, 2) + "\n");
 
   const mergedData = mergeTranslations(localePath);
-  fs.writeFileSync(outputFile, JSON.stringify(mergedData, null, 2));
+  fs.writeFileSync(outputFile, JSON.stringify(mergedData, null, 2) + "\n");
 
   console.log(`Merged translations for ${locale} written to ${outputFile}`);
 }
