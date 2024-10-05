@@ -18,6 +18,10 @@ describe("LocaleProvider", () => {
     (getMessages as jest.Mock).mockResolvedValue(mockMessages);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   context("when messages are fetched successfully", () => {
     it("renders the children inside NextIntlClientProvider with the fetched messages", async () => {
       const mockChildren = <div data-testid="child">Test Child</div>;

@@ -49,6 +49,7 @@ const config: Config = {
     "/config/",
     "/constants/",
     "/fixtures/",
+    "/lib/navigation.ts",
     "/locales/",
     "/node_modules/",
     "/styles/",
