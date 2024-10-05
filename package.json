@@ -18,7 +18,7 @@
     "format": "prettier . --write",
     "lint": "next lint",
     "merge-locales": "node scripts/merge-locales.js",
-    "prebuild:next": "run-s clean:next",
+    "prebuild:next": "run-p clean:next merge-locales",
     "prebuild:storybook": "run-s clean:storybook",
     "precheck-types": "run-s clean:check-types",
     "predev:next": "run-s merge-locales",
