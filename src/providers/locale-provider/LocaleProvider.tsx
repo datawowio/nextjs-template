@@ -7,12 +7,13 @@ import type { LocaleProviderProps } from "./types";
 
 export default async function LocaleProvider({
   children,
+  locale = "en",
 }: LocaleProviderProps) {
-  // Hook
+  // Initial value
   const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       {children}
     </NextIntlClientProvider>
   );

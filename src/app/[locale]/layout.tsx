@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <LocaleProvider>
+        <LocaleProvider locale={locale}>
           <MuiThemeProvider>{children}</MuiThemeProvider>
         </LocaleProvider>
       </body>
