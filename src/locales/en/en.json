@@ -1,0 +1,15 @@
+{
+  "common": {
+    "actions": {
+      "cancel": "Cancel",
+      "ok": "OK"
+    },
+    "metadata": {
+      "description": "Data Wow Next.js Boilerplate, built with App Router",
+      "title": {
+        "default": "Next.js Boilerplate",
+        "template": "%s | Next.js Boilerplate"
+      }
+    }
+  }
+}

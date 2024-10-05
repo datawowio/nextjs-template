@@ -15,7 +15,7 @@ export default class BaseService {
     });
   }
 
-  post(endpoint: string, body: any) {
+  post(endpoint: string, body: unknown) {
     return this.request(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -23,7 +23,7 @@ export default class BaseService {
     });
   }
 
-  put(endpoint: string, body: any) {
+  put(endpoint: string, body: unknown) {
     return this.request(endpoint, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

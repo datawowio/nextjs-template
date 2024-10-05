@@ -1,54 +1,41 @@
 "use client";
 
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { notoSansThai, roboto } from "@/config/fonts";
 
-import { ibmPlexSansThai } from "@/config/fonts";
+export const fontFamily = [
+  roboto.style.fontFamily,
+  notoSansThai.style.fontFamily,
+  // We intend to use the fonts listed below under the `font-sans` class name from the Tailwind framework.
+  // We believe these fonts make sense as fallback options.
+  // Reference: https://tailwindcss.com/docs/font-family
+  "ui-sans-serif",
+  "system-ui",
+  "sans-serif",
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji",
+].join(", ");
 
-import { MuiAlert } from "@/styles/mui/alert";
-import { MuiAutocomplete } from "@/styles/mui/autocomplete";
-import { MuiButton } from "@/styles/mui/button";
-import { MuiCard } from "@/styles/mui/card";
-import { MuiCheckbox } from "@/styles/mui/checkbox";
-import { MuiDialog } from "@/styles/mui/dialog";
-import { MuiFormControlLabel } from "@/styles/mui/form-control-label";
-import { MuiInputLabel } from "@/styles/mui/input-label";
-import { MuiOutlinedInput } from "@/styles/mui/outlined-input";
-import { MuiPagination } from "@/styles/mui/pagination";
-import { MuiPopper } from "@/styles/mui/popper";
+export const darkTheme = responsiveFontSizes(
+  createTheme({
+    palette: {
+      mode: "dark",
+    },
+    typography: {
+      fontFamily,
+    },
+  }),
+);
 
-const defaultTheme = createTheme();
-const fontFamily = [
-  ibmPlexSansThai.style.fontFamily,
-  defaultTheme.typography.fontFamily?.replace(/"Roboto",\s/, " "),
-].join(",");
-
-export const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-  typography: {
-    fontFamily,
-  },
-});
-
-export const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-  },
-  typography: {
-    fontFamily,
-  },
-  components: {
-    MuiAlert,
-    MuiAutocomplete,
-    MuiButton,
-    MuiCard,
-    MuiCheckbox,
-    MuiDialog,
-    MuiFormControlLabel,
-    MuiInputLabel,
-    MuiOutlinedInput,
-    MuiPagination,
-    MuiPopper,
-  },
-});
+export const lightTheme = responsiveFontSizes(
+  createTheme({
+    palette: {
+      mode: "light",
+    },
+    typography: {
+      fontFamily,
+    },
+  }),
+);

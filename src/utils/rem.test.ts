@@ -1,6 +1,6 @@
 import rem from "./rem";
 
-describe("rem function", () => {
+describe("rem", () => {
   it("converts pixels to rem with the default base", () => {
     const result = rem(32);
     expect(result).toBe("2rem");

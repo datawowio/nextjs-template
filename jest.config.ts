@@ -22,21 +22,48 @@ const config: Config = {
   // cacheDirectory: "/private/var/folders/4s/j_w4zqyd63d4w0wxhkvkmccw0000gn/T/jest_dx",
 
   // Automatically clear mock calls, instances, contexts and results before every test
-  clearMocks: true,
+  clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+  collectCoverageFrom: [
+    "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/contexts/**/*.{js,jsx,ts,tsx}",
+    "./src/hooks/**/*.{js,jsx,ts,tsx}",
+    "./src/layouts/**/*.{js,jsx,ts,tsx}",
+    "./src/lib/**/*.{js,jsx,ts,tsx}",
+    "./src/providers/**/*.{js,jsx,ts,tsx}",
+    "./src/screens/**/*.{js,jsx,ts,tsx}",
+    "./src/services/**/*.{js,jsx,ts,tsx}",
+    "./src/utils/**/*.{js,jsx,ts,tsx}",
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    ".*\\.stories\\.tsx$",
+    "/config/",
+    "/constants/",
+    "/fixtures/",
+    "/lib/navigation.ts",
+    "/locales/",
+    "/node_modules/",
+    "/styles/",
+    "/types/",
+    "/vendor/",
+    "constants.ts",
+    "fixtures.ts",
+    "fixtures.tsx",
+    "index.ts",
+    "index.tsx",
+    "styles.ts",
+    "styles.tsx",
+    "types.ts",
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: "v8",
@@ -50,7 +77,14 @@ const config: Config = {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: {
+      branches: 90,
+      functions: 90,
+      lines: 90,
+      statements: 90,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -116,7 +150,16 @@ const config: Config = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  // reporters: undefined,
+  reporters: [
+    "default",
+    [
+      "jest-html-reporters",
+      {
+        publicPath: "./coverage",
+        filename: "index.html",
+      },
+    ],
+  ],
 
   // Automatically reset mock state before every test
   // resetMocks: false,

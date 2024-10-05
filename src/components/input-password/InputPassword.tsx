@@ -1,75 +1,76 @@
 "use client";
 
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
-
-import { colors } from "@/config/palette";
 
 import type { MouseEvent } from "react";
 import type { InputPasswordProps } from "./types";
 
 export default function InputPassword({
   dataTestId = "input-password",
-  disabled,
-  label,
-  ...props
+  errorMessage = "",
+  formControlProps = {
+    error: false,
+  },
+  outlinedInputProps = {
+    id: "input-password",
+    label: "Password",
+  },
 }: InputPasswordProps) {
+  // Initial values
+  const { error, ...restFormControlProps } = formControlProps;
+  const { id, label, ...restOutlinedProps } = outlinedInputProps;
+
   // Hook
   const [showPassword, setShowPassword] = useState(false);
 
   // Event handlers
-  function handleClickShowPassword() {
-    setShowPassword((show) => !show);
+  function handleClick() {
+    setShowPassword((showPassword) => !showPassword);
   }
 
-  function handleMouseDownPassword(event: MouseEvent<HTMLButtonElement>) {
+  function handleMouseDown(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
   }
 
   return (
-    <FormControl {...props} data-testid={dataTestId} variant="outlined">
-      <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
+    <FormControl
+      {...restFormControlProps}
+      data-testid={dataTestId}
+      error={error}
+      fullWidth
+      variant="outlined"
+    >
+      <InputLabel htmlFor={id}>{label}</InputLabel>
       <OutlinedInput
-        disabled={disabled}
+        {...restOutlinedProps}
+        aria-describedby={`${id}-helper-text`}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
               aria-label="toggle password visibility"
-              disabled={disabled}
               edge="end"
-              onClick={handleClickShowPassword}
-              onMouseDown={handleMouseDownPassword}
+              onClick={handleClick}
+              onMouseDown={handleMouseDown}
             >
-              {showPassword ? (
-                <VisibilityOff
-                  sx={{
-                    color: disabled
-                      ? colors.icon.disabled.base
-                      : colors.icon.placeholder.default,
-                  }}
-                />
-              ) : (
-                <Visibility
-                  sx={{
-                    color: disabled
-                      ? colors.icon.disabled.base
-                      : colors.icon.placeholder.default,
-                  }}
-                />
-              )}
+              {showPassword ? <VisibilityOff /> : <Visibility />}
             </IconButton>
           </InputAdornment>
         }
-        id="outlined-adornment-password"
+        id={id}
         label={label}
         type={showPassword ? "text" : "password"}
       />
+      <FormHelperText id={`${id}-helper-text`}>
+        {error ? errorMessage : ""}
+      </FormHelperText>
     </FormControl>
   );
 }

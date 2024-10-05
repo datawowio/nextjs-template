@@ -1,0 +1,15 @@
+{
+  "common": {
+    "actions": {
+      "cancel": "ยกเลิก",
+      "ok": "ตกลง"
+    },
+    "metadata": {
+      "description": "เทมเพลต Next.js ของบริษัท Data Wow",
+      "title": {
+        "default": "เทมเพลต Next.js",
+        "template": "%s | เทมเพลต Next.js"
+      }
+    }
+  }
+}

@@ -1,47 +1,49 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import "server-only";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/config/i18n";
 
 import LocaleProvider from "@/providers/locale-provider";
 import MuiThemeProvider from "@/providers/mui-theme-provider";
-import ToastProvider from "@/providers/toast-provider";
 
-import "@/styles/global.css";
+import type { BaseLayoutProps } from "@/types/component";
+import type { Locale } from "@/types/locale";
 
-import type { Metadata } from "next";
-import type { ReactNode } from "react";
-import type { BaseParams } from "@/types/params";
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: Locale };
+}) {
+  const t = await getTranslations({
+    locale,
+    namespace: "common.metadata",
+  });
 
-export const metadata: Metadata = {
-  description: "Datawow Next.js Boilerplate, built with App Router",
-  title: {
-    default: "Next.js Boilerplate",
-    template: "%s | Next.js Boilerplate",
-  },
-};
+  return {
+    description: t("description"),
+    title: {
+      default: t("title.default"),
+      template: t("title.template"),
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-interface RootLayoutProps extends BaseParams {
-  children: ReactNode;
-}
-
 export default function RootLayout({
   children,
   params: { locale },
-}: RootLayoutProps) {
+}: BaseLayoutProps) {
   // Initial value
   unstable_setRequestLocale(locale);
 
   return (
     <html lang={locale}>
       <body>
-        <LocaleProvider>
-          <MuiThemeProvider>
-            <ToastProvider>{children} </ToastProvider>
-          </MuiThemeProvider>
+        <LocaleProvider locale={locale}>
+          <MuiThemeProvider>{children}</MuiThemeProvider>
         </LocaleProvider>
       </body>
     </html>

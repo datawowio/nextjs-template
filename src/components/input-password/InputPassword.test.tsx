@@ -1,61 +1,58 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { colors } from "@/config/palette";
+import { fireEvent, screen } from "@testing-library/react";
+import { renderWithProviders } from "@/test/test-helpers";
 import InputPassword from "./InputPassword";
 
 describe("InputPassword Component", () => {
-  it("renders the password input with the label", () => {
-    render(<InputPassword label="Password" />);
+  it("renders correctly with default props", () => {
+    renderWithProviders(<InputPassword />);
 
-    expect(screen.getByLabelText("Password")).toBeInTheDocument();
+    const inputElement = screen.getByLabelText("Password");
+    expect(inputElement).toBeInTheDocument();
+    expect(inputElement).toHaveAttribute("type", "password");
 
-    const input = screen.getByLabelText("Password");
-    expect(input).toHaveAttribute("type", "password");
+    const toggleButton = screen.getByLabelText("toggle password visibility");
+    expect(toggleButton).toBeInTheDocument();
   });
 
-  it("toggles the password visibility on icon button click", () => {
-    render(<InputPassword label="Password" />);
+  it("toggles password visibility when clicking the visibility icon", () => {
+    renderWithProviders(<InputPassword />);
 
-    const input = screen.getByLabelText("Password");
-    const toggleButton = screen.getByRole("button", {
-      name: /toggle password visibility/i,
-    });
+    const inputElement = screen.getByLabelText("Password");
+    expect(inputElement).toHaveAttribute("type", "password");
 
-    expect(input).toHaveAttribute("type", "password");
+    const toggleButton = screen.getByLabelText("toggle password visibility");
 
     fireEvent.click(toggleButton);
-    expect(input).toHaveAttribute("type", "text");
+    expect(inputElement).toHaveAttribute("type", "text");
 
     fireEvent.click(toggleButton);
-    expect(input).toHaveAttribute("type", "password");
+    expect(inputElement).toHaveAttribute("type", "password");
   });
 
-  it("changes the icon when password visibility is toggled", () => {
-    render(<InputPassword label="Password" />);
+  it("displays the error message when error is true", () => {
+    renderWithProviders(
+      <InputPassword
+        formControlProps={{ error: true }}
+        errorMessage="Password is invalid"
+      />,
+    );
 
-    const toggleButton = screen.getByRole("button", {
-      name: /toggle password visibility/i,
-    });
+    const errorMessage = screen.getByText("Password is invalid");
+    expect(errorMessage).toBeInTheDocument();
 
-    expect(screen.getByTestId("VisibilityIcon")).toBeInTheDocument();
-
-    fireEvent.click(toggleButton);
-    expect(screen.getByTestId("VisibilityOffIcon")).toBeInTheDocument();
-
-    fireEvent.click(toggleButton);
-    expect(screen.getByTestId("VisibilityIcon")).toBeInTheDocument();
+    const formControl = screen.getByTestId("input-password");
+    expect(formControl).toHaveClass("MuiFormControl-root");
+    expect(formControl.children[1]).toHaveClass("Mui-error");
   });
 
-  it("disables the toggle button when the disabled prop is passed", () => {
-    render(<InputPassword label="Password" disabled />);
+  // When testing with event.preventDefault()
+  // Ref: https://stackoverflow.com/questions/60455119/react-jest-test-preventdefault-action
+  it("calls handleMouseDown and prevents default behavior when mouse is pressed on visibility toggle button", () => {
+    renderWithProviders(<InputPassword />);
 
-    const input = screen.getByLabelText("Password");
-    expect(input).toBeDisabled();
+    const toggleButton = screen.getByLabelText("toggle password visibility");
+    const isPrevented = fireEvent.mouseDown(toggleButton);
 
-    const toggleButton = screen.getByLabelText("toggle password visibility", {
-      selector: "button",
-    });
-    expect(toggleButton.children[0]).toHaveStyle({
-      color: colors.icon.disabled.base,
-    });
+    expect(isPrevented).toBe(false);
   });
 });
