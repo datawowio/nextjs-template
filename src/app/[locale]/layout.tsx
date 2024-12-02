@@ -1,5 +1,6 @@
 import "server-only";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/config/i18n";
 
@@ -36,8 +37,14 @@ export default function RootLayout({
   children,
   params: { locale },
 }: BaseLayoutProps) {
-  // Initial value
-  unstable_setRequestLocale(locale);
+  // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>
