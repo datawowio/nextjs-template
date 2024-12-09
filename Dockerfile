@@ -1,6 +1,4 @@
-FROM node:22.7-slim As build
-
-RUN apt-get update
+FROM node:22.12-slim As build
 
 WORKDIR /usr/src/app
 
@@ -20,7 +18,7 @@ ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL \
 
 RUN yarn run build
 
-FROM node:22.7-slim As production
+FROM node:22.12-slim As production
 
 WORKDIR /usr/src/app
 
@@ -31,4 +29,4 @@ COPY --from=build /usr/src/app/node_modules ./node_modules
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
 
-CMD ["npx", "next", "start", "-p", "3000"]
+CMD ["yarn", "start", "-p", "3000"]
