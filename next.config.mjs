@@ -19,6 +19,11 @@ const nextConfig = {
     // https://nextjs.org/docs/app/building-your-application/configuring/typescript#statically-typed-links
     typedRoutes: true,
   },
+  env: {
+    NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+    NEXT_PUBLIC_BASE_STORYBOOK_URL: process.env.NEXT_PUBLIC_BASE_STORYBOOK_URL,
+    NEXT_PUBLIC_BRANCH: process.env.NEXT_PUBLIC_BRANCH,
+  },
 };
 
 export default withBundleAnalyzer(withNextIntl(nextConfig));
