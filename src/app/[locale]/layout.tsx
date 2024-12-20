@@ -8,13 +8,10 @@ import LocaleProvider from "@/providers/locale-provider";
 import MuiThemeProvider from "@/providers/mui-theme-provider";
 
 import type { BaseLayoutProps } from "@/types/component";
-import type { Locale } from "@/types/locale";
+import type { Params } from "@/types/params";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: Locale };
-}) {
+export async function generateMetadata(params: Params) {
+  const { locale } = await params;
   const t = await getTranslations({
     locale,
     namespace: "common.metadata",
@@ -33,10 +30,13 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: BaseLayoutProps) {
+  // Initialize
+  const { locale } = await params;
+
   // Ensure that the incoming `locale` is valid
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (!routing.locales.includes(locale as any)) {
