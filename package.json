@@ -29,12 +29,12 @@
     "watch:test": "jest --watch"
   },
   "dependencies": {
-    "@emotion/cache": "11.13.1",
-    "@emotion/react": "11.13.3",
-    "@emotion/styled": "11.13.0",
-    "@mui/icons-material": "5.16.7",
-    "@mui/material": "5.16.7",
-    "@mui/material-nextjs": "5.16.6",
+    "@emotion/cache": "11.14.0",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.0",
+    "@mui/icons-material": "6.2.1",
+    "@mui/material": "6.2.1",
+    "@mui/material-nextjs": "6.2.1",
     "@next/third-parties": "15.1.2",
     "clsx": "2.1.1",
     "immer": "10.1.1",
