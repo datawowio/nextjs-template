@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import { defineRouting } from "next-intl/routing";
 import { getRequestConfig } from "next-intl/server";
 
@@ -13,7 +12,21 @@ export const routing = defineRouting({
   locales,
 });
 
-export default getRequestConfig(async ({ locale }) => {
-  if (!locales.includes(locale as Locale)) notFound();
-  return getLocales(locale as Locale);
+export default getRequestConfig(async ({ requestLocale }) => {
+  // This typically corresponds to the `[locale]` segment
+  let locale = await requestLocale;
+
+  // Ensure that a valid locale is used
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (!locale || !routing.locales.includes(locale as any)) {
+    locale = routing.defaultLocale;
+  }
+
+  // Load locale messages
+  const messages = await getLocales(locale as Locale);
+
+  return {
+    locale,
+    messages,
+  };
 });

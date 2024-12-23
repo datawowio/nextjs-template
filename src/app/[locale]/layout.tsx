@@ -1,5 +1,6 @@
 import "server-only";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/config/i18n";
 
@@ -7,13 +8,10 @@ import LocaleProvider from "@/providers/locale-provider";
 import MuiThemeProvider from "@/providers/mui-theme-provider";
 
 import type { BaseLayoutProps } from "@/types/component";
-import type { Locale } from "@/types/locale";
+import type { Params } from "@/types/params";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: Locale };
-}) {
+export async function generateMetadata(params: Params) {
+  const { locale } = await params;
   const t = await getTranslations({
     locale,
     namespace: "common.metadata",
@@ -32,12 +30,21 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: BaseLayoutProps) {
-  // Initial value
-  unstable_setRequestLocale(locale);
+  // Initialize
+  const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>
