@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknextjs_template=self.webpackChunknextjs_template||[]).push([[746],{"./src/locales/en/common/actions.json":module=>{module.exports=JSON.parse('{"actions":{"cancel":"Cancel","ok":"OK"}}')}}]);

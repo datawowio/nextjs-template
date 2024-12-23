@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknextjs_template=self.webpackChunknextjs_template||[]).push([[397],{"./src/locales/th/common/metadata.json":module=>{module.exports=JSON.parse('{"metadata":{"description":"เทมเพลต Next.js ของบริษัท Data Wow","title":{"default":"เทมเพลต Next.js","template":"%s | เทมเพลต Next.js"}}}')}}]);

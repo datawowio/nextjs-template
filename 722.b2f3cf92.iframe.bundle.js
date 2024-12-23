@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknextjs_template=self.webpackChunknextjs_template||[]).push([[722],{"./src/locales/en/common/metadata.json":module=>{module.exports=JSON.parse('{"metadata":{"description":"Data Wow Next.js Boilerplate, built with App Router","title":{"default":"Next.js Boilerplate","template":"%s | Next.js Boilerplate"}}}')}}]);
