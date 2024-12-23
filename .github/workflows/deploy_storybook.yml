@@ -1,26 +1,39 @@
 name: Deploy Storybook
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
-permissions:
-  contents: read
-  id-token: write
-  pages: write
-
 jobs:
-  deploy:
+  deploy-storybook:
+    name: Deploy Storybook
     runs-on: ubuntu-latest
     environment: github-pages
     env:
       NEXT_PUBLIC_BASE_STORYBOOK_URL: ${{ vars.NEXT_PUBLIC_BASE_STORYBOOK_URL }}
-
     steps:
-      - id: build-publish
-        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          build_command: echo $NEXT_PUBLIC_BASE_STORYBOOK_URL && yarn build:storybook
-          install_command: yarn install --frozen-lockfile
-          path: storybook-static
+          node-version: "22"
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+      - name: Build Storybook
+        run: |
+          echo $NEXT_PUBLIC_BASE_STORYBOOK_URL && yarn build:storybook
+      - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir gh-pages
+          cp -r storybook-static/* gh-pages/
+          git checkout --orphan gh-pages
+          git --work-tree=gh-pages add --all
+          git --work-tree=gh-pages commit -m "Deploy Storybook"
+          git push -f origin gh-pages
